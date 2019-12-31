@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-  cout << "hello world" << endl;
+  cout << "你好 世界" << endl;
   jiafa(1, 2);
 }
