@@ -1,7 +1,13 @@
-#include "../include/main.hpp"
-using namespace std;
+#include "main.hpp"
+extern "C" {
+#include "SDL2/SDL.h"
+};
 
-int main() {
-  cout << "你好 世界" << endl;
-  jiafa(1, 2);
+int main(int argc, char *argv[]) {
+  if (SDL_Init(SDL_INIT_VIDEO)) {
+    printf("Could not initialize SDL - %s\n", SDL_GetError());
+    return -1;
+  }
+  printf("init SDL success!\n");
+  return 0;
 }
