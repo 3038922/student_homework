@@ -12,7 +12,7 @@ INCLUDE_DIRECTORIES("./include/")
 #枚举头文件
 file(GLOB_RECURSE INCLUDES "./include/*.h" "./include/*.hpp" "./userSrc/*.h" "./userSrc/*.hpp")
 #枚举源文件
-file(GLOB_RECURSE SOURCES "./userSrc/*.c" "./userSrc/*.cpp")
+file(GLOB_RECURSE SOURCES "./userSrc/*.c" "./userSrc/*.cpp" "./include/lv_examples/*.c")
 #加入一些-D
 #ADD_DEFINITIONS () 
 
