@@ -6,13 +6,13 @@ project(clangStuady)
 set(CMAKE_C_STANDARD 11)#C11
 set(CMAKE_CXX_STANDARD 17)#C17
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-#add_compile_options(-Wall -W  -Wno-unused-variable -Wempty-body -Wunused-parameter -Wdeprecated-declarations -Wdeprecated-Wc++98-compat)
+add_compile_options(-Wno-unused-variable -Wno-unused-function)
 #头文件路径
-INCLUDE_DIRECTORIES("./chenlaoshi/include/")
+INCLUDE_DIRECTORIES("./include/")
 #枚举头文件
-file(GLOB_RECURSE INCLUDES "./chenlaoshi/include/*.h" "./chenlaoshi/include/*.hpp")
+file(GLOB_RECURSE INCLUDES "./include/*.h" "./include/*.hpp" "./userSrc/*.h" "./userSrc/*.hpp")
 #枚举源文件
-file(GLOB_RECURSE SOURCES "./chenlaoshi/src/*.c" "./chenlaoshi/src/*.cpp")
+file(GLOB_RECURSE SOURCES "./userSrc/*.c" "./userSrc/*.cpp")
 #加入一些-D
 #ADD_DEFINITIONS () 
 
@@ -38,7 +38,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 #生成可执行文件
 add_executable(main ${SOURCES} ${INCLUDES})
 #链接SDL2的静态库
-target_link_libraries(main  SDL2 SDL2main)#不链接pthread easylog编译报错
+target_link_libraries(main  SDL2 SDL2main lvgl drivers)#不链接pthread easylog编译报错
 #target_link_libraries(main PRIVATE SDL2 liblvgl.a libdrivers.a libresources.a pthread)#不链接pthread easylog编译报错
 #添加一个run命令
 add_custom_target (run COMMAND ninja all  COMMAND ${EXECUTABLE_OUTPUT_PATH}/main)
