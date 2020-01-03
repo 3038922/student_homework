@@ -7,12 +7,14 @@ set(CMAKE_C_STANDARD 11)#C11
 set(CMAKE_CXX_STANDARD 17)#C17
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wno-unused-variable -Wno-unused-function)
+#是谁就改成谁
+set(name "sheep")
 #头文件路径
 INCLUDE_DIRECTORIES("./include/")
 #枚举头文件
-file(GLOB_RECURSE INCLUDES "./include/*.h" "./include/*.hpp" "./userSrc/*.h" "./userSrc/*.hpp")
+file(GLOB_RECURSE INCLUDES "./include/*.h" "./include/*.hpp" "./userSrc/${name}/*.h" "./userSrc/${name}/*.hpp")
 #枚举源文件
-file(GLOB_RECURSE SOURCES "./userSrc/*.c" "./userSrc/*.cpp" "./include/lv_examples/*.c")
+file(GLOB_RECURSE SOURCES "./userSrc/${name}/*.c" "./userSrc/${name}/*.cpp" "./include/lv_examples/*.c")
 #加入一些-D
 #ADD_DEFINITIONS () 
 
