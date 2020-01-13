@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) { /*Initialize LittlevGL*/
 
   /*Initialize the HAL for LittlevGL*/
   hal_init();
-
+  阿斯蒂芬
   /*
    * Demo, benchmark, tests and tutorial.
    *
@@ -26,13 +26,13 @@ int main(int argc, char *argv[]) { /*Initialize LittlevGL*/
    * particular demo, test or tutorial.
    */
 
-  // demo_create();
+  demo_create();
   // benchmark_create();
   // lv_test_theme_1(lv_theme_night_init(210, NULL));
   // lv_test_theme_1(lv_theme_night_init(100, NULL));
   // lv_test_theme_1(lv_theme_material_init(210, NULL));
   // lv_test_theme_1(lv_theme_alien_init(210, NULL));
-  lv_test_theme_1(lv_theme_zen_init(210, NULL));
+  // lv_test_theme_1(lv_theme_zen_init(210, NULL));
   // lv_test_theme_1(lv_theme_nemo_init(210, NULL));
   // lv_test_theme_1(lv_theme_mono_init(210, NULL));
   // lv_test_theme_1(lv_theme_default_init(210, NULL));
