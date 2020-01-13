@@ -17,3 +17,4 @@ temp.errors
 .ccls-cache/
 C@/
 build/
+!/bin/SDL2.dll
