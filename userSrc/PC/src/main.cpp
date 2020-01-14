@@ -1,5 +1,5 @@
 #include <iostream>
 int main() {
-  std::cout << "\nHell Word!!\n" << std::endl;
+  std::cout << "\nwoshipc!\n" << std::endl;
   return 0;
 }
