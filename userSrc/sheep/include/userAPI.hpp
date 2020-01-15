@@ -1,23 +1,44 @@
 #pragma once
-#include "lv_drivers/display/monitor.h"
-#include "lv_drivers/indev/keyboard.h"
-#include "lv_drivers/indev/mouse.h"
-#include "lv_examples/lv_apps/benchmark/benchmark.h"
-#include "lv_examples/lv_apps/demo/demo.h"
-#include "lv_examples/lv_tests/lv_test_theme/lv_test_theme_1.h"
-#include "lv_examples/lv_tutorial/10_keyboard/lv_tutorial_keyboard.h"
-#include "lvgl/lvgl.h"
-#include <SDL2/SDL.h>
 #include <Windows.h>
-#include <stdlib.h>
-
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
+#include <string>
 namespace sheep {
-class sheep {
-public:
-  sheep();
-  ~sheep();
+class sheepAPI
+{
+  public:
+    sheepAPI();
+    ~sheepAPI();
+    /**
+     * @brief 循环打印(一个字一个字打印)
+     * 
+     * @param cin 要打印的字符串
+     * @param delay_time 两个字打印之间等待的时间
+     */
+    void cout(const char *cin, const int delay_time);
+    /**
+     * @brief 设置控制台标题
+     * 
+     * @param title 标题名称
+     */
+    void SetTitle(char *title);
+    /**
+    * @brief 设置颜色
+    * 
+    * @param ForeColor 字体颜色
+    * @param BackColor 背景颜色
+    */
+    void SetColor(int ForeColor, int BackColor);
+    /**
+     * @brief 设置坐标
+     * 
+     * @param x X轴
+     * @param y Y轴
+     */
+    void SetCoord(const short x, const short y);
 
-private:
-  ;
+  private:
+    ;
 };
 } // namespace sheep

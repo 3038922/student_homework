@@ -1,9 +1,14 @@
 #pragma once
 #include "userAPI.hpp"
-static void hal_init(void);
-static int tick_thread(void *data);
+namespace sheep {
+class sheep_master : sheep::sheepAPI
+{
+  public:
+    sheep_master();
+    ~sheep_master();
+    void Init();
+    void end();
 
-/**********************
- *  STATIC VARIABLES
- **********************/
-static lv_indev_t *kb_indev;
+  private:
+};
+} // namespace sheep
