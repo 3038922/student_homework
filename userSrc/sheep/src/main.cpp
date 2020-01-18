@@ -14,12 +14,12 @@ int main()
     std::cin >> mima1;
     if (zhanghao1 != zhanghao)
     {
-        std::cout << "你输入的账号错误" << std::endl;
+        std::cout << "你输入的账号错误!" << std::endl;
         return 0;
     }
     if (mima1 != mima)
     {
-        std::cout << "你输入的密码错误" << std::endl;
+        std::cout << "你输入的密码错误!" << std::endl;
         return 0;
     }
 
