@@ -1,9 +1,8 @@
 #include <iostream>
 int main()
 {
-    // std::system("65001");
-
-    // std::system("cls");
+    std::system("65001");
+    std::system("cls");
     // int x = 1234567890;
     // int y;
     int level = 10;
