@@ -10,7 +10,7 @@ int main()
     int aj = 1;
     cout << "请输入您的账号" << endl;
     cin >> z1;
-    cout << "请输入您的密码" << endl;
+    cout << "请输入您的密码:" << endl;
     cin >> m1;
     if (z != z)
     {
