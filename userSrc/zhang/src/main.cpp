@@ -25,25 +25,30 @@ int main()
     std::string zhanghao1;
     std::string mima1;
     int level = 1;
-    std::cout << "请输入您的账号:";
-    std::cin >> zhanghao1;
-    std::cout << "请输入您的密码:";
-    std::cin >> mima1;
-    if (zhanghao1 != zhanghao)
+    int jishuqi = 0;
+
+    while (jishuqi < 3)
     {
-        std::cout << "你输入的账号错误" << std::endl;
-        return 0;
+        std::cout << "请输入您的账号: ";
+        std::cin >> zhanghao1;
+        std::cout << "请输入您的密码: ";
+        std::cin >> mima1;
+        if ((zhanghao1 == zhanghao) && (mima1 == mima))
+        {
+            std::cout << "输入正确，登陆成功。" << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "输入错误，请重试。" << std::endl;
+        }
+        jishuqi++;
+        if (jishuqi >= 3)
+        {
+            std::cout << "输了" << jishuqi << "次还错" << std::endl;
+            return 0;
+        }
     }
-    if (mima1 != mima)
-    {
-        std::cout << "你输入的密码错误" << std::endl;
-        return 0;
-    }
-    int dengji;
-    std::cout << "请输入您的账号: ";
-    std::cin >> zhanghao;
-    std::cout << "请输入您的等级: ";
-    std::cin >> level;
     std::cout << "等  级: " << level << "\n"
               << "姓  名: 后羿\n"
               << "性  别: 男\n"
