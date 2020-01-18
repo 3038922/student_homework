@@ -29,3 +29,4 @@ int main()
     std::cout << "生命: 12\n";
     std::cout << "攻击: 15\n";
     std::cout << "防御: 25\n";
+}
