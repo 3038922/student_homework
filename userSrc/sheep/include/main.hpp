@@ -1,8 +1,9 @@
 #pragma once
+
 #include "userAPI.hpp"
 
 namespace sheep {
-class sheep_main : public sheep::sheepAPI
+class sheep_main : public sheep::Map, public sheep::Player
 {
   public:
     sheep_main()
@@ -13,19 +14,22 @@ class sheep_main : public sheep::sheepAPI
     }
     void Init()
     {
-        sheep::sheepAPI::API_Init();
+        sheep::Map::Map_Init();
+        sheep::Player::Player_Init();
     }
     void Function()
     {
-        while (true)
+        do
         {
-            ;
-        }
+            sheep::Map::PrintMap();
+            system("cls");
+        } while (true);
     }
     void End()
     {
     }
 
   private:
+    ;
 };
 } // namespace sheep
