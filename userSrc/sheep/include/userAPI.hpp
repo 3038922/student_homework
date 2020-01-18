@@ -5,14 +5,23 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-static bool reset = false;
+
 namespace sheep {
-class sheepAPI
+/**
+* @brief 道具类型 
+*/
+typedef enum _PropType {
+    Weapon,
+    Armor,
+    NoHave
+} PropType;
+class API
 {
   public:
-    sheepAPI();
-    ~sheepAPI();
-    /**
+    API();
+    ~API();
+
+    /**0
      * @brief 初始化 因为继承不可才单独一个函数初始化
      * 
      */
@@ -46,20 +55,67 @@ class sheepAPI
     void SetCoord(const short x, const short y);
 
   private:
-    bool debug = false;
 };
-class sheepPlayer
+class Map : public sheep::API
 {
   public:
-    sheepPlayer();
-    ~sheepPlayer();
+    Map();
+    ~Map();
+    void Map_Init();
+    void PrintMap();
 
   private:
-    int hp;
-    int mp;
-    int exp;
-    int level;
-    int attack;
-    int defense;
+    int _MapId;
+    COORD _MapCoord;
+    std::string _MapDecs;
 };
+typedef struct prop
+{
+    int _PropId;
+    std::string _PropName;
+    int _PropLevel;
+    int _PropStock;
+    sheep::PropType _PropType;
+    union {
+        int _PropAttack;
+        int _PropDefence;
+        int _PropPower;
+    };
+    std::string _PropDesc;
+} Prop;
+class Bag : public sheep::Prop
+{
+  public:
+    Bag();
+    ~Bag();
+    void SetBagName(std::string CinBagName);
+    void SetBagCapacity();
+    void NewProp(sheep::Prop NewProp);
+    void CleanProp(int id);
+    void PrintBagProp(int id);
+
+  private:
+    std::string _BagName;
+    int _BagCapacity = 3;
+    sheep::Prop _BagStorage[100];
+};
+class Player : public sheep::Bag
+{
+  public:
+    Player();
+    ~Player();
+    void Player_Init();
+
+  private:
+    /**角色属性**/
+    int _PlayerHp;      //血量
+    int _PlayerMp;      //蓝条
+    int _playerExp;     //经验
+    int _PlayerLevel;   //等级
+    int _PlayerAttack;  //攻击力
+    int _PlayerDefense; //防御力
+    COORD _PlayerCoord; //坐标
+    /**其他属性**/
+    sheep::Bag _PlayerBag;
+}; // namespace sheep
 } // namespace sheep
