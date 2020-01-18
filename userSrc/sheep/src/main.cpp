@@ -1,40 +1,74 @@
-#include "../include/main.hpp"
-#include "../include/userAPI.hpp"
 #include <iostream> // 首先导入 螺丝刀所在的工具库
 int main()
 {
     system("chcp 65001");
     system("cls");
-    sheep::sheepAPI sheep_user;
-    std::string account; //账号名字的变量
-    int level;
-    sheep_user.SetTitle("cpp_study");
-    sheep_user.SetColor(2, 0);
-    sheep_user.cout("请输入您的账号:", 50);
-    std::cin >> account;
-    sheep_user.cout("您的账号是:", 50);
-    std::cout << account << "\n";
-    Sleep(50);
-    sheep_user.cout("请输入您的等级:", 50);
-    std::cin >> level;
-    sheep_user.cout("您的等级是:", 50);
-    std::cout << level;
-    sheep_user.cout("\n\n\n---基本信息---\n*****姓名*****\n   上官孤儿\n*****职业*****\n     法师\n*****等级*****\n", 50);
-    std::cout << level;
-    Sleep(100);
-    sheep_user.cout("\n\n\n---基本属性---\n*****生命*****\n", 50);
-    std::cout << 1000 * level * 0.1 << std::endl;
-    Sleep(100);
-    sheep_user.cout("*****蓝量*****\n", 50);
-    std::cout << 1000 * level * 0.9 << std::endl;
-    Sleep(100);
-    sheep_user.cout("****攻击力****\n", 50);
-    std::cout << 1000 * level * 0.6 << std::endl;
-    Sleep(100);
-    sheep_user.cout("****防御力****\n", 50);
-    std::cout << 50 * level * 0.9 << std::endl;
-    Sleep(100);
-    sheep_user.cout("*****技能*****\n  飞天送人头\n\n\n", 50);
+    std::string zhanghao = "chenlaoshi";
+    std::string mima = "8982";
+    std::string zhanghao1;
+    std::string mima1;
+    int level = 1;
+    std::cout << "请输入您的账号：";
+    std::cin >> zhanghao1;
+    std::cout << "请输入您的密码：";
+    std::cin >> mima1;
+    if (zhanghao1 != zhanghao)
+    {
+        std::cout << "你输入的账号错误" << std::endl;
+        return 0;
+    }
+    if (mima1 != mima)
+    {
+        std::cout << "你输入的密码错误" << std::endl;
+        return 0;
+    }
+
+    std::cout << "等 级:" << level << "\n";
+    std::cout << "姓 名：关公\n";
+    std::cout << "性 别：男\n";
+    std::cout << "职 业： 战士\n";
+    std::cout << "技 能：一刀两断\n";
+    std::cout << "生 命：" << 100 * level * 1.5 << std::endl;
+    std::cout << "攻 击 力：" << 199 * level * 4.0 << std::endl;
+    std::cout << "防 御 力" << 50 * level * 0.5 << std::endl;
+
+    // // sheep::sheep_main sheep_usermain;
+    // sheep::sheepAPI sheep_user;
+    // // sheep_usermain.Init();
+    // // if (reset)
+    // //     return 0;
+    // // sheep_usermain.Function();
+    // // sheep_usermain.End();
+    // std::string account; //账号名字的变量
+    // int level;
+
+    // sheep_user.SetTitle("游戏");
+    // sheep_user.SetColor(2, 0);
+    // sheep_user.printf("请输入您的账号:", 30);
+    // std::cin >> account;
+    // sheep_user.printf("您的账号是:", 30);
+    // std::cout << account << "\n";
+    // Sleep(30);
+    // sheep_user.printf("请输入您的等级:", 30);
+    // std::cin >> level;
+    // sheep_user.printf("您的等级是:", 30);
+    // std::cout << level;
+    // sheep_user.printf("\n\n\n---基本信息---\n*****姓名*****\n   上官孤儿\n*****职业*****\n     法师\n*****等级*****\n", 30);
+    // std::cout << level;
+    // Sleep(100);
+    // sheep_user.printf("\n\n\n---基本属性---\n*****生命*****\n", 30);
+    // std::cout << 1000 * level * 0.1 << std::endl;
+    // Sleep(100);
+    // sheep_user.printf("*****蓝量*****\n", 30);
+    // std::cout << 1000 * level * 0.9 << std::endl;
+    // Sleep(100);
+    // sheep_user.printf("****攻击力****\n", 30);
+    // std::cout << 1000 * level * 0.6 << std::endl;
+    // Sleep(100);
+    // sheep_user.printf("****防御力****\n", 30);
+    // std::cout << 30 * level * 0.9 << std::endl;
+    // Sleep(100);
+    // sheep_user.printf("*****技能*****\n  飞天送人头\n\n\n", 30);
     return 0;
 }
 // int main(int argc, char *argv[]) { /*Initialize LittlevGL*/
