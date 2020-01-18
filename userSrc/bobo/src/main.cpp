@@ -10,13 +10,62 @@ int main()
     std::string account1;
     std::string mima1;
     int level = 1;
-    int x = 1;
-    while (x > 0)
+    int jishuqi = 0;
+
+    while (jishuqi < 3)
     {
-        std::cout << "阿斯蒂芬\t"
-                  << "第" << x << "次" << std::endl;
-        x++;
+        std::cout << "请输入您的游戏账号:";
+        std::cin >> account1;
+        std::cout << "请输入您的游戏密码:";
+        std::cin >> mima1;
+        if ((account1 == account) && (mima1 == mima))
+        {
+            std::cout << "输入正确,登陆成功" << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "输入错误,请再输一次" << std::endl;
+        }
+        jishuqi++;
+        if (jishuqi >= 3)
+        {
+            std::cout << "你输了,输入密码" << jishuqi << "次还失败,估计你是机器人" << std::endl;
+            return 0;
+        }
     }
+    std::cout << "您的等级是:" << level << std::endl;
+    std::cout << "*********************姓名:百里守约\n性别:男*************************" << std::endl;
+    std::cout << "种族:人*************************" << std::endl;
+    std::cout << "*************************职业:射手 " << std::endl;
+    std::cout << "技能:1.狂风之息2.静谧之眼3.逃脱" << std::endl;
+    std::cout << "*************************攻击力:" << 600 * level << std::endl;
+    std::cout << "防御力:" << 50 * level;
+    std::cout << "攻击范围:" << 10 * level * 0.5;
+    std::cout << "血量:" << 5000 * level * 0.5;
+    // std::cout << "*****************您的游戏账号名字是:" << account << std::endl;
+    // std::cout << ((x == y) && (x == z) && (y == z)) << std::endl;
+
+    // std::cout << ((x != y) || (x == z) || (y != z)) << std::endl;
+
+    // int w = 1;
+    // int q = 0;
+
+    // while (w <= 1000)
+    // {
+    //     std::cout << "第" << w << "次" << std::endl;
+    //     q = q + w;
+    //     w = w + 1;
+    // }
+
+    // std::cout << "1 - 1000的累加和为:" << q << std::endl;
+
+    // while (x > 0)
+    // {
+    //     std::cout << "阿斯蒂芬\t"
+    //               << "第" << x << "次" << std::endl;
+    //     x++;
+    // }
     // int x = 5;
     // int y = 6;
     // int z = 11;
