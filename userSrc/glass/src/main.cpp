@@ -1,27 +1,27 @@
 #include <iostream>
 int main()
 {
-    std::system("65001");
+    // std::system("65001");
 
-    std::system("cls");
-    int x = 1234567890;
-    int y;
+    // std::system("cls");
+    // int x = 1234567890;
+    // int y;
     int level = 10;
-    std::cout << "lovelovelovelovelovelovelovelovelovelovelove猜数字游戏lovelovelovelovelovelovelovelovelovelove" << std::endl;
-    std::cout << "lovelovelovelovelovelovelovelovelovelovelovelove猜一个整数lovelovelovelovelovelovelovelovelovelove" << std::endl;
-    std::cin >> y;
-    if (y > x)
-    {
-        std::cout << "你猜大了" << std::endl;
-    }
-    else if (y == x)
-    {
-        std::cout << "你猜对了" << std::endl;
-    }
-    if (y < x)
-    {
-        std::cout << "你猜小了" << std::endl;
-    }
+    // std::cout << "lovelovelovelovelovelovelovelovelovelovelove猜数字游戏lovelovelovelovelovelovelovelovelovelove" << std::endl;
+    // std::cout << "lovelovelovelovelovelovelovelovelovelovelovelove猜一个整数lovelovelovelovelovelovelovelovelovelove" << std::endl;
+    // std::cin >> y;
+    // if (y > x)
+    // {
+    //     std::cout << "你猜大了" << std::endl;
+    // }
+    // else if (y == x)
+    // {
+    //     std::cout << "你猜对了" << std::endl;
+    // }
+    // if (y < x)
+    // {
+    //     std::cout << "你猜小了" << std::endl;
+    // }
     std::string zhanghao = "HLOVEJ";
     std::string mima = "896236";
     std::string zhanghao1;
