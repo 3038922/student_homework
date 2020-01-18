@@ -4,25 +4,38 @@ int main()
 {
     system("cls");
     system("chcp 65001");
-    std::string account;
     std::string zhanghao = "lucas";
-    std::string mima = "20110312";
+    std::string mima = "2011";
     std::string zhanghao1;
     std::string mima1;
-    int level = 1;
-    std::cout << "请输入您的账号: ";
-    std::cin >> account;
-    std::cout << "请输入您的等级: ";
-    std::cin >> level;
-    std::cout << "您的账号：" << account;
-    if (zhanghao1 != zhanghao1)
+    int level = 90;
+    int c = 1;
+    int d = 0;
+    while (d <= 3)
     {
-        std::cout << "账号错了 " << std::endl;
-        return 0;
+        std::cout << "请输入您的账号: ";
+        std::cin >> zhanghao1;
+        std::cout << "请输入您的密码: ";
+        std::cin >> mima1;
+        if ((zhanghao1 == zhanghao) && (mima1 == mima))
+        {
+            std::cout << "输对了，登陆成功" << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "输错了！" << std::endl;
+        }
+        d++;
+        if (d > 3)
+        {
+            std::cout << "大笨蛋" << d << "还错！！！！！！！" << std::endl;
+        }
     }
-    if (mima != mima1)
+    std::cout << "您的账号：" << zhanghao1;
+    if ((zhanghao1 != zhanghao1) || (mima != mima1))
     {
-        std::cout << "密码错了" << std::endl;
+        std::cout << "账号错了或密码错了" << std::endl;
         return 0;
     }
     std::cout << "\n姓名：白起";
