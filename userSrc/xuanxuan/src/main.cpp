@@ -20,8 +20,8 @@ int main()
     int dengji = 15;
     int shuzu[5] = {1, 2, 3, 4, 5};
     srand(time(NULL));
-    int hp1 = 100;
-    int hp2 = 100;
+    int hp1 = 300;
+    int hp2 = 300;
     int minat1[2] = {20, 60};
     int minat2[2] = {20, 60};
     // std::cout << "请输入您的账号: ";
