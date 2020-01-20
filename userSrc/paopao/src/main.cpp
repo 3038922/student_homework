@@ -7,21 +7,30 @@ int main()
     std::string zhanghao1;
     std::string mima1;
     int iii = 5;
-    std::cout << "请输入您的账号";
-    std::cin >> zhanghao1;
-    std::cout << "请输入您的密码";
-    std::cin >> mima1;
-    if (zhanghao1 != zhanghao)
-    {
-        std::cout << "你输入的账号错误" << std::endl;
-        return 0;
-    }
-    if (mima != mima1)
-    {
-        std::cout << "你输入的密码错误" << std::endl;
-        return 0;
-    }
 
+    int q = 0;
+    while (q < 3)
+    {
+        std::cout << "请输入您的账号";
+        std::cin >> zhanghao1;
+        std::cout << "请输入您的密码";
+        std::cin >> mima1;
+        if ((zhanghao1 == zhanghao) && (mima == mima1))
+        {
+            std::cout << "输入正确,已登录" << std::endl;
+            break;
+        }
+        else
+        {
+            std::cout << "输入错误,请重试" << std::endl;
+        }
+        q++;
+        if (q >= 3)
+        {
+            std::cout << "你已退出" << std::endl;
+            return 0;
+        }
+    }
     std::cout << "等级" << iii << "\n";
     std::cout << "姓名: 请问\n";
     std::cout << "性别: 男\n";
