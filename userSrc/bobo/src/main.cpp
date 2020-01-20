@@ -1,5 +1,18 @@
 #include <iostream>
 
+void kantreechang(int tree, int futou)
+{
+
+    int lisnhi = tree * futou;
+    std::cout << lisnhi << std::endl;
+    int x = 0;
+    x = tree;
+    tree = futou;
+    futou = x;
+    std::cout << tree << "+" << futou << std::endl;
+    lisnhi = tree + futou;
+    std::cout << futou << std::endl;
+}
 int main()
 {
 
@@ -10,39 +23,64 @@ int main()
     std::string account1;
     std::string mima1;
     int level = 1;
-    int jishuqi = 0;
+    int jishuqi = 1;
+    int jieguo = 0;
+    int linshi = 0;
+    int t = 1, f = 2;
+    kantreechang(t, f);
+    // int shuzu[3] = {1, 2, 3};
+    // // linshi = shuzu[0];
+    // // shuzu[0] = shuzu[1];
+    // // shuzu[1] = linshi;
 
-    while (jishuqi < 3)
-    {
-        std::cout << "请输入您的游戏账号:";
-        std::cin >> account1;
-        std::cout << "请输入您的游戏密码:";
-        std::cin >> mima1;
-        if ((account1 == account) && (mima1 == mima))
-        {
-            std::cout << "输入正确,登陆成功" << std::endl;
-            break;
-        }
-        else
-        {
-            std::cout << "输入错误,请再输一次" << std::endl;
-        }
-        jishuqi++;
-        if (jishuqi >= 3)
-        {
-            std::cout << "你输了,输入密码" << jishuqi << "次还失败,估计你是机器人" << std::endl;
-            return 0;
-        }
-    }
-    std::cout << "您的等级是:" << level << std::endl;
-    std::cout << "*********************姓名:百里守约\n性别:男*************************" << std::endl;
-    std::cout << "种族:人*************************" << std::endl;
-    std::cout << "*************************职业:射手 " << std::endl;
-    std::cout << "技能:1.狂风之息2.静谧之眼3.逃脱" << std::endl;
-    std::cout << "*************************攻击力:" << 600 * level << std::endl;
-    std::cout << "防御力:" << 50 * level;
-    std::cout << "攻击范围:" << 10 * level * 0.5;
-    std::cout << "血量:" << 5000 * level * 0.5;
+    // for (int i = 1; i <= 3; i++)
+    // {
+    //     std::cout << shuzu[jishuqi - 1] << std::endl;
+    //     jishuqi++;
+    // }
+
+    // while (jishuqi <= 3)
+    // {
+    //     std::cout << shuzu[jishuqi - 1] << std::endl;
+    //     jishuqi++;
+    // }
+    // for (int jishuqi = 1; jishuqi <= 100; jishuqi += 1)
+    // {
+
+    //     jieguo += jishuqi;
+    // }
+    // std::cout << "数字是：" << jieguo << std::endl;
+    // while (jishuqi < 3)
+    // {
+    //     std::cout << "请输入您的游戏账号:";
+    //     std::cin >> account1;
+    //     std::cout << "请输入您的游戏密码:";
+    //     std::cin >> mima1;
+    //     if ((account1 == account) && (mima1 == mima))
+    //     {
+    //         std::cout << "输入正确,登陆成功" << std::endl;
+    //         break;
+    //     }
+    //     else
+    //     {
+    //         std::cout << "输入错误,请再输一次" << std::endl;
+    //     }
+    //     jishuqi++;
+    //     if (jishuqi >= 3)
+    //     {
+    //         std::cout << "你输了,输入密码" << jishuqi << "次还失败,估计你是机器人" << std::endl;
+    //         return 0;
+    //     }
+    // }
+    // std::cout << "您的等级是:" << level << std::endl;
+    // std::cout << "*********************姓名:百里守约\n性别:男*************************" << std::endl;
+    // std::cout << "种族:人*************************" << std::endl;
+    // std::cout << "*************************职业:射手 " << std::endl;
+    // std::cout << "技能:1.狂风之息2.静谧之眼3.逃脱" << std::endl;
+    // std::cout << "*************************攻击力:" << 600 * level << std::endl;
+    // std::cout << "防御力:" << 50 * level;
+    // std::cout << "攻击范围:" << 10 * level * 0.5;
+    // std::cout << "血量:" << 5000 * level * 0.5;
     // std::cout << "*****************您的游戏账号名字是:" << account << std::endl;
     // std::cout << ((x == y) && (x == z) && (y == z)) << std::endl;
 
