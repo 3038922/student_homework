@@ -10,7 +10,7 @@ int main()
     int level = 15;
 
     int b = 0;
-    while (b <= 1000)
+    while (b <= 3)
     {
         std::cout << "请输入您的账号:";
         std::cin >> zhanghao1;
