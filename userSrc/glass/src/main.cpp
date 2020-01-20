@@ -59,9 +59,10 @@ int main()
         else
         {
             std::cout << "你输入的密码错误,再试一次" << std::endl;
-        }
-        if ((zhanghao1 == zhanghao) && (mima1 == mima))
             jishuqi++;
+        }
+        // if ((zhanghao1 == zhanghao) && (mima1 == mima))
+        //     jishuqi++;
         if (jishuqi >= 3)
         {
             std::cout << "你是傻逼,输了" << jishuqi << "次,还错!!!" << std::endl;
