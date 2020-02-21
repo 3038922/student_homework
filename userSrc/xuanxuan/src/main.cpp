@@ -3,13 +3,24 @@
 #include <windows.h>
 void jiaohuan(int x, int y)
 {
-    // int linshi;
+    int linshi;
     std::cout << "交换前:" << x << "," << y << std::endl;
-    // linshi = x;
-    // x = y;
-    // y = linshi;
-    // std::cout << "交换后:" << x << "," << y << std::endl;
-    std::cout << "交换后:" << y << "," << x << std::endl;
+    linshi = x;
+    x = y;
+    y = linshi;
+    std::cout << "交换后:" << x << "," << y << std::endl;
+}
+void jiafa(int a, int b)
+{
+    std::cout << a + b << std::endl;
+}
+void xiaoshujiafa(double a, double b)
+{
+    std::cout << a + b << std::endl;
+}
+std::string gongchang(std::string a)
+{
+    return (a == "牛") ? "牛肉" : "我是牛肉加工厂, 只加工牛肉!";
 }
 int main()
 {
@@ -62,30 +73,34 @@ int main()
     /**************************************************/
     //jiaohuan(1, 2);
     /**************************************************/
-    std::cout << "***************欢迎来到拳皇小游戏***************" << std::endl;
-    Sleep(1000);
-    while (hp1 >= 1 || hp2 >= 1)
-    {
-        int gong1 = rand() % (minat1[1] - minat1[0]) + minat1[0];
-        int gong2 = rand() % (minat2[1] - minat2[0]) + minat2[0];
-        hp1 -= gong2;
-        if (hp1 <= 0)
-        {
-            std::cout << "KO~玩家2获胜!!!" << std::endl;
-            break;
-        }
-        std::cout << "玩家1本次攻击力:" << gong1 << "!\t"
-                  << "还剩" << hp1 << "点血!" << std::endl;
-        Sleep(1000);
-        hp2 -= gong1;
-        if (hp2 <= 0)
-        {
-            std::cout << "KO~玩家1获胜!!!" << std::endl;
-            break;
-        }
-        std::cout << "玩家2本次攻击力:" << gong2 << "!\t"
-                  << "还剩" << hp2 << "点血!" << std::endl;
-        Sleep(1000);
-    }
+    // std::cout << "***************欢迎来到拳皇小游戏***************" << std::endl;
+    // Sleep(1000);
+    // while (hp1 >= 1 || hp2 >= 1)
+    // {
+    //     int gong1 = rand() % (minat1[1] - minat1[0]) + minat1[0];
+    //     int gong2 = rand() % (minat2[1] - minat2[0]) + minat2[0];
+    //     hp1 -= gong2;
+    //     if (hp1 <= 0)
+    //     {
+    //         std::cout << "KO~玩家2获胜!!!" << std::endl;
+    //         break;
+    //     }
+    //     std::cout << "玩家1本次攻击力:" << gong1 << "!\t"
+    //               << "还剩" << hp1 << "点血!" << std::endl;
+    //     Sleep(1000);
+    //     hp2 -= gong1;
+    //     if (hp2 <= 0)
+    //     {
+    //         std::cout << "KO~玩家1获胜!!!" << std::endl;
+    //         break;
+    //     }
+    //     std::cout << "玩家2本次攻击力:" << gong2 << "!\t"
+    //               << "还剩" << hp2 << "点血!" << std::endl;
+    //     Sleep(1000);
+    // }
+    /**************************************************/
+    jiafa(1, 2);
+    xiaoshujiafa(1.1, 2.2);
+    std::cout << gongchang("羊") << std::endl;
     return 0;
 }
