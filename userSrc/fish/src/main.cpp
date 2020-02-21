@@ -6,7 +6,7 @@ int jiafa(int a, int b)
     std::cout << a + b << std::endl;
     return a + b;
 }
-double xiaoshujiafa(int c, int d)
+double xiaoshujiafa(double c, double d)
 {
     std::cin >> c;
     std::cin >> d;
@@ -29,6 +29,6 @@ int main()
 {
     system("chcp 65001");
     std::cout << jiafa(1, 2) << std::endl;
-    std::cout << "xiaoshujiafa(1.1,1.2)" << std::endl;
-    std::cout << "zifu(鱼)" << std::endl;
+    std::cout << xiaoshujiafa(1.1, 1.2) << std::endl;
+    std::cout << zifu("鱼") << std::endl;
 }
