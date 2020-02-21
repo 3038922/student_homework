@@ -18,6 +18,10 @@ void xiaoshujiafa(double a, double b)
 {
     std::cout << a + b << std::endl;
 }
+std::string gongchang(std::string a)
+{
+    return (a == "牛") ? "牛肉" : "我是牛肉加工厂, 只加工牛肉!";
+}
 int main()
 {
     system("chcp 65001");
@@ -97,5 +101,6 @@ int main()
     /**************************************************/
     jiafa(1, 2);
     xiaoshujiafa(1.1, 2.2);
+    std::cout << gongchang("羊") << std::endl;
     return 0;
 }
