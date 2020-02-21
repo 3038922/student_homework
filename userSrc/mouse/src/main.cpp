@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
-void jiafa(int a, int b)
+int jf(int a, int b)
 {
-    cout << a + b << endl;
+    return a + b;
 }
 double xsjf(double a, double b)
 {
@@ -21,9 +21,9 @@ string lsgc(string laoshu)
 }
 int main()
 {
-    jiafa(1, 2);
-    xsjf(3.14, 6.28);
-    lsgc("老鼠");
+    cout << jf(1, 6) << endl;
+    cout << xsjf(3.14, 6.28) << endl;
+    cout << lsgc("老鼠") << endl;
 
     return 0;
 }

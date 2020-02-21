@@ -1,37 +1,49 @@
 #include <iostream>
+void player(std::string name, int level, std::string job, std::string skill1, std::string skill2, std::string skill3, std::string skill4)
+{
+    std::cout << "角色名：" << name << std::endl;
+    std::cout << "角色等级：" << level << std::endl;
+    std::cout << "角色职业：" << job << std::endl;
+    std::cout << "技能1：" << skill1 << std::endl;
+    std::cout << "技能2：" << skill2 << std::endl;
+    std::cout << "技能3：" << skill3 << std::endl;
+    std::cout << "技能4：" << skill4 << std::endl;
+}
+
+int jiafa(int a, int b)
+{
+    std::cin >> a;
+    std::cin >> b;
+    std::cout << a + b << std::endl;
+}
+double xiaoshujiafa(double x, double y)
+{
+    std::cin >> x;
+    std::cin >> y;
+    std::cout << x + y << std::endl;
+}
+std::string factory(std::string m)
+{
+    if (m == "鸡")
+    {
+        std::cout << "鸡肉" << std::endl;
+    }
+    else
+    {
+        std::cout << "鸡你太美" << std::endl;
+    }
+}
+int main()
+{
+    std::cout << jiafa(23, 24) << std::endl;
+    std::cout << xiaoshujiafa(2.3, 2.4) << std::endl;
+    std::cout << factory("鸡") << std::endl;
+    std::cout << factory("蔡某人") << std::endl;
+}
 int main()
 {
     system("chcp 65001");
-    int jiafa(int a, int b)
-    {
-        std::cin >> a;
-        std::cin >> b;
-        std::cout << a + b << std::endl;
-    }
-    double xiaoshujiafa(double x, double y)
-    {
-        std::cin >> x;
-        std::cin >> y;
-        std::cout << x + y << std::endl;
-    }
-    std::string factory(std::string m)
-    {
-        if (m == "鸡")
-        {
-            std::cout << "鸡肉" << std::endl;
-        }
-        else
-        {
-            std::cout << "鸡你太美" << std::endl;
-        }
-    }
-    int main()
-    {
-        std::cout << jiafa(23, 24) << std::endl;
-        std::cout << xiaoshujiafa(2.3, 2.4) << std::endl;
-        std::cout << factory("鸡") << std::endl;
-        std::cout << factory("蔡某人") << std::endl;
-    }
+
     /*
     //数组的排序(冒泡排序)
     int nums[] = {15, 25, 90, 23, 9};
