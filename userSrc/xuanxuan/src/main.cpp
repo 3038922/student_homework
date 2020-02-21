@@ -22,11 +22,11 @@ std::string gongchang(std::string a)
 {
     return (a == "牛") ? "牛肉" : "我是牛肉加工厂, 只加工牛肉!";
 }
-void player(std::string name, int level, std::string job, std::string skiil1, std::string skiil2, std::string skiil3)
+void player(std::string name, int level, std::string gender, std::string job, std::string skiil1, std::string skiil2, std::string skiil3)
 {
     std::cout << "等  级: " << level << "\n"
               << "姓  名: " << name << "\n"
-              << "性  别: 男♂\n"
+              << "性  别: " << gender << "\n"
               << "职  业: " << job << "\n"
               << "技能 1: " << skiil1 << "\n"
               << "技能 2: " << skiil2 << "\n"
@@ -112,9 +112,11 @@ int main()
     //     Sleep(1000);
     // }
     /**************************************************/
-    jiafa(1, 2);
-    xiaoshujiafa(1.1, 2.2);
-    std::cout << gongchang("羊") << std::endl;
-    player("xuanxuan", 999, "射手", "多重箭矢", "落日余晖", "灼日之矢");
+    // jiafa(1, 2);
+    // xiaoshujiafa(1.1, 2.2);
+    // std::cout << gongchang("羊") << std::endl;
+    player("轩轩", 999, "男", "射手", "轩轩叫", "轩轩跳", "轩轩巅峰");
+    std::cout << std::endl;
+    player("波波", 666, "男", "战士", "波波叫", "波波跳", "波波巅峰");
     return 0;
 }
