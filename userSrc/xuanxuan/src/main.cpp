@@ -1,18 +1,21 @@
 #include <iostream>
 #include <time.h>
+#include <windows.h>
 void jiaohuan(int x, int y)
 {
-    int linshi;
+    // int linshi;
     std::cout << "交换前:" << x << "," << y << std::endl;
-    linshi = x;
-    x = y;
-    y = linshi;
-    std::cout << "交换后:" << x << "," << y << std::endl;
+    // linshi = x;
+    // x = y;
+    // y = linshi;
+    // std::cout << "交换后:" << x << "," << y << std::endl;
+    std::cout << "交换后:" << y << "," << x << std::endl;
 }
 int main()
 {
     system("chcp 65001");
     system("cls");
+    system("color 0b");
     std::string zhanghao1 = "2864692889";
     std::string mima1 = "zzx20090203";
     std::string zhanghao2;
@@ -59,6 +62,8 @@ int main()
     /**************************************************/
     //jiaohuan(1, 2);
     /**************************************************/
+    std::cout << "***************欢迎来到拳皇小游戏***************" << std::endl;
+    Sleep(1000);
     while (hp1 >= 1 || hp2 >= 1)
     {
         int gong1 = rand() % (minat1[1] - minat1[0]) + minat1[0];
@@ -66,19 +71,21 @@ int main()
         hp1 -= gong2;
         if (hp1 <= 0)
         {
-            std::cout << "玩家2赢了!!!" << std::endl;
+            std::cout << "KO~玩家2获胜!!!" << std::endl;
             break;
         }
-        std::cout << "玩家1本次攻击力:" << gong1 << "\t"
+        std::cout << "玩家1本次攻击力:" << gong1 << "!\t"
                   << "还剩" << hp1 << "点血!" << std::endl;
+        Sleep(1000);
         hp2 -= gong1;
         if (hp2 <= 0)
         {
-            std::cout << "玩家1赢了!!!" << std::endl;
+            std::cout << "KO~玩家1获胜!!!" << std::endl;
             break;
         }
-        std::cout << "玩家2本次攻击力:" << gong2 << "\t"
+        std::cout << "玩家2本次攻击力:" << gong2 << "!\t"
                   << "还剩" << hp2 << "点血!" << std::endl;
+        Sleep(1000);
     }
     return 0;
 }
