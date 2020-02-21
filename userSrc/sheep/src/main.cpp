@@ -14,9 +14,9 @@ void player(std::string name, int level, std::string job, std::string skill1, st
     std::cout << "姓名:" << name << "\n"
               << "等级:" << level << "\n"
               << "职业:" << job << "\n"
-              << "召唤师技能一:" << skill1 << "\n"
-              << "召唤师技能二:" << skill2 << "\n"
-              << "召唤师技能三:" << skill3 << "\n";
+              << job << "技能一:" << skill1 << "\n"
+              << job << "技能二:" << skill2 << "\n"
+              << job << "技能三:" << skill3 << "\n";
 }
 int main()
 {
