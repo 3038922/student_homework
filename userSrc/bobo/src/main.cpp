@@ -1,30 +1,44 @@
 #include <iostream>
-double xiaoshujiajian(double a, double b)
+// double xiaoshujiajian(double a, double b)
+// {
+//     return a + b;
+// }
+// std::string kanshuchang(std::string x)
+// {
+//     if (x == "树")
+//     {
+//         return "木棍";
+//     }
+//     else
+//     {
+//         return "我是砍树场,只砍树";
+//     }
+// }
+// int jiafa(int a, int b)
+// {
+//     return a + b;
+// }
+void player(std::string name, std::string job, int level, std::string skill1, std::string skill2, std::string skill3)
 {
-    return a + b;
-}
-std::string kanshuchang(std::string x)
-{
-    if (x == "树")
-    {
-        return "木棍";
-    }
-    else
-    {
-        return "我是砍树场,只砍树";
-    }
-}
-int jiafa(int a, int b)
-{
-    return a + b;
+    std::cout << "您的等级是:" << level << std::endl;
+    std::cout << "姓名:" << name << std::endl;
+    std::cout << "种族:人" << std::endl;
+    std::cout << "职业:" << job << std::endl;
+    std::cout << "等级" << level << std::endl;
+    std::cout << "技能:" << skill1 << std::endl;
+    std::cout << "技能:" << skill2 << std::endl;
+    std::cout << "技能:" << skill3 << std::endl;
 }
 int main()
 {
     system("chcp 65001");
     system("cls");
-    std::cout << jiafa(100, 200) << std::endl;
-    std::cout << kanshuchang("树") << std::endl;
-    std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
+    // std::cout << jiafa(100, 200) << std::endl;
+    // std::cout << kanshuchang("树") << std::endl;
+    // std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
+    player("cow", "刺客", 50, "暗袭要害", "真气拳", "杀手无敌万物灭");
+    std::cout << std::endl;
+    player("tree", "战士", 50, "惊树骇浪", "飞树手里剑", "含笑半步癫");
     //std::string account = "bobo";
     // std::string mima = "bb2009125";
     // std::string account1;
