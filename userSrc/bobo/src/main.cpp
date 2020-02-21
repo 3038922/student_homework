@@ -1,48 +1,68 @@
 #include <iostream>
-
+double xiaoshujiajian(double a, double b)
+{
+    return a + b;
+}
+std::string kanshuchang(std::string x)
+{
+    if (x == "树")
+    {
+        return "木棍";
+    }
+    else
+    {
+        return "我是砍树场,只砍树";
+    }
+}
+int jiafa(int a, int b)
+{
+    return a + b;
+}
 int main()
 {
-
     system("chcp 65001");
     system("cls");
-    std::string account = "bobo";
-    std::string mima = "bb2009125";
-    std::string account1;
-    std::string mima1;
-    int level = 1;
-    int jishuqi = 0;
+    std::cout << jiafa(100, 200) << std::endl;
+    std::cout << kanshuchang("树") << std::endl;
+    std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
+    //std::string account = "bobo";
+    // std::string mima = "bb2009125";
+    // std::string account1;
+    // std::string mima1;
+    // int level = 1;
+    // int jishuqi = 0;
 
-    while (jishuqi < 3)
-    {
-        std::cout << "请输入您的游戏账号:";
-        std::cin >> account1;
-        std::cout << "请输入您的游戏密码:";
-        std::cin >> mima1;
-        if ((account1 == account) && (mima1 == mima))
-        {
-            std::cout << "输入正确,登陆成功" << std::endl;
-            break;
-        }
-        else
-        {
-            std::cout << "输入错误,请再输一次" << std::endl;
-        }
-        jishuqi++;
-        if (jishuqi >= 3)
-        {
-            std::cout << "你输了,输入密码" << jishuqi << "次还失败,估计你是机器人" << std::endl;
-            return 0;
-        }
-    }
-    std::cout << "您的等级是:" << level << std::endl;
-    std::cout << "*********************姓名:百里守约\n性别:男*************************" << std::endl;
-    std::cout << "种族:人*************************" << std::endl;
-    std::cout << "*************************职业:射手 " << std::endl;
-    std::cout << "技能:1.狂风之息2.静谧之眼3.逃脱" << std::endl;
-    std::cout << "*************************攻击力:" << 600 * level << std::endl;
-    std::cout << "防御力:" << 50 * level;
-    std::cout << "攻击范围:" << 10 * level * 0.5;
-    std::cout << "血量:" << 5000 * level * 0.5;
+    // while (jishuqi < 3)
+    // {
+    //     std::cout << "请输入您的游戏账号:";
+    //     std::cin >> account1;
+    //     std::cout << "请输入您的游戏密码:";
+    //     std::cin >> mima1;
+    //     if ((account1 == account) && (mima1 == mima))
+    //     {
+    //         std::cout << "输入正确,登陆成功" << std::endl;
+    //         break;
+    //     }
+    //     else
+    //     {
+    //         std::cout << "输入错误,请再输一次" << std::endl;
+    //     }
+    //     jishuqi++;
+    //     if (jishuqi >= 3)
+    //     {
+    //         std::cout << "你输了,输入密码" << jishuqi << "次还失败,估计你是机器人" << std::endl;
+    //         return 0;
+    //     }
+    // }
+    // std::cout << "您的等级是:" << level << std::endl;
+    // std::cout << "*********************姓名:百里守约\n性别:男*************************" << std::endl;
+    // std::cout << "种族:人*************************" << std::endl;
+    // std::cout << "*************************职业:射手 " << std::endl;
+    // std::cout << "技能:1.狂风之息2.静谧之眼3.逃脱" << std::endl;
+    // std::cout << "*************************攻击力:" << 600 * level << std::endl;
+    // std::cout << "防御力:" << 50 * level;
+    // std::cout << "攻击范围:" << 10 * level * 0.5;
+    // std::cout << "血量:" << 5000 * level * 0.5;
     // std::cout << "*****************您的游戏账号名字是:" << account << std::endl;
     // std::cout << ((x == y) && (x == z) && (y == z)) << std::endl;
 

@@ -1,6 +1,29 @@
 #include <iostream>
+int jiafa(int a, int b)
+{
+    return a + b;
+}
+double xsjf(double a, double b)
+{
+    return a + b;
+}
+std::string factory(std::string a)
+{
+    if (a == "牛")
+    {
+        return "牛肉";
+    }
+    else
+    {
+        return "只加工牛肉";
+    }
+}
 int main()
 {
+    std::cout << jiafa(1, 2) << std::endl;
+    std::cout << xsjf(1.5, 8.5) << std::endl;
+    std::cout << factory("人") << std::endl;
+    /*
     std::string aasiad = {"ffffffff"};
     std::string apsiad = {"ffffffff"};
     std::string account;
@@ -30,5 +53,6 @@ int main()
     {
         std::cout << "密码错误,请再输入一次" << std::endl;
     }
+    */
     return 0;
 }
