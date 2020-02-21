@@ -24,4 +24,5 @@ int main()
     jiafa(1, 2);
     xsjf(3.14, 6.28);
     lsgc("老鼠");
+    return 0;
 }
