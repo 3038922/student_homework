@@ -18,6 +18,23 @@ void xiaoshujiafa(double a, double b)
 {
     std::cout << a + b << std::endl;
 }
+std::string gongchang(std::string a)
+{
+    return (a == "牛") ? "牛肉" : "我是牛肉加工厂, 只加工牛肉!";
+}
+void player(std::string name, int level, std::string job, std::string skiil1, std::string skiil2, std::string skiil3)
+{
+    std::cout << "等  级: " << level << "\n"
+              << "姓  名: " << name << "\n"
+              << "性  别: 男♂\n"
+              << "职  业: " << job << "\n"
+              << "技能 1: " << skiil1 << "\n"
+              << "技能 2: " << skiil2 << "\n"
+              << "技能 3: " << skiil3 << "\n"
+              << "血  量: " << 250 * level << "\n"
+              << "攻击力: " << 50 * level << "\n"
+              << "防御力: " << 20 * level << std::endl;
+}
 int main()
 {
     system("chcp 65001");
@@ -97,5 +114,7 @@ int main()
     /**************************************************/
     jiafa(1, 2);
     xiaoshujiafa(1.1, 2.2);
+    std::cout << gongchang("羊") << std::endl;
+    player("xuanxuan", 999, "射手", "多重箭矢", "落日余晖", "灼日之矢");
     return 0;
 }
