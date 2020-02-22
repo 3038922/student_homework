@@ -22,18 +22,18 @@ std::string gongchang(std::string a)
 {
     return (a == "牛") ? "牛肉" : "我是牛肉加工厂, 只加工牛肉!";
 }
-void player(std::string name, int level, std::string gender, std::string job, std::string skiil1, std::string skiil2, std::string skiil3)
+void player(std::string name, std::string gender, std::string job, std::string skill1, std::string skill2, std::string skill3, int level)
 {
-    std::cout << "等  级: " << level << "\n"
-              << "姓  名: " << name << "\n"
-              << "性  别: " << gender << "\n"
-              << "职  业: " << job << "\n"
-              << "技能 1: " << skiil1 << "\n"
-              << "技能 2: " << skiil2 << "\n"
-              << "技能 3: " << skiil3 << "\n"
-              << "血  量: " << 250 * level << "\n"
-              << "攻击力: " << 50 * level << "\n"
-              << "防御力: " << 20 * level << std::endl;
+    std::cout << "姓  名: " << name << std::endl
+              << "等  级: " << level << std::endl
+              << "性  别: " << gender << std::endl
+              << "职  业: " << job << std::endl
+              << "血  量: " << 250 * level << std::endl
+              << "攻击力: " << 50 * level << std::endl
+              << "防御力: " << 20 * level << std::endl
+              << "技能 1: " << skill1 << std::endl
+              << "技能 2: " << skill2 << std::endl
+              << "技能 3: " << skill3 << std::endl;
 }
 int main()
 {
@@ -115,8 +115,8 @@ int main()
     // jiafa(1, 2);
     // xiaoshujiafa(1.1, 2.2);
     // std::cout << gongchang("羊") << std::endl;
-    player("轩轩", 999, "男", "射手", "轩轩叫", "轩轩跳", "轩轩巅峰");
+    player("轩轩", "男", "刺客", "轩轩叫", "轩轩跳", "轩轩巅峰", 999);
     std::cout << std::endl;
-    player("波波", 666, "男", "战士", "波波叫", "波波跳", "波波巅峰");
+    player("波波", "男", "战士", "波波叫", "波波跳", "波波巅峰", 666);
     return 0;
 }
