@@ -1,50 +1,31 @@
 #include <iostream>
-void player(std::string name, int level, std::string job, std::string skill1, std::string skill2, std::string skill3, std::string skill4)
+void player(int level, int attack, int Hp, int Mp, std::string name, std::string weapon, std::string defense, std::string job, std::string pskill, std::string skill1, std::string skill2, std::string skill3, std::string skill4)
 {
-    std::cout << "角色名：" << name << std::endl;
-    std::cout << "角色等级：" << level << std::endl;
-    std::cout << "角色职业：" << job << std::endl;
+    std::cout << "姓名：" << name << std::endl;
+    std::cout << "等级：" << level << std::endl;
+    std::cout << "职业：" << job << std::endl;
+    std::cout << "武器:" << weapon << std::endl;
+    std::cout << "防具:" << defense << std::endl;
+    std::cout << "伤害:" << attack * level << std::endl;
+    std::cout << "血量:" << Hp * level << std::endl;
+    std::cout << "蓝量:" << Mp * level << std::endl;
+    std::cout << "被动技能:" << pskill << std::endl;
     std::cout << "技能1：" << skill1 << std::endl;
     std::cout << "技能2：" << skill2 << std::endl;
     std::cout << "技能3：" << skill3 << std::endl;
     std::cout << "技能4：" << skill4 << std::endl;
 }
-
-int jiafa(int a, int b)
-{
-    std::cin >> a;
-    std::cin >> b;
-    std::cout << a + b << std::endl;
-}
-double xiaoshujiafa(double x, double y)
-{
-    std::cin >> x;
-    std::cin >> y;
-    std::cout << x + y << std::endl;
-}
-std::string factory(std::string m)
-{
-    if (m == "鸡")
-    {
-        std::cout << "鸡肉" << std::endl;
-    }
-    else
-    {
-        std::cout << "鸡你太美" << std::endl;
-    }
-}
-int main()
-{
-    std::cout << jiafa(23, 24) << std::endl;
-    std::cout << xiaoshujiafa(2.3, 2.4) << std::endl;
-    std::cout << factory("鸡") << std::endl;
-    std::cout << factory("蔡某人") << std::endl;
-}
 int main()
 {
     system("chcp 65001");
+    player(18, 234, 3666, 9999, "疾风剑豪      亚索", "疾风之刃", "亡者的板甲", "刺客", "浪客之道", "斩钢闪", "风之壁障", "踏前斩", "狂风绝息斩");
+    std::cout
+        << std::endl;
+    player(18, 435, 4666, 9999, "暗裔剑魔      亚托克斯", "饮血巨剑", "振兴之铠", "战士", "赐死剑气", "暗裔利刃", "恶火束链", "暗影冲决", "大灭");
+    return 0;
+}
 
-    /*
+/*
     //数组的排序(冒泡排序)
     int nums[] = {15, 25, 90, 23, 9};
     int temp = 0;
@@ -144,15 +125,6 @@ int main()
             std::cout << "*" << std::endl;
         }
         std::cout << std::endl;
-    }
-    * /
+    
         return 0;
-}
-//###*2 0
-//##***1 2
-//#*****0 4
-//*******
-//#*****0 4
-//##***1 2
-//###*2 0
-//
+}*/
