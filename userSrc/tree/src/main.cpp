@@ -1,31 +1,51 @@
 #include <iostream>
-double xiaoshujiajian(double y, double f)
-{
-    return y + f;
-}
+#include <string.h>
+// double xiaoshujiajian(double y, double f)
+// {
+//     return y + f;
+// }
 
-int jiafa(int x, int y)
+// int jiafa(int x, int y)
+// {
+//     return x + y;
+// }
+// std::string kanshuchang(std::string 1,std::string2, int 3,int4,string5,string6,string7,int8,int9)
+// {
+//     if (j == "房产")
+//     {
+//         return "房产大户";
+//     }
+//     else
+//     {
+//         return "渣渣";
+//     }
+// }
+void player(std::string N, std::string B, int V, int C, std::string X, std::string A, std::string S, int d, int f)
 {
-    return x + y;
-}
-std::string kanshuchang(std::string j)
-{
-    if (j == "房产")
-    {
-        return "房产大户";
-    }
-    else
-    {
-        return "渣渣";
-    }
+    std::cout << "角色姓名" << N << std::endl;
+    std::cout << "种族" << B << std::endl;
+    std::cout << "战斗力" << V << std::endl;
+    std::cout << "实际战斗力" << C << std::endl;
+    std::cout << "角色介绍" << X << std::endl;
+    std::cout << "武器" << A << std::endl;
+    std::cout << "克制" << S << std::endl;
+    std::cout << "被克制" << S << std::endl;
+    std::cout << "生命" << d << std::endl;
+    std::cout << "抵抗血量" << f << std::endl;
 }
 int main()
 {
     system("chcp 65001");
     system("cls");
-    std::cout << jiafa(12, 333) << std::endl;
-    std::cout << kanshuchang("房产") << std::endl;
-    std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
+
+    //player("比尔", "幸存者", 1909, 2000, "比尔是一个退伍老兵，经历过多次战争，最终成为“生存”经验丰富的老兵，身患癌症，无亲朋好友，孤寡老人，酷爱抽烟。感染爆发时准备在Mercy Hospital做手术。从医院逃出后回敬老院重新装备上当年的步枪和军衣。性格沉稳冷静的领导型人物。是四人小组里名副其实的领袖.", "M14", "tank,Boomer,Hunter", " Smoker,Charger,Spitter", 150, 360);
+    std::cout << std::endl;
+    player("coach", "幸存者", 1560, 1999, "Coach有一颗宽容的心，健康的胃口和一把邪恶的电锯，膝盖受伤后，他结束在大学作为防守线员的职业生涯，得到了一个棒球教练的学位，并在他家乡的高中执教，可能作为一名新进棒球教练执教一个新的团队并不能使他最好的道路，但是在指导一个生存者队伍Coach发挥了他的领导能力，Coach看着自己心爱的家乡获得被感染，现在是时候发挥他的作用，用南方的热情好客蹂躏丧尸。,"
+                                          "电锯",
+           "Charger,Boomer,Spitter", "tank,Smoker,Hunter", 300, 600);
+    // std::cout << jiafa(12, 333) << std::endl;
+    // std::cout << kanshuchang("房产") << std::endl;
+    // std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
 
     // std::string A;
     // int level = 30;
