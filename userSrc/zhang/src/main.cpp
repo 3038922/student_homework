@@ -49,7 +49,7 @@
 //         return 0;
 //     }
 // }
-void player(int level, std::string Name, std::string job, std::string skill1, std::string skill2, std::string skill3, int Mp, int Hp, int Attack, int Defense)
+void player(int level, std::string Name, std::string job, std::string skill1, std::string skill2, std::string skill3, int Mp, int Hp, int Defense, int Attack)
 {
     std::cout << "姓  名:" << Name << std::endl
               << "职  业:" << job << std::endl
@@ -59,14 +59,14 @@ void player(int level, std::string Name, std::string job, std::string skill1, st
               << job << "大  招:" << skill3 << std::endl
               << "蓝  量:" << Mp * level << std::endl
               << "血  量:" << Hp * level << std::endl
-              << "攻击力:" << Attack * level << std::endl
-              << "防御力:" << Defense * level << std::endl;
+              << "防御力:" << Defense * level << std::endl
+              << "攻击力:" << Attack * level << std::endl;
 }
 int main()
 {
     system("chcp 65001");
     system("cls");
-    player(5, "玩家一", "法师", "打一下", "打两下", "打五下", 400, 400, 50, 100);
+    player(5, "玩家一", "法师", "打一下", "打两下", "打五下", 400, 400, 100, 50);
     std::cout << std::endl;
-    player(5, "玩家二", "战士", "捅一下", "捅两下", "捅五下", 100, 300, 100, 200);
+    player(5, "玩家二", "战士", "捅一下", "捅两下", "捅五下", 100, 300, 200, 100);
 }
