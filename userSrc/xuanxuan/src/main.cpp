@@ -1,15 +1,6 @@
 #include <iostream>
 #include <time.h>
 #include <windows.h>
-void jiaohuan(int x, int y)
-{
-    int linshi;
-    std::cout << "交换前:" << x << "," << y << std::endl;
-    linshi = x;
-    x = y;
-    y = linshi;
-    std::cout << "交换后:" << x << "," << y << std::endl;
-}
 void jiafa(int a, int b)
 {
     std::cout << a + b << std::endl;
@@ -20,7 +11,7 @@ void xiaoshujiafa(double a, double b)
 }
 std::string gongchang(std::string a)
 {
-    return (a == "牛") ? "牛肉" : "我是牛肉加工厂, 只加工牛肉!";
+    return (a == "牛") ? "牛肉" : "我是牛肉加工厂,只加工牛肉!";
 }
 void player(std::string name, std::string gender, std::string job, std::string skill1, std::string skill2, std::string skill3, int level)
 {
@@ -34,6 +25,16 @@ void player(std::string name, std::string gender, std::string job, std::string s
               << "技能 1: " << skill1 << std::endl
               << "技能 2: " << skill2 << std::endl
               << "技能 3: " << skill3 << std::endl;
+}
+void waiguajiaohuan(int *x, int *y)
+{
+    if (*x < *y)
+    {
+        int linshi;
+        linshi = *x;
+        *x = *y;
+        *y = linshi;
+    }
 }
 int main()
 {
@@ -84,8 +85,6 @@ int main()
     //     std::cout << "shuzu[" << i << "]:" << shuzu[i - 1] << std::endl;
     // }
     /**************************************************/
-    //jiaohuan(1, 2);
-    /**************************************************/
     // std::cout << "***************欢迎来到拳皇小游戏***************" << std::endl;
     // Sleep(1000);
     // while (hp1 >= 1 || hp2 >= 1)
@@ -115,8 +114,18 @@ int main()
     // jiafa(1, 2);
     // xiaoshujiafa(1.1, 2.2);
     // std::cout << gongchang("羊") << std::endl;
-    player("轩轩", "男", "刺客", "轩轩叫", "轩轩跳", "轩轩巅峰", 999);
-    std::cout << std::endl;
-    player("波波", "男", "战士", "波波叫", "波波跳", "波波巅峰", 666);
+    // player("轩轩", "男", "刺客", "轩轩叫", "轩轩跳", "轩轩巅峰", 999);
+    // std::cout << std::endl;
+    // player("波波", "男", "战士", "波波叫", "波波跳", "波波巅峰", 666);
+    /**************************************************/
+    int sheep = 1, pig = 200;
+    int *pc = &sheep;
+    sheep += 100;
+    *pc += 999;
+    std::cout << "交换前: sheep = " << sheep << "\t"
+              << "pig = " << pig << std::endl;
+    waiguajiaohuan(&sheep, &pig);
+    std::cout << "交换后: sheep = " << sheep << "\t"
+              << "pig = " << pig << std::endl;
     return 0;
 }
