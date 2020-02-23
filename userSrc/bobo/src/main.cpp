@@ -42,16 +42,16 @@ int main()
 {
     system("chcp 65001");
     system("cls");
-    int tree = 150, cow = 100;
-    std::string z = "asdfas";
-    int *water = &cow;
-    cow += 11;
+    int tree = 100, cow = 150;
+    int *water = &tree;
+    std::string www = "asdfggg";
+    tree += 11;
     *water += 22;
-    std::cout << "cow的值:" << cow << " cow的地址:" << &cow << std::endl;
-    std::cout << "指向的值" << *water << "water指向的地址" << water << " water自己的地址" << water << std::endl;
-    std::cout << "交换前cow=" << cow << " tree=" << tree << std::endl;
+    std::cout << "tree的值:" << tree << " tree的地址:" << &tree << std::endl;
+    std::cout << "water指向的值" << *water << " water指向的地址" << water << " water自己的地址" << &water << std::endl;
+    std::cout << "交换前tree=" << tree << " cow=" << cow << std::endl;
     externalexchangefunction(&tree, &cow);
-    std::cout << "交换后cow=" << cow << " tree=" << tree << std::endl;
+    std::cout << "交换前tree=" << tree << " cow=" << cow << std::endl;
     // std::cout << jiafa(100, 200) << std::endl;
     // std::cout << kanshuchang("树") << std::endl;
     // std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
