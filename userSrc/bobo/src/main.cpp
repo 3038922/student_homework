@@ -51,7 +51,7 @@ int main()
     std::cout << "water指向的值" << *water << " water指向的地址" << water << " water自己的地址" << &water << std::endl;
     std::cout << "交换前tree=" << tree << " cow=" << cow << std::endl;
     externalexchangefunction(&tree, &cow);
-    std::cout << "交换前tree=" << tree << " cow=" << cow << std::endl;
+    std::cout << "交换后ree=" << tree << " cow=" << cow << std::endl;
     // std::cout << jiafa(100, 200) << std::endl;
     // std::cout << kanshuchang("树") << std::endl;
     // std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;
