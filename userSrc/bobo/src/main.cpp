@@ -1,4 +1,5 @@
 #include <iostream>
+
 // double xiaoshujiajian(double a, double b)
 // {
 //     return a + b;
@@ -18,9 +19,18 @@
 // {
 //     return a + b;
 // }
+void externalexchangefunction(int *a, int *b)
+{
+    if (*a < *b)
+    {
+        int linshi = *b;
+        *b = *a;
+        *a = linshi;
+    }
+}
 void player(std::string name, std::string job, int level, std::string Armor, std::string skill1, std::string skill2, std::string skill3)
 {
-    std::cout << "您的姓名是:" << name << std::endl
+    std::cout << "您的姓名是" << name << std::endl
               << "您的职业是:" << job << std::endl
               << "您的等级是" << level << std::endl
               << "您的护甲是:" << Armor << std::endl
@@ -32,6 +42,16 @@ int main()
 {
     system("chcp 65001");
     system("cls");
+    int tree = 100, cow = 150;
+    int *water = &tree;
+    std::string www = "asdfggg";
+    tree += 11;
+    *water += 22;
+    std::cout << "tree的值:" << tree << " tree的地址:" << &tree << std::endl;
+    std::cout << "water指向的值" << *water << " water指向的地址" << water << " water自己的地址" << &water << std::endl;
+    std::cout << "交换前tree=" << tree << " cow=" << cow << std::endl;
+    externalexchangefunction(&tree, &cow);
+    std::cout << "交换后ree=" << tree << " cow=" << cow << std::endl;
     // std::cout << jiafa(100, 200) << std::endl;
     // std::cout << kanshuchang("树") << std::endl;
     // std::cout << xiaoshujiajian(1.11, 2.22) << std::endl;

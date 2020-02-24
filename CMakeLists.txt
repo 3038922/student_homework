@@ -7,6 +7,7 @@ set(CMAKE_C_STANDARD 11)#C11
 set(CMAKE_CXX_STANDARD 17)#C17
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wno-unused-variable -Wno-unused-function)
+add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 #是谁就改成谁
 set(name "sheep")
 #头文件路径

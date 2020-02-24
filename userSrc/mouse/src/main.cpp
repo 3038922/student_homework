@@ -19,6 +19,14 @@ string lsgc(string laoshu)
         return "只加工老鼠肉";
     }
 }
+int jh(int a, int b)
+{
+    int c;
+    c = a;
+    a = b;
+    b = c;
+    cout << a << "            " << b << endl;
+}
 void play(string name, string zhuangbei, string zhiye, string jn1, string jn2, string jn3, int lever, int hp, int gongjili, int hujiazhi, int jinbi)
 {
     std::cout << "姓名:" << name << endl
@@ -42,6 +50,6 @@ int main()
     cout << jf(1, 6) << endl;
     cout << xsjf(3.14, 6.28) << endl;
     cout << lsgc("老鼠") << endl;
-
+    jh(100, 200);
     return 0;
 }
