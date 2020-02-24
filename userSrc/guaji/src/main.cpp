@@ -12,16 +12,17 @@ void jh(int *a, int *b)
 {
     if (*a < *b)
     {
-        int ls = *b;
+        int temp = *b;
         *b = *a;
-        *a = ls;
+        *a = temp;
     }
 }
 int main()
 {
     system("chcp 65001");
-    int a = 100;
-    int b = 200;
+    int a, b;
+    std::cout << "请输入要交换的数字:" << std::endl;
+    std::cin >> a >> b;
     std::cout << "交换前:a=" << a << "\tb=" << b << std::endl;
     jh(&a, &b);
     std::cout << "交换后:a=" << a << "\tb=" << b << std::endl;
