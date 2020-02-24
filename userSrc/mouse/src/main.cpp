@@ -19,13 +19,11 @@ string lsgc(string laoshu)
         return "只加工老鼠肉";
     }
 }
-int jh(int a, int b)
+void jh(int *a, int *b)
 {
-    int c;
-    c = a;
-    a = b;
-    b = c;
-    cout << a << "            " << b << endl;
+    int linshi = *b;
+    *b = *a;
+    *a = linshi;
 }
 void play(string name, string zhuangbei, string zhiye, string jn1, string jn2, string jn3, int lever, int hp, int gongjili, int hujiazhi, int jinbi)
 {
@@ -42,6 +40,8 @@ void play(string name, string zhuangbei, string zhiye, string jn1, string jn2, s
 }
 int main()
 {
+    int a = 1000;
+    int b = 2000;
     system("chcp 65001");
     system("cls");
     play("蔡徐坤", "篮球", "射手", "篮球投射", "鸡你太美", "篮球乱射", 6666, 6666, 6666, 6666, 6666);
@@ -50,6 +50,7 @@ int main()
     cout << jf(1, 6) << endl;
     cout << xsjf(3.14, 6.28) << endl;
     cout << lsgc("老鼠") << endl;
-    jh(100, 200);
+    jh(&a, &b);
+    cout << "交换后的值是" << a << "     " << b;
     return 0;
 }
