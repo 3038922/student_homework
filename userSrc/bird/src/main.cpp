@@ -15,13 +15,29 @@ void player(int level, int attack, int Hp, int Mp, std::string name, std::string
     std::cout << "技能3：" << skill3 << std::endl;
     std::cout << "技能4：" << skill4 << std::endl;
 }
+void change(int *a, int *b)
+{
+    if (*a < *b)
+    {
+        int temp = *a;
+        *b = *a;
+        temp = *b;
+    }
+}
 int main()
 {
     system("chcp 65001");
-    player(18, 234, 3666, 9999, "疾风剑豪      亚索", "疾风之刃", "亡者的板甲", "刺客", "浪客之道", "斩钢闪", "风之壁障", "踏前斩", "狂风绝息斩");
-    std::cout
-        << std::endl;
-    player(18, 435, 4666, 9999, "暗裔剑魔      亚托克斯", "饮血巨剑", "振兴之铠", "战士", "赐死剑气", "暗裔利刃", "恶火束链", "暗影冲决", "大灭");
+    int caiji, dashen;
+    std::cin >> caiji;
+    std::cout << std::endl;
+    std::cin >> dashen;
+    change(&caiji, &dashen);
+    caiji += 100;
+    std::cout << "菜鸡开挂后的战斗力：" << caiji << "大神被制裁之后的战斗力：" << dashen << std::endl;
+    // player(18, 234, 3666, 9999, "疾风剑豪      亚索", "疾风之刃", "亡者的板甲", "刺客", "浪客之道", "斩钢闪", "风之壁障", "踏前斩", "狂风绝息斩");
+    // std::cout
+    //     << std::endl;
+    // player(18, 435, 4666, 9999, "暗裔剑魔      亚托克斯", "饮血巨剑", "振兴之铠", "战士", "赐死剑气", "暗裔利刃", "恶火束链", "暗影冲决", "大灭");
     return 0;
 }
 

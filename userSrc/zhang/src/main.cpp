@@ -1,8 +1,50 @@
 #include <iostream>
-// int main()
-// {
-//     system("chcp 65001");
-//     system("cls");
+void jiaohuan(int *a, int *b, int *c, int *d, int *e, int *f)
+{
+    if (*a < *b)
+    {
+        int lingshi = *a;
+        *a = *b;
+        *b = lingshi;
+    }
+    if (*a < *c)
+    {
+        int lingshi = *a;
+        *a = *c;
+        *c = lingshi;
+    }
+    if (*a < *d)
+    {
+        int lingshi = *a;
+        *a = *d;
+        *d = lingshi;
+    }
+    if (*a < *e)
+    {
+        int lingshi = *a;
+        *a = *e;
+        *e = lingshi;
+    }
+    if (*a < *f)
+    {
+        int lingshi = *a;
+        *a = *f;
+        *f = lingshi;
+    }
+}
+int main()
+{
+    system("chcp 65001");
+    system("cls");
+    int a = 10, b = 50, c = 100, d = 500, e = 1000, f = 5000;
+    jiaohuan(&a, &b, &c, &d, &e, &f);
+    std::cout << "a的攻击力:" << a << std::endl;
+    std::cout << "b的攻击力:" << b << std::endl;
+    std::cout << "c的攻击力:" << c << std::endl;
+    std::cout << "d的攻击力:" << d << std::endl;
+    std::cout << "e的攻击力:" << e << std::endl;
+    std::cout << "f的攻击力:" << f << std::endl;
+}
 //     int x = 2874;
 //     int y;
 //     std::cout << "猜数字游戏" << std::endl;
@@ -49,24 +91,24 @@
 //         return 0;
 //     }
 // }
-void player(int level, std::string Name, std::string job, std::string skill1, std::string skill2, std::string skill3, int Mp, int Hp, int Defense, int Attack)
-{
-    std::cout << "姓  名:" << Name << std::endl
-              << "职  业:" << job << std::endl
-              << "等  级:" << level << std::endl
-              << job << "技能一:" << skill1 << std::endl
-              << job << "技能二:" << skill2 << std::endl
-              << job << "大  招:" << skill3 << std::endl
-              << "蓝  量:" << Mp * level << std::endl
-              << "血  量:" << Hp * level << std::endl
-              << "防御力:" << Defense * level << std::endl
-              << "攻击力:" << Attack * level << std::endl;
-}
-int main()
-{
-    system("chcp 65001");
-    system("cls");
-    player(5, "玩家一", "法师", "打一下", "打两下", "打五下", 400, 400, 100, 50);
-    std::cout << std::endl;
-    player(5, "玩家二", "战士", "捅一下", "捅两下", "捅五下", 100, 300, 200, 100);
-}
+// void player(int level, std::string Name, std::string job, std::string skill1, std::string skill2, std::string skill3, int Mp, int Hp, int Defense, int Attack)
+// {
+//     std::cout << "姓  名:" << Name << std::endl
+//               << "职  业:" << job << std::endl
+//               << "等  级:" << level << std::endl
+//               << job << "技能一:" << skill1 << std::endl
+//               << job << "技能二:" << skill2 << std::endl
+//               << job << "大  招:" << skill3 << std::endl
+//               << "蓝  量:" << Mp * level << std::endl
+//               << "血  量:" << Hp * level << std::endl
+//               << "防御力:" << Defense * level << std::endl
+//               << "攻击力:" << Attack * level << std::endl;
+// }
+// int main()
+// {
+//     system("chcp 65001");
+//     system("cls");
+//     player(5, "玩家一", "法师", "打一下", "打两下", "打五下", 400, 400, 100, 50);
+//     std::cout << std::endl;
+//     player(5, "玩家二", "战士", "捅一下", "捅两下", "捅五下", 100, 300, 200, 100);
+// }
