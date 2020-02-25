@@ -34,9 +34,20 @@ void jiaohuan(int *a, int *b)
         *a = temp;
     }
 }
+void swap(int **a, int **b)
+{
+    int *temp = *a;
+    *a = *b;
+    *b = temp;
+}
 int main()
 {
-    int c;
+    int *x, *y;
+    x = new int(10);
+    y = new int(20);
+    swap(&x, &y);
+    std::cout << *x << '\t' << *y << std::endl;
+    /*int c;
     int b;
     std::cin >> c >> b;
     xiaoshujiafa(7, 8);
@@ -44,6 +55,6 @@ int main()
     a(5, "玩家1", "战士", "技能1", "技能2", "技能3");
     a(5, "玩家2", "战士", "技能1", "技能2", "技能3");
     jiaohuan(&c, &b);
-    std::cout << c << '\t' << b << std::endl;
+    std::cout << c << '\t' << b << std::endl;*/
     return 0;
 }
