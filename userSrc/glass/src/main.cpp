@@ -147,3 +147,32 @@ while (1)
     }
     std::cout << "p1-" << P2g << "点血 还剩" << p1Hp << "点血" << std::endl; //输出每次
 }
+double xiaoshujiajian(double a, double b)
+    // {
+    //     return a + b;
+    // }
+    // std::string kanshuchang(std::string x)
+    // {
+    //     if (x == "猪")
+    //     {
+    //         return "猪肉";
+    //     }
+    //     else
+    //     {
+    //         return "我是猪肉场,我只加工猪肉";
+    //     }
+    // }
+    // int jiafa(int a, int b)
+    // {
+    //     return a + b;
+    // }
+    void externalexchangefunction(int *a, int *b)
+{
+    if (*a < *b)
+    {
+        int linshi = *b;
+        *b = *a;
+        *a = linshi;
+    }
+}
+void player(std::string name, std::string job, int level, std::string Armor, std::string skill1, std::string skill2, std::string skill3)
