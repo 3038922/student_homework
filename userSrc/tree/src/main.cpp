@@ -33,8 +33,23 @@
 //     std::cout << "生命" << d << std::endl;
 //     std::cout << "抵抗血量" << f << std::endl;
 // }
-int main()
+void swap(int **a, int **b)
 {
+    int *temp = *jntm;
+    *jntm = *qiaobiluo;
+    *qiaobiluo = temp;
+}
+int main(int argc, char argv[])
+{
+    
+
+    // b = new int(20);
+    std::cout << "" << sizeof(&jntm) << " jntm:" << &jntm << std::endl;
+    std::cout << "万恶之源鸡你太美发源地:" << sizeof(jntm) << " 鸡你太美指向的乔碧萝:" <<jntm << std::endl;
+    std::cout << "万恶之源鸡你太美大小:" << sizeof(*a) << " 万恶之源鸡你太美指向乔碧萝:" << *jntm << std::endl;
+    delete a;
+    a = nullptr;
+    reaturn 0;
     system("chcp 65001");
     system("cls");
     int a, b;
