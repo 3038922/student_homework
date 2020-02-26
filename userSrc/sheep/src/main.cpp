@@ -1,5 +1,5 @@
+#include <Windows.h>
 #include <iostream> // 首先导入 螺丝刀所在的工具库
-//牛->工厂->肉牛;
 // int jiafa(int a, int b);
 // double xiaoshujiafa(double a, double b);
 // std::string gongchang(std::string a)
@@ -11,7 +11,6 @@
 // }
 // void player(std::string Name, std::string job, int Level, int Hp, int Mp, std::string Weapon, int Attack, std::string Armor, int Defense, int mony, std::string skill1, std::string skill2, std::string skill3)
 // {
-
 //     std::cout << "姓名:" << Name << std::endl
 //               << "职业:" << job << std::endl
 //               << "等级:" << Level << std::endl
@@ -32,18 +31,41 @@
 //     *b = *a + *b;
 //     *a = *a + *b;
 // }
-void swap(int **a, int **b)
+
+void diyiti(int kuan_du)
 {
-    int *temp = *a;
-    *a = *b;
-    *b = temp;
+    for (int i = 1; i <= kuan_du; i++)
+    {
+        for (int j = 0; j < i; j++)
+            std::cout << "*";
+        std::cout << std::endl;
+    }
+}
+void dierti(int kuan_du)
+{
+    for (int i = 1; i <= kuan_du; i++)
+    {
+        for (int j = i; j < kuan_du; j++)
+        {
+            std::cout << " ";
+        }
+        for (int k = 1; k <= 2 * i; k++)
+        {
+            if (k % 2 != 0)
+            {
+                std::cout << "*";
+            }
+            else
+            {
+                std::cout << " ";
+            }
+        }
+        std::cout << std::endl;
+    }
 }
 int main()
 {
-    std::string c = "c", d = "d";
-    std::string *a = &c, *b = &d;
-    std::cout << "a:" << *a << "b:" << *b << std::endl;
-    swap(a, b);
-    std::cout << "a:" << *a << "b:" << *b << std::endl;
+    system("cls");
+    dierti(10);
     return 0;
 }
