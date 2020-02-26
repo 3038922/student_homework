@@ -51,7 +51,7 @@ int main()
     // int hp2 = 300;
     // int minat1[2] = {20, 60};
     // int minat2[2] = {20, 60};
-    double *a = new double();
+    double *a = new double(3.141592653589793238462643383279502884197169399375105820974944592307816406286);
     std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a << std::endl;
     std::cout << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
     std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
