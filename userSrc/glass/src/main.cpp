@@ -1,37 +1,5 @@
 #include <iostream>
 #include <time.h>
-1 ref void swap(int **a, int **b)
-{
-    int *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-1 ref int main(int argc, char *argv[])
-    H
-    int *a,
-    *b;
-a = new int(10);
-b = new int(20);
-std::cout << "交换前指向的地址 a:" << a << "b:" << b << std::endl;
-std::cout << "交换前值a:<<*a<" b : "<<b<<std::endl;
-                                   swap(6a, 6b);
-std::cout << "交换后指向地址a:" << a << "b:" << b << std::endl;
-std::cout << "交换后值a:" << *a << "b:" << *b << std::endl;
-delete a;
-delete b;
-a = nullptr;
-b = nullptr;
-You, a few seconds ago Uncommitted changes
-     lv_init();
-hal_init();
-demo_create();
-while (1)
-{
-    lv_task_handler();
-    Sleep(10); /*Just to let the system breathe*/
-}
-return0;
-
 int main()
 {
     std::system("chcp 65001");
@@ -175,4 +143,30 @@ double xiaoshujiajian(double a, double b)
         *a = linshi;
     }
 }
-void player(std::string name, std::string job, int level, std::string Armor, std::string skill1, std::string skill2, std::string skill3)
+void player(std::string name, std::string job, int level, std::string Armor, std::string skill1, std::string skill2, std::string skill3);
+#include <iostream>
+void swap(int **a, int **b)
+{
+    int *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main(int argc, char *argv[])
+{
+
+    std::string class1 = "class1里的东西";
+    std::string class2 = "class2里的东西";
+    std::string *ptr_1 = &class1;
+    std::string *ptr_2 = &class2;
+    std::string **ptrptr_1 = &ptr_1;
+    std::string **ptrptr_2 = &ptr_2;
+    std::cout << "交换前class的值: " << class1 << "\t" << class2 << std::endl;
+    std::cout << "交换前ptr的值: " << **ptrptr_1 << "\t" << **ptrptr_2 << std::endl;
+    std::cout << std::endl;
+    std::string **temp = ptrptr_1;
+    ptrptr_1 = ptrptr_2;
+    ptrptr_2 = temp;
+    std::cout << "交换后class的值: " << class1 << "\t" << class2 << std::endl;
+    std::cout << "交换后ptr的值: " << **ptrptr_1 << "\t" << **ptrptr_2 << std::endl;
+    return 0;
+}
