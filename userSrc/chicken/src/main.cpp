@@ -212,7 +212,7 @@ int main()
                 std::cin >> temp;
                 if (temp == 'y')
                 {
-                    couts - 200;
+                    couts = couts - 200;
                 }
             }
             std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档\n5、读档" << std::endl;
