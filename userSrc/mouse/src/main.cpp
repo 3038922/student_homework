@@ -104,9 +104,9 @@ int main()
     std::cout << "交换后ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
     std::cout << "交换后ptr的值:" << *ptr_1 << " " << *ptr_2 << std::endl;
     return 0;
-    while (0)
-    {
-        std::string *a = new std::string("点一下玩一年");
-        Sleep(10);
-    }
+    // while (0)
+    // {
+    //     std::string *a = new std::string("点一下玩一年");
+    //     Sleep(10);
+    // }
 }
