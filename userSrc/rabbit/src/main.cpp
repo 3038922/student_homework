@@ -9,7 +9,8 @@ std::string gongchang(std::string a)
     else
         return "我是开牛肉工厂 只加工牛肉";
 }
-void palyer(std::string name, int level) //后面接着写,没写完才会报错
+void palyer(std::string name, int level, std::string mayjor, std::string skill1, std::string skill2, std::string skill3)
+//后面接着写,没写完才会报错
 {
 }
 int main()
