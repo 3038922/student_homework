@@ -1,4 +1,17 @@
 #include <iostream>
+
+int jiafa(int a, double b);
+double xiaoshujiafa(double a, double b);
+std::string gongchang(std::string a)
+{
+    if (a == "牛")
+        return "牛肉";
+    else
+        return "我是开牛肉工厂 只加工牛肉";
+}
+void palyer(std::string name, int level) //后面接着写,没写完才会报错
+{
+}
 int main()
 {
     system("chcp 65001");
