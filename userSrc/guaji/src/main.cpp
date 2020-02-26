@@ -8,6 +8,18 @@ void player(std::string Name, std::string job, int Level, int life, int Attack, 
     std::cout << "攻击力:" << Attack * Level << std::endl;
     std::cout << "防御力:" << Defense * Level << std::endl;
 }
+void swap(std::string *a, std::string *b)
+{
+    std::string temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void swap1(std::string *a, std::string *b)
+{
+    std::string **temp = &a;
+    a = b;
+    b = *temp;
+}
 void jh(int *a, int *b)
 {
     if (*a < *b)
@@ -20,12 +32,17 @@ void jh(int *a, int *b)
 int main()
 {
     system("chcp 65001");
-    int a, b;
-    std::cout << "请输入要交换的数字:" << std::endl;
-    std::cin >> a >> b;
-    std::cout << "交换前:a=" << a << "\tb=" << b << std::endl;
-    jh(&a, &b);
-    std::cout << "交换后:a=" << a << "\tb=" << b << std::endl;
+    std::string class1 = "1234";
+    std::string class2 = "5678";
+    std::cout << "交换前:class1=" << class1 << "\tclass2=" << class2 << std::endl;
+    swap1(&class1, &class2);
+    std::cout << "交换后:class1=" << class1 << "\tclass2=" << class2 << std::endl;
+    //int a, b;
+    //std::cout << "请输入要交换的数字:" << std::endl;
+    //std::cin >> a >> b;
+    //std::cout << "交换前:a=" << a << "\tb=" << b << std::endl;
+    //jh(&a, &b);
+    //std::cout << "交换后:a=" << a << "\tb=" << b << std::endl;
     //player("吕布", "战士", 15, 1000, 200, 150);
     return 0;
 }
