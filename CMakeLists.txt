@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_options(-Wno-unused-variable -Wno-unused-function)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 #是谁就改成谁
-set(name "sheep")
+set(name "chenlaoshi")
 #头文件路径
 INCLUDE_DIRECTORIES("./include/")
 #枚举头文件

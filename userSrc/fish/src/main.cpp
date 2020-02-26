@@ -1,34 +1,22 @@
 #include <iostream>
-int jiafa(int a, int b)
+int jiaohuan(int *a, int *b)
 {
-    std::cin >> a;
-    std::cin >> b;
-    std::cout << a + b << std::endl;
-    return a + b;
-}
-double xiaoshujiafa(double c, double d)
-{
-    std::cin >> c;
-    std::cin >> d;
-    std::cout << c + d << std::endl;
-    return c + d;
-}
-std::string zifu(std::string e)
-{
-    if (e == "鱼")
+    if (*a < *b)
     {
-        std::cout << "我是鱼" << std::endl;
+        int lingshi = *a;
+        *b = *a;
+        lingshi = *b;
     }
-    else
-    {
-        std::cout << "鱼是我" << std::endl;
-    }
-    return e;
+    return 0;
 }
 int main()
 {
     system("chcp 65001");
-    std::cout << jiafa(1, 2) << std::endl;
-    std::cout << xiaoshujiafa(1.1, 1.2) << std::endl;
-    std::cout << zifu("鱼") << std::endl;
+    int x, y;
+    std::cin >> x;
+    std::cout << std::endl;
+    std::cin >> y;
+    jiaohuan(&x, &y);
+    x += 100;
+    std::cout << "x开挂后:" << x << "y制裁后:" << y << std::endl;
 }

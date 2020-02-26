@@ -1,50 +1,103 @@
 #include <iostream>
-void jiaohuan(int *a, int *b, int *c, int *d, int *e, int *f)
+#include <windows.h>
+void jiao(int **a, int **b)
 {
-    if (*a < *b)
-    {
-        int lingshi = *a;
-        *a = *b;
-        *b = lingshi;
-    }
-    if (*a < *c)
-    {
-        int lingshi = *a;
-        *a = *c;
-        *c = lingshi;
-    }
-    if (*a < *d)
-    {
-        int lingshi = *a;
-        *a = *d;
-        *d = lingshi;
-    }
-    if (*a < *e)
-    {
-        int lingshi = *a;
-        *a = *e;
-        *e = lingshi;
-    }
-    if (*a < *f)
-    {
-        int lingshi = *a;
-        *a = *f;
-        *f = lingshi;
-    }
+    int *temp = *a;
+    *a = *b;
+    *b = temp;
 }
 int main()
 {
-    system("chcp 65001");
-    system("cls");
-    int a = 10, b = 50, c = 100, d = 500, e = 1000, f = 5000;
-    jiaohuan(&a, &b, &c, &d, &e, &f);
-    std::cout << "a的攻击力:" << a << std::endl;
-    std::cout << "b的攻击力:" << b << std::endl;
-    std::cout << "c的攻击力:" << c << std::endl;
-    std::cout << "d的攻击力:" << d << std::endl;
-    std::cout << "e的攻击力:" << e << std::endl;
-    std::cout << "f的攻击力:" << f << std::endl;
+    double *a = new double(12.34);
+    std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a
+              << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a
+              << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
+    delete a;
+    a = nullptr;
+    std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a
+              << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a
+              << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
+    while (1)
+    {
+        double *a = new double(235.56);
+        std::cout << "不要点" << std::endl;
+        Sleep(10);
+    }
 }
+// void jiaohuan(int *a, int *b, int *c, int *d, int *e, int *f)
+// {
+//     if (*a < *b)
+//     {
+//         int lingshi = *a;
+//         *a = *b;
+//         *b = lingshi;
+//     }
+//     if (*a < *c)
+//     {
+//         int lingshi = *a;
+//         *a = *c;
+//         *c = lingshi;
+//     }
+//     if (*a < *d)
+//     {
+//         int lingshi = *a;
+//         *a = *d;
+//         *d = lingshi;
+//     }
+//     if (*a < *e)
+//     {
+//         int lingshi = *a;
+//         *a = *e;
+//         *e = lingshi;
+//     }
+//     if (*a < *f)
+//     {
+//         int lingshi = *a;
+//         *a = *f;
+//         *f = lingshi;
+//     }
+// }
+// int main()
+// {
+//     system("chcp 65001");
+//     system("cls");
+//     int a = 10, b = 50, c = 100, d = 500, e = 1000, f = 5000;
+//     jiaohuan(&a, &b, &c, &d, &e, &f);
+// std::cout << "a的攻击力:" << a << std::endl;
+// std::cout << "b的攻击力:" << b << std::endl;
+// std::cout << "c的攻击力:" << c << std::endl;
+// std::cout << "d的攻击力:" << d << std::endl;
+// std::cout << "e的攻击力:" << e << std::endl;
+// std::cout << "f的攻击力:" << f << std::endl;
+// }
+
+// //实际把教室里东西搬了一次 效率很低 很慢
+// void swap(std::string *a, std::string *b)
+// {
+//     std::string temp = *a; //搬到走廊
+//     *a = *b;               //B把东西搬进A;
+//     *b = temp;
+// }
+//     double aa = 3.15;
+//     std::string class1 = "阿斯顿";
+//     std::string class2 = "asdasd";
+//     std::string *ptr_1 = &class1;
+//     std::string *ptr_2 = &class2;
+//     std::string **ptrptr_1 = &ptr_1;
+//     std::string **ptrptr_2 = &ptr_2;
+//     std::cout << "class1的值" << class1 << " class1的地址" << &class1 << std::endl;
+//     std::cout << "ptr_1指向的值" << *ptr_1 << " ptr_1指向的地址" << ptr_1 << " ptr_1自己的地址:" << &ptr_1 << std::endl;
+//     std::cout << "ptrptr_1指向的值" << **ptrptr_1 << " ptrptr_1指向的地址" << *ptrptr_1 << " ptrptr_1指向的指针的地址" << ptrptr_1 << " ptrptr_1自己的地址:" << &ptrptr_1 << std::endl;
+//     std::cout << "交换前class地址:" << &class1 << " " << &class2 << std::endl;
+//     std::cout << "交换前ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
+//     std::string **temp = ptrptr_1;
+//     ptrptr_1 = ptrptr_2;
+//     ptrptr_2 = temp;
+//     std::cout << "交换后class地址" << &class1 << " " << &class2 << std::endl;
+//     std::cout << "交换后ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
+// swap(&class1, &class2);
+// std::cout << "class1:" << class1 << " class2:" << class2 << std::endl;
+
 //     int x = 2874;
 //     int y;
 //     std::cout << "猜数字游戏" << std::endl;
