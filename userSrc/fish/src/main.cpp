@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 int jiaohuan(int *a, int *b)
 {
     if (*a < *b)
@@ -12,11 +13,9 @@ int jiaohuan(int *a, int *b)
 int main()
 {
     system("chcp 65001");
-    int x, y;
-    std::cin >> x;
-    std::cout << std::endl;
-    std::cin >> y;
-    jiaohuan(&x, &y);
-    x += 100;
-    std::cout << "x开挂后:" << x << "y制裁后:" << y << std::endl;
+    while (1 < 100)
+    {
+        std::string *a = new std::string("hh");
+        Sleep(10);
+    }
 }

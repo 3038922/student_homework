@@ -1,15 +1,58 @@
 #include <iostream>
-
 int main(int argc, char *argv[])
 {
-    std::string *a = new std::string("aaa");
-    std::cout << "原来地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a << std::endl;
-    std::cout << "指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
-    std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
-    delete a;
-    a = nullptr;
-    std::cout << "删除后:" << std::endl;
-    std::cout << "原来地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a << std::endl;
-    std::cout << "指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
-    std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
+    int z[10] = {1, 2, 5, 6, 5, 6, 3, 2, 1, 4};
+    int i, k;
+    for (k = 1; k < 11; k++)
+    {
+        for (i = 0; i < k; i++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+
+    for (k = 1; k < 11; k++)
+    {
+        for (i = 0; i < (11 - k) / 2; i++)
+        {
+            printf("  ");
+        }
+        if (k % 2 == 0)
+            printf(" ");
+        for (i = 0; i < k; i++)
+        {
+            printf("* ");
+        }
+        for (i = 0; i < (11 - k) / 2; i++)
+        {
+            printf("  ");
+        }
+        printf("\n");
+    }
+
+    for (k = 1; k < 11; k++)
+    {
+
+        for (i = 0; i < (11 - k) / 2; i++)
+        {
+            printf("    ");
+        }
+        if (k % 2 == 0)
+            printf("  ");
+
+        printf("* ");
+
+        for (i = 0; i < k - 1; i++)
+        {
+            printf("* * ");
+        }
+        for (i = 0; i < (11 - k) / 2; i++)
+        {
+            printf("    ");
+        }
+        printf("\n");
+    }
+
+    return 0;
 }
