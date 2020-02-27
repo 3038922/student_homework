@@ -43,7 +43,7 @@
 
 void 作业1()
 {
-    //上半段
+
     for (int i = 0; i < 8; i++)
     {
         for (int j = 0; j < 8 - i; j++)
@@ -97,7 +97,7 @@ void 作业3()
         printf("\n");
     }
 }
-int main()
+int main() //之前写这个第一个括号总会报错,只能重新复制一个
 {
 
     // scanf("%d", &N);
