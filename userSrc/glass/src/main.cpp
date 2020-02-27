@@ -1,5 +1,6 @@
 #include <iostream>
 #include <time.h>
+#include <windows.h>
 int main()
 {
     std::system("chcp 65001");
@@ -179,4 +180,37 @@ int main()
     //     std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a << std::endl;
     //     std::cout << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
     //     std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
+}
+{
+    std::string *a = new std::string("aaa");
+    std::string *b = new std::string("bbb");
+    int *c = new int(111);
+    int *d = new int(222);
+    std::cout << "string类型交换: " << std::endl;
+    std::cout << *a << "\t" << *b << std::endl;
+    jiaohuan(&a, &b);
+    std::cout << *a << "\t" << *b << std::endl;
+    std::cout << "int类型交换: " << std::endl;
+    std::cout << *c << "\t" << *d << std::endl;
+    jiaohuan(&c, &d);
+    std::cout << *c << "\t" << *d << std::endl;
+    delete a;
+    a = nullptr;
+    delete a;
+    b = nullptr;
+    delete b;
+    c = nullptr;
+    delete d;
+    d = nullptr;
+    std::string array[2] = {"xuanxuan", "bobo"};
+    std::cout << "array[0]的值: " << *array << "\t"
+              << "array[1]的值: " << *(array + 1) << std::endl;
+    std::cout << "array[0]的地址: " << array << "\t"
+              << "array[1]的地址: " << array + 1 << std::endl;
+    cout_zhengfangxing();
+    std::cout << std::endl;
+    cout_sanjiaoxing_zhijiao();
+    std::cout << std::endl;
+    cout_sanjiaoxing_dengbian();
+    return 0;
 }
