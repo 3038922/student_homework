@@ -1,5 +1,47 @@
 #include <iostream>
 #include <windows.h>
+void 树()
+{
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8 - i; j++)
+        {
+            std::cout << " ";
+        }
+
+        for (int j = 0; j < 2 * i + 1; j++)
+        {
+            std::cout << "*";
+        }
+        std::cout << "\n";
+    }
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8 - i; j++)
+        {
+            std::cout << " ";
+        }
+
+        for (int j = 0; j < 2 * i + 1; j++)
+        {
+            std::cout << "*";
+        }
+        std::cout << "\n";
+    }
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 7; j++)
+        {
+            std::cout << " ";
+        }
+        for (int j = 0; j < 3; j++)
+        {
+            std::cout << "*";
+        }
+        std::cout << "\n";
+    }
+}
+
 void 菱形()
 {
     //上半段
@@ -7,27 +49,27 @@ void 菱形()
     {
         for (int j = 0; j < 8 - i; j++)
         {
-            printf(" ");
+            std::cout << " ";
         }
 
         for (int j = 0; j < 2 * i + 1; j++)
         {
-            printf("*");
+            std::cout << "*";
         }
-        printf("\n");
+        std::cout << "\n";
     }
     //下半段
     for (int i = 8 - 2; i >= 0; i--)
     {
         for (int j = 0; j < (8 - i); j++)
         {
-            printf(" ");
+            std::cout << " ";
         }
         for (int j = 0; j < 2 * i + 1; j++)
         {
-            printf("*");
+            std::cout << "*";
         }
-        printf("\n");
+        std::cout << "\n";
     }
 }
 void 直角三角()
@@ -36,9 +78,9 @@ void 直角三角()
     {
         for (int j = 1; j < i; j++)
         {
-            printf("*");
+            std::cout << "*";
         }
-        printf("\n");
+        std::cout << "\n";
     }
 }
 void 等腰三角()
@@ -47,14 +89,14 @@ void 等腰三角()
     {
         for (int j = 0; j < 8 - i; j++)
         {
-            printf(" ");
+            std::cout << " ";
         }
 
         for (int j = 0; j < 2 * i + 1; j++)
         {
-            printf("*");
+            std::cout << "*";
         }
-        printf("\n");
+        std::cout << "\n";
     }
 }
 void player(std::string Name, std::string job, int Level, int life, int Attack, int Defense)
@@ -93,8 +135,6 @@ int main()
     直角三角();
     std::cout << "\n";
     等腰三角();
-    std::cout << "\n";
-    菱形();
     /*
     std::string *a = new std::string("abcd");
     std::string *b = new std::string("dcba");
