@@ -34,6 +34,32 @@
 #include <iostream>
 #include <windows.h>
 using namespace std;
+void dbsjx(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            cout << " ";
+        }
+        for (int k = 0; k < 2 * i + 1; k++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+void zjsjx(int c)
+{
+    for (int i = 0; i < c; i++)
+    {
+        for (int k = 0; k < 2 * i + 1; k++)
+        {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
 int jf(int a, int b)
 {
     return a + b;
@@ -74,35 +100,22 @@ void play(string name, string zhuangbei, string zhiye, string jn1, string jn2, s
 }
 int main()
 {
-    int a = 1000;
-    int b = 2000;
-    system("chcp 65001");
-    system("cls");
-    play("蔡徐坤", "篮球", "射手", "篮球投射", "鸡你太美", "篮球乱射", 6666, 6666, 6666, 6666, 6666);
-    std::cout << std::endl;
-    play("古天乐", "麻痹戒指", "战士", "爆装备", "元宝回收", "元宝换钱", 999, 999, 999, 999, 999);
-    cout << jf(1, 6) << endl;
-    cout << xsjf(3.14, 6.28) << endl;
-    cout << lsgc("老鼠") << endl;
-    jh(&a, &b);
-    cout << "交换后的值是" << a << "     " << b;
-    std::string class1 = "阿斯顿";
-    std::string class2 = "asdasd";
-    std::string *ptr_1 = &class1;
-    std::string *ptr_2 = &class2;
-    std::string **ptrptr_1 = &ptr_1;
-    std::string **ptrptr_2 = &ptr_2;
-    std::cout << "class1的值" << class1 << " class1的地址" << &class1 << std::endl;
-    std::cout << "ptr_1指向的值" << *ptr_1 << " ptr_1指向的地址" << ptr_1 << " ptr_1自己的地址:" << &ptr_1 << std::endl;
-    std::cout << "ptrptr_1指向的值" << **ptrptr_1 << " ptrptr_1指向的地址" << *ptrptr_1 << " ptrptr_1指向的指针的地址" << ptrptr_1 << " ptrptr_1自己的地址:" << &ptrptr_1 << std::endl;
-    std::cout << "交换前class地址:" << &class1 << " " << &class2 << std::endl;
-    std::cout << "交换前ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
-    std::string **temp = ptrptr_1;
-    ptrptr_1 = ptrptr_2;
-    ptrptr_2 = temp;
-    std::cout << "交换后class地址" << &class1 << " " << &class2 << std::endl;
-    std::cout << "交换后ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
-    std::cout << "交换后ptr的值:" << *ptr_1 << " " << *ptr_2 << std::endl;
+    // int a = 1000;
+    // int b = 2000;
+    // system("chcp 65001");
+    // system("cls");
+    // play("蔡徐坤", "篮球", "射手", "篮球投射", "鸡你太美", "篮球乱射", 6666, 6666, 6666, 6666, 6666);
+    // std::cout << std::endl;
+    // play("古天乐", "麻痹戒指", "战士", "爆装备", "元宝回收", "元宝换钱", 999, 999, 999, 999, 999);
+    // cout << jf(1, 6) << endl;
+    // cout << xsjf(3.14, 6.28) << endl;
+    // cout << lsgc("老鼠") << endl;
+    // jh(&a, &b);
+    // cout << "交换后的值是" << a << "     " << b;
+    // zjsjx(5);
+    dbsjx(5);
+    cout << endl;
+    zjsjx(5);
     return 0;
     // while (0)
     // {
