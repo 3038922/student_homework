@@ -1,29 +1,78 @@
 #include <iostream>
 #include <windows.h>
-void jiao(int **a, int **b)
-{
-    int *temp = *a;
-    *a = *b;
-    *b = temp;
-}
 int main()
 {
-    double *a = new double(12.34);
-    std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a
-              << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a
-              << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
-    delete a;
-    a = nullptr;
-    std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a
-              << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a
-              << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
-    while (1)
+    system("chcp 65001");
+    system("cls");
+    // 打印正方形
+    std::cout << "打印正方形:" << std::endl;
+    int a, b;
+    for (a = 0; a < 11; a++)
     {
-        double *a = new double(235.56);
-        std::cout << "不要点" << std::endl;
-        Sleep(10);
+        for (b = 0; b < 11; b++)
+            std::cout << " * ";
+        std::cout << std::endl;
     }
+    // 打印直角三角形
+    std::cout << "打印直角三角形:" << std::endl;
+    int z = 1;
+    int c, d;
+    for (c = 0; c < 11; c++)
+    {
+        if (z < 11)
+        {
+            for (d = 0; d < z; d++)
+                std::cout << " * ";
+            std::cout << std::endl;
+            z++;
+        }
+    }
+    // // 打印等腰三角形
+    // std::cout << "打印等腰三角形:" << std::endl;
+    // int y = 1;
+    // int e, f, g;
+    // for (e = 0; e < y; e++)
+    // {
+    //     if (g > 0)
+    //     {
+    //         for (g = 5; g < 6; g--)
+    //             std::cout << " ";
+    //     }
+    // if (y < 11)
+    // {
+    //     for (f = 0; f < y; f++)
+    //         std::cout << " * ";
+    //     std::cout << std::endl;
+    //     y++;
+    // }
+    // }
+    return 0;
 }
+// void jiao(int **a, int **b)
+// {
+//     int *temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// int main()
+// {
+//     double *a = new double(12.34);
+//     std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a
+//               << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a
+//               << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
+//     delete a;
+//     a = nullptr;
+//     std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a
+//               << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a
+//               << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
+//     while (1)
+//     {
+//         double *a = new double(235.56);
+//         std::cout << "不要点" << std::endl;
+//         Sleep(10);
+//     }
+// }
+
 // void jiaohuan(int *a, int *b, int *c, int *d, int *e, int *f)
 // {
 //     if (*a < *b)
