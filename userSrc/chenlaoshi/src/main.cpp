@@ -1,44 +1,42 @@
 #include "../include/userAPI.hpp"
 #include <iostream>
 #include <windows.h>
-void asdf(int **a, int **b)
+class hero
 {
-    int *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-void asdf(std::string **a, std::string **b)
-{
-    std::string *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-int _jiafa(int a, int b)
-{
-    return a + b;
-}
-double _jiafa(double a, double b)
-{
-    return a + b;
-}
-void coutZhengfangxing()
-{
-    for (int a = 0; a < 10; a++)
+  public:
+    hero(std::string name, std::string sex, int hp, int mp, int gongjili) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili)
     {
-        for (int b = 0; b < 10; b++)
-        {
-            std::cout << " □ ";
-        }
-        std::cout << std::endl;
+        std::cout << name << " 初始化成功" << std::endl;
     }
-}
-void coutZhiJiaoSanJiaoXing()
-{
-}
+    void showHp()
+    {
+        std::cout << _name << "当前血量" << _hp << std::endl;
+    }
+    void showMp()
+    {
+        std::cout << _name << "当前蓝量" << _mp << std::endl;
+    }
+
+  private:
+    const std::string _name;
+    const std::string _sex;
+    int _hp = 0;
+    int _mp = 0;
+    int _gongjili = 0;
+    int _fangyuli = 0;
+};
 int main(int argc, char *argv[])
 {
-    coutZhengfangxing();
-
+    int a;
+    double b;
+    std::string c;
+    hero d("孙悟空", "男", 100, 10, 100);
+    hero e("貂蝉", "女", 10, 100, 100);
+    d.showHp();
+    d.showMp();
+    e.showMp();
+    e.showHp();
+    d.showHp();
     // double array[2] = {2.22, 12.2};
     // std::cout << array[0] << " " << array[1] << std::endl;
     // std::cout << "array[0]的地址:" << *array << " array[1]的地址:" << *(array + 1) << std::endl;
