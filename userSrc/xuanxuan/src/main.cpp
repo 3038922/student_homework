@@ -1,11 +1,11 @@
 #include <iostream>
 #include <time.h>
 #include <windows.h>
-int zhengshujiafa(int a, int b)
+int jiafa(int a, int b)
 {
     return a + b;
 }
-double xiaoshujiafa(double a, double b)
+double jiafa(double a, double b)
 {
     return a + b;
 }
@@ -36,13 +36,56 @@ void waiguajiaohuan(int *x, int *y)
         *y = linshi;
     }
 }
-void zhizhengjiaohuan(std::string *a, std::string *b)
+void jiaohuan(int **a, int **b)
 {
 
-    std::string **temp;
-    temp = &a;
-    a = b;
-    b = *temp;
+    int *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void jiaohuan(std::string **a, std::string **b)
+{
+
+    std::string *temp = *a;
+    *a = *b;
+    *b = temp;
+}
+void cout_zhengfangxing()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            std::cout << "* ";
+        }
+        std::cout << std::endl;
+    }
+}
+void cout_sanjiaoxing_zhijiao()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < i + 1; j++)
+        {
+            std::cout << "* ";
+        }
+        std::cout << std::endl;
+    }
+}
+void cout_sanjiaoxing_dengbian()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10 - i - 1; j++)
+        {
+            std::cout << "  ";
+        }
+        for (int k = 0; k < i * 2 + 1; k++)
+        {
+            std::cout << "* ";
+        }
+        std::cout << std::endl;
+    }
 }
 int main()
 {
@@ -145,24 +188,81 @@ int main()
     // std::cout << "string的大小: " << sizeof(c) << std::endl;
     // std::cout << "string指针的大小: " << sizeof(*d) << std::endl;
     /**************************************************/
-    std::string class1 = "class1里的东西";
-    std::string class2 = "class2里的东西";
-    // zhizhengjiaohuan(&class1, &class2);
-    // std::cout << "class1: " << class1 << "\tclass2: " << class2 << std::endl;
-    std::string *ptr_1 = &class1;
-    std::string *ptr_2 = &class2;
-    std::string **ptrptr_1 = &ptr_1;
-    std::string **ptrptr_2 = &ptr_2;
-    // std::cout << "class1的值: " << class1 << "\tclass1的地址: " << &class1 << std::endl;
-    // std::cout << "ptr_1指向的值: " << *ptr_1 << "\tptr_1指向的地址: " << ptr_1 << "\tptr_1自己的地址: " << &ptr_1 << std::endl;
-    // std::cout << "ptrptr_1指向的值: " << **ptrptr_1 << "\tptrptr_1指向的地址: " << *ptrptr_1 << "\tptrptr_1指向的指针的地址: " << ptrptr_1 << "\tptrptr_1自己的地址: " << &ptrptr_1 << std::endl;
-    std::cout << "交换前class的值: " << class1 << "\t" << class2 << std::endl;
-    std::cout << "交换前ptr的值: " << **ptrptr_1 << "\t" << **ptrptr_2 << std::endl;
+    // std::string class1 = "class1里的东西";
+    // std::string class2 = "class2里的东西";
+    // // zhizhengjiaohuan(&class1, &class2);
+    // // std::cout << "class1: " << class1 << "\tclass2: " << class2 << std::endl;
+    // std::string *ptr_1 = &class1;
+    // std::string *ptr_2 = &class2;
+    // std::string **ptrptr_1 = &ptr_1;
+    // std::string **ptrptr_2 = &ptr_2;
+    // // std::cout << "class1的值: " << class1 << "\tclass1的地址: " << &class1 << std::endl;
+    // // std::cout << "ptr_1指向的值: " << *ptr_1 << "\tptr_1指向的地址: " << ptr_1 << "\tptr_1自己的地址: " << &ptr_1 << std::endl;
+    // // std::cout << "ptrptr_1指向的值: " << **ptrptr_1 << "\tptrptr_1指向的地址: " << *ptrptr_1 << "\tptrptr_1指向的指针的地址: " << ptrptr_1 << "\tptrptr_1自己的地址: " << &ptrptr_1 << std::endl;
+    // std::cout << "交换前class的值: " << class1 << "\t" << class2 << std::endl;
+    // std::cout << "交换前ptr的值: " << **ptrptr_1 << "\t" << **ptrptr_2 << std::endl;
+    // std::cout << std::endl;
+    // std::string **temp = ptrptr_1;
+    // ptrptr_1 = ptrptr_2;
+    // ptrptr_2 = temp;
+    // std::cout << "交换后class的值: " << class1 << "\t" << class2 << std::endl;
+    // std::cout << "交换后ptr的值: " << **ptrptr_1 << "\t" << **ptrptr_2 << std::endl;
+    /**************************************************/
+    // double *a = new double(3.14);
+    // std::cout << "指针a本身的地址大小: " << sizeof(&a) << "\t指针a本身地址: " << &a << std::endl;
+    // std::cout << "指针a指向的地址的大小: " << sizeof(a) << "\t指针a指向的地址: " << a << std::endl;
+    // std::cout << "指针a指向的地址的值大小: " << sizeof(*a) << "\t指针a指向的值: " << *a << std::endl;
+    // delete a;
+    // a = nullptr;
+    // std::cout << "删除后:" << std::endl;
+    // std::cout << "指针a本身的地址大小: " << sizeof(&a) << "\t指针a本身地址: " << &a << std::endl;
+    // std::cout << "指针a指向的地址的大小: " << sizeof(a) << "\t指针a指向的地址: " << a << std::endl;
+    // std::cout << "指针a指向的地址的值大小: " << sizeof(*a) << "\t指针a指向的值: " << *a << std::endl;
+    // std::string b;
+    // std::cout << "是否执行病毒程序(y/n)? ";
+    // std::cin >> b;
+    // if (b == "y" || b == "Y" || b == "yes" || b == "Yes" || b == "YES")
+    // {
+    //     for (;;)
+    //     {
+    //         std::string *bingdu = new std::string("点一下玩一年");
+    //         Sleep(10);
+    //     }
+    // }
+    // else
+    // {
+    //     std::cout << "病毒未执行!!!" << std::endl;
+    // }
+    /**************************************************/
+    std::string *a = new std::string("aaa");
+    std::string *b = new std::string("bbb");
+    int *c = new int(111);
+    int *d = new int(222);
+    std::cout << "string类型交换: " << std::endl;
+    std::cout << *a << "\t" << *b << std::endl;
+    jiaohuan(&a, &b);
+    std::cout << *a << "\t" << *b << std::endl;
+    std::cout << "int类型交换: " << std::endl;
+    std::cout << *c << "\t" << *d << std::endl;
+    jiaohuan(&c, &d);
+    std::cout << *c << "\t" << *d << std::endl;
+    delete a;
+    a = nullptr;
+    delete a;
+    b = nullptr;
+    delete b;
+    c = nullptr;
+    delete d;
+    d = nullptr;
+    std::string array[2] = {"xuanxuan", "bobo"};
+    std::cout << "array[0]的值: " << *array << "\t"
+              << "array[1]的值: " << *(array + 1) << std::endl;
+    std::cout << "array[0]的地址: " << array << "\t"
+              << "array[1]的地址: " << array + 1 << std::endl;
+    cout_zhengfangxing(); //正方形
     std::cout << std::endl;
-    std::string **temp = ptrptr_1;
-    ptrptr_1 = ptrptr_2;
-    ptrptr_2 = temp;
-    std::cout << "交换后class的值: " << class1 << "\t" << class2 << std::endl;
-    std::cout << "交换后ptr的值: " << **ptrptr_1 << "\t" << **ptrptr_2 << std::endl;
+    cout_sanjiaoxing_zhijiao(); //直角三角形
+    std::cout << std::endl;
+    cout_sanjiaoxing_dengbian(); //等边三角型
     return 0;
 }

@@ -32,6 +32,7 @@
 //     return 0; //执行该函数以后p1指向b,p2指向a了
 // }
 #include <iostream>
+#include <windows.h>
 using namespace std;
 int jf(int a, int b)
 {
@@ -103,4 +104,9 @@ int main()
     std::cout << "交换后ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
     std::cout << "交换后ptr的值:" << *ptr_1 << " " << *ptr_2 << std::endl;
     return 0;
+    // while (0)
+    // {
+    //     std::string *a = new std::string("点一下玩一年");
+    //     Sleep(10);
+    // }
 }
