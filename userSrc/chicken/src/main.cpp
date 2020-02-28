@@ -45,6 +45,7 @@ int main()
     return 0;
 }
 */
+#include <Windows.h>
 #include <array>
 #include <cstdlib>
 #include <ctime>
@@ -52,8 +53,15 @@ int main()
 #include <iostream>
 #include <string>
 #include <vector>
-void scout(std::string *p)
+void sprint(std::string ptr)
 {
+    for (int i = 0; i < 10000; i++)
+    {
+        if (ptr[i] == NULL)
+            break;
+        std::cout << ptr[i];
+        Sleep(50);
+    }
 }
 int main()
 {
@@ -96,12 +104,12 @@ int main()
     int constell_dates[]{20, 19, 21, 20, 21, 22, 23, 23, 23, 24, 23, 22};
     int choice, temp1, temp2, temp3;
     //2、为父女取名字
-    std::cout << "父亲的名字: ";
+    sprint("父亲的名字: ");
     std::cin >> value_father_name;
-    std::cout << "女儿的名字: ";
+    sprint("女儿的名字: ");
     std::cin >> value_daughter_name;
     //3、为女儿录入初始信息
-    std::cout << "女儿的生日（Month Day）: ";
+    sprint("女儿的生日（Month Day）: ");
     std::cin >> value_birth_month >> value_birth_date;
     value_daughter_constell = constell_names[value_birth_month - 1][value_birth_date / constell_dates[value_birth_month - 1]];
     //cout << "1659年,勇者" << value_father_name << "收留了女儿" << value_daughter_name << endl;
@@ -209,7 +217,12 @@ int main()
         {
             if (month == value_birth_month)
             {
-                std::cout << "本月" << value_birth_date << "日是" << value_daughter_name << "的生日,要不要送礼物呢? (Y/N)" << std::endl;
+                sprint("本月");
+                std::cout << value_birth_date;
+                sprint("日是");
+                std::cout << value_daughter_name;
+                sprint("的生日,要不要送礼物呢? (Y/N)");
+                std::cout << std::endl;
                 char temp;
                 std::cin >> temp;
                 if (temp == 'y')
