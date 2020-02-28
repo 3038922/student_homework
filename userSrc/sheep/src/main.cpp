@@ -3,13 +3,15 @@
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
+#include <istream>
+#include <ostream>
 #include <string>
 #include <vector>
 
 const std::string ConstellNamesArray[12][2] = {
-    {"山羊座", "水瓶座"},
     {"水瓶座", "双鱼座"},
     {"双鱼座", "白羊座"},
     {"白羊座", "金牛座"},
@@ -23,20 +25,22 @@ const std::string ConstellNamesArray[12][2] = {
     {"射手座", "山羊座"},
 };
 const int ConstelldatesArray[12] = {20, 19, 21, 20, 21, 22, 23, 23, 23, 24, 23, 22};
-int _year;
+int _year = 1659;
 int _month;
-const std::string month_parts[3] = {"上旬", "中旬", "下旬"};
+
+static int num;
+const std::string _month_parts[3] = {"上旬", "中旬", "下旬"};
 int key;
 class Game
 {
   public:
-    Game(std::string DaughterName, std::string FatherName, int BirthDayMonth, int BirthDaydate)
+    Game(std::string DaughterName, std::string FatherName, int BirthDay_month, int BirthDaydate)
         : _DaughterName(DaughterName),
           _FatherName(FatherName),
-          _BirthDayMonth(BirthDayMonth),
+          _BirthDay_month(BirthDay_month),
           _BirthDaydate(BirthDaydate)
     {
-        this->_DaughterConstell = ConstellNamesArray[this->_BirthDayMonth - 1][this->_BirthDaydate / ConstelldatesArray[this->_BirthDayMonth - 1]];
+        this->_DaughterConstell = ConstellNamesArray[this->_BirthDay_month - 1][this->_BirthDaydate / ConstelldatesArray[this->_BirthDay_month - 1]];
         this->_DaughterNamesArray[0] = "体力";
         this->_DaughterNamesArray[1] = "智力";
         this->_DaughterNamesArray[2] = "魅力";
@@ -148,7 +152,7 @@ class Game
     //参数,因为主函数里可能要修改,所以存在pubilc里
     std::string _DaughterName; //女儿名字
     std::string _FatherName;
-    int _BirthDayMonth;                             //生日月份
+    int _BirthDay_month;                            //生日月份
     int _BirthDaydate;                              //生日日期
     std::array<std::string, 5> _DaughterNamesArray; //体力,智力,魅力,道德,气质
 
@@ -161,27 +165,73 @@ class Game
 int main()
 {
     srand(unsigned(time(NULL)));
+    system("chcp 65001");
     system("cls");
-    std::string FN;
-    std::string DN;
-    int DM, DD;
-    std::cout << "父亲的姓名:";
-    std::cin >> FN;
-    std::cout << "女儿的姓名:";
-    std::cin >> DN;
-    std::cout << "女儿的生日(MM DD):";
-    std::cin >> DM >> DD;
+    std::string FN = "王大锤";
+    std::string DN = "小美";
+    int DM = 1, DD = 1;
+    std::cout << "1,新的开始" << std::endl
+              << "2,旧的回忆" << std::endl
+              << "请选择:";
+
     Game *gameLib = nullptr;
     gameLib = new Game(DN, FN, DM, DD);
+    int a;
+    std::cin >> a;
+    if (a == 1)
+    {
+        std::cout << "父亲的姓名(英文,中文保存有问题):";
+        std::cin >> FN;
+        std::cout << "女儿的姓名(英文,中文保存有问题):";
+        std::cin >> DN;
+        std::cout << "女儿的生日(MM DD):";
+        std::cin >> DM >> DD;
+        delete gameLib;
+        Game *gameLib = nullptr;
+        gameLib = new Game(DN, FN, DM, DD);
+    }
+    else if (a == 2)
+    {
+        std::ifstream inFile("../cpp_study\\save\\save.txt");
+        std::string str;
+        std::string save[13];
+        if (inFile.good())
+        {
+            for (int i = 0; inFile.good(); i++)
+            {
+                getline(inFile, str);
+                save[i] = str;
+            }
+            for (int i = 0; i < 5; i++)
+                gameLib->_DaughterArray[i] = std::atoi(save[i].c_str());
+            gameLib->_BirthDay_month = std::atoi(save[5].c_str());
+            gameLib->_BirthDaydate = std::atoi(save[6].c_str());
+            gameLib->_gold = atol(save[7].c_str());
+            _year = std::atoi(save[8].c_str());
+            a = std::atoi(save[9].c_str());
+            num = std::atoi(save[10].c_str());
+            gameLib->_DaughterName = save[11];
+            gameLib->_FatherName = save[12];
+            std::cout << "读取成功" << std::endl;
+        }
+        else
+        {
+            std::cout << "读取失败,请检查文件或者路径不存在" << std::endl;
+            system("pause");
+        }
+        std::cin.get();
+        inFile.close();
+    }
+    else
+        std::cout << "选择错误,启动默认参数." << std::endl;
+    system("pause");
     gameLib->PrintInformation();
     system("cls");
-    for (int year = 1659; year <= 1659 + 7; year++)
+    for (; _year <= 1666; _year++)
     {
-        for (int month = (year == 1659) ? 6 : 1; month <= 12; month++)
+        for (_month = (_year == 1659) ? 6 : a; _month <= 12; _month++)
         {
-            _year = year;
-            _month = month;
-            if (month == gameLib->_BirthDayMonth)
+            if (_month == gameLib->_BirthDay_month)
             {
                 std::cout << "本月" << gameLib->_BirthDaydate << "日是" << gameLib->_DaughterName << "的生日要不要送礼物?" << std::endl;
                 gameLib->GivingGifts();
@@ -268,9 +318,9 @@ void Game::PrintInformation()
     system("cls");
     std::cout << "女儿的信息:" << std::endl
               << "姓名:" << this->_DaughterName << std::endl
-              << "生日:1659-" << this->_BirthDayMonth << "-" << this->_BirthDaydate << std::endl
+              << "生日:1659-" << this->_BirthDay_month << "-" << this->_BirthDaydate << std::endl
               << "星座:" << this->_DaughterConstell << std::endl
-              << "金币:" << this->_gold;
+              << "金币:" << this->_gold << std::endl;
     for (int i = 0; i < 4; i++)
     {
         std::cout << this->_DaughterNamesArray[i] << ": " << std::setw(3) << this->_DaughterArray[i] << " ";
@@ -289,15 +339,15 @@ void Game::PrintInformation()
 void Game::Display()
 {
     system("cls");
-    static int num = 0;
     if (num >= 3)
     {
         num = 0;
         return;
     }
-    std::cout << "-- " << _month << "月"
-              << " -- " << month_parts[num] << " --" << std::endl;
-    std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档(即将开放)\n5、读档(即将开放)\n6、退出" << std::endl
+    std::cout << " --" << _year << "年"
+              << " -- " << _month << "月"
+              << " -- " << _month_parts[num] << " --" << std::endl;
+    std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档(开放)\n5、读档(开放)\n6、退出" << std::endl
               << "请选择:";
     std::cin >> key;
     switch (key)
@@ -308,8 +358,10 @@ void Game::Display()
             break;
         case 2:
             system("cls");
-            std::cout << "-- " << _month << "月"
-                      << " -- " << month_parts[num] << " --" << std::endl
+
+            std::cout << " --" << _year << "年"
+                      << " -- " << _month << "月"
+                      << " -- " << _month_parts[num] << " --" << std::endl
                       << "1、学习武艺(体力+,魅力+,金钱-)\n"
                       << "2、上私塾  (智力+,道德+,金钱-)\n"
                       << "3、学习礼法(魅力+,自尊+,金钱-)\n"
@@ -318,18 +370,31 @@ void Game::Display()
                       << std::endl
                       << "请选择:";
             std::cin >> key;
+            if (key != 1 && key != 2 && key != 3 && key != 4 && key != 5)
+            {
+                std::cout << "输入错误,请重新选择" << std::endl;
+                system("pause");
+                this->Display();
+            }
             this->Itinerary(key);
             num++;
             this->Display();
             break;
         case 3:
-            std::cout << "-- " << _month << "月"
-                      << " -- " << month_parts[num] << " --" << std::endl
-                      << "1、严厉的教训"
-                      << "2、不多BB,给钱就是了(-200元)"
-                      << std::endl
+            system("cls");
+            std::cout << " --" << _year << "年"
+                      << " -- " << _month << "月"
+                      << " -- " << _month_parts[num] << " --" << std::endl
+                      << "1、严厉的教训" << std::endl
+                      << "2、不多BB,给钱就是了(-200元)" << std::endl
                       << "请选择:";
             std::cin >> key;
+            if (key != 1 && key != 2)
+            {
+                std::cout << "输入错误,请重新选择" << std::endl;
+                system("pause");
+                this->Display();
+            }
             if (key == 1)
             {
                 this->_DaughterArray[3] += 5;
@@ -339,6 +404,7 @@ void Game::Display()
             }
             else if (key == 2 && this->_gold >= 200)
             {
+                this->_gold -= 200;
                 int temp = rand() % 16 + 10;
                 for (auto &it : this->_DaughterArray)
                     it += temp;
@@ -356,24 +422,104 @@ void Game::Display()
             num++;
             this->Display();
             break;
-        case 4:
+        case 4: {
+            system("cls");
+            const char *path = "../cpp_study\\save\\save.txt"; // 你要创建文件的路径
+            std::ofstream fout(path, std::ios::trunc);
+            for (auto &it : this->_DaughterArray)
+                fout << it << std::endl;
+            fout << this->_BirthDay_month << std::endl;
+            fout << this->_BirthDaydate << std::endl;
+            fout << this->_gold << std::endl;
+            fout << _year << std::endl;
+            fout << _month << std::endl;
+            fout << num << std::endl;
+            fout << this->_DaughterName << std::endl;
+            fout << this->_FatherName << std::endl;
+            if (fout)
+                std::cout << "保存成功" << std::endl;
+            else
+                std::cout << "保存失败,请检查路径." << std::endl;
+            fout.close();
+            system("pause");
+            this->Display();
+        }
+        break;
+        case 5: {
+            system("cls");
+            std::ifstream inFile("../cpp_study\\save\\save.txt");
+            std::string str;
+            std::string save[13];
+            if (inFile.good())
+            {
+                for (int i = 0; inFile.good(); i++)
+                {
+                    getline(inFile, str);
+                    save[i] = str;
+                }
+                for (int i = 0; i < 5; i++)
+                    this->_DaughterArray[i] = std::atoi(save[i].c_str());
+                this->_BirthDay_month = std::atoi(save[5].c_str());
+                this->_BirthDaydate = std::atoi(save[6].c_str());
+                this->_gold = atol(save[7].c_str());
+                _year = std::atoi(save[8].c_str());
+                _month = std::atoi(save[9].c_str());
+                num = std::atoi(save[10].c_str());
+                this->_DaughterName = save[11];
+                this->_FatherName = save[12];
+                std::cout << "读取成功" << std::endl;
+                system("pause");
+                this->PrintInformation();
+            }
+            else
+            {
+                std::cout << "读取失败,请检查文件或者路径不存在" << std::endl;
+                system("pause");
+            }
+            std::cin.get();
+            inFile.close();
             this->Display();
             break;
-        case 5:
-            this->Display();
-            break;
+        }
         case 6:
-            std::cout << std::endl
-                      << "感谢游玩" << std::endl;
+            std::cout << "感谢游玩" << std::endl;
             this->_State = true;
             break;
         default:
+            std::cout << "输入错误,请重新选择" << std::endl;
+            system("pause");
             this->Display();
             break;
     }
 }
 void Game::GivingGifts()
 {
+    std::cout << "要给女儿礼物吗?" << std::endl
+              << "1,给(-100元)" << std::endl
+              << "2,不给" << std::endl
+              << "请选择:";
+    int key;
+    std::cin >> key;
+    if (key == 1)
+    {
+        this->_gold -= 100;
+        int temp = rand() % 21 + 5;
+        for (auto &it : this->_DaughterArray)
+            it += temp;
+        std::cout << "女儿开心极了,拿着这笔钱去买礼物." << std::endl
+                  << "女儿全属性+" << temp << std::endl;
+    }
+    else if (key == 0)
+        std::cout << std::endl
+                  << "什么都没发生." << std::endl;
+    else
+    {
+        std::cout << "输入错误,请重新选择." << std::endl;
+        system("pause");
+        system("cls");
+        this->GivingGifts();
+    }
+    system("pause");
 }
 void Game::Itinerary(int key)
 {
