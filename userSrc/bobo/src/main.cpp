@@ -131,54 +131,84 @@
 //               << job << "技能二" << skill2 << std::endl
 //               << job << "技能三" << skill3 << std::endl;
 //}
-class hero
+class Marmot //我表示我外号是土拨鼠...
 {
   public:
-    hero(std::string name, std::string sex, int hp, int mp, int gongjili, int fangyuli) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili), _fangyuli(fangyuli)
+    Marmot(std::string a, std::string b) : _name(a), _sex(b)
     {
-        std::cout << name << " 初始化成功" << std::endl;
+        std::cout << "Marmot类 创建成功!" << std::endl;
     }
-    void showHp()
+    ~Marmot()
     {
-        std::cout << _name << "当前血量" << _hp << std::endl;
+        std::cout << "Marmot类 删除成功!" << std::endl;
     }
-    void showMp()
+    void showsex()
     {
-        std::cout << _name << "当前蓝量" << _mp << std::endl;
+        std::cout << _name << " 是 " << _sex << std::endl;
     }
-    void attack(hero *hero)
+    void showName()
     {
-        int DamageCaused = _gongjili / (1 + hero->_fangyuli * 0.09);
-        std::cout << _name << " 攻击了 " << hero->_name << std::endl;
-        std::cout << "造成了 " << DamageCaused << " 点伤害" << std::endl;
-        hero->_hp -= DamageCaused;
-        Counterattack(hero);
-    }
-    void Counterattack(hero *hero)
-    {
-        int DamageCaused = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
-        std::cout << hero->_name << " 反击了 " << _name << std::endl;
-        std::cout << "造成了 " << DamageCaused << " 点伤害" << std::endl;
-        _hp -= DamageCaused;
-    }
-
-    int hp()
-    {
-        return _hp;
+        std::cout << "我叫: " << _name << std::endl;
     }
 
   private:
-    const std::string _name;
-    const std::string _sex;
-    int _hp = 0;
-    int _mp = 0;
-    int _gongjili = 0;
-    int _fangyuli = 0;
+    std::string _name, _sex;
 };
+
+// class hero
+// {
+//   public:
+//     hero(std::string name, std::string sex, int hp, int mp, int gongjili, int fangyuli) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili), _fangyuli(fangyuli)
+//     {
+//         std::cout << name << " 初始化成功" << std::endl;
+//     }
+//     void showHp()
+//     {
+//         std::cout << _name << "当前血量" << _hp << std::endl;
+//     }
+//     void showMp()
+//     {
+//         std::cout << _name << "当前蓝量" << _mp << std::endl;
+//     }
+//     void attack(hero *hero)
+//     {
+//         int DamageCaused = _gongjili / (1 + hero->_fangyuli * 0.09);
+//         std::cout << _name << " 攻击了 " << hero->_name << std::endl;
+//         std::cout << "造成了 " << DamageCaused << " 点伤害" << std::endl;
+//         hero->_hp -= DamageCaused;
+//         Counterattack(hero);
+//     }
+//     void Counterattack(hero *hero)
+//     {
+//         int DamageCaused = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
+//         std::cout << hero->_name << " 反击了 " << _name << std::endl;
+//         std::cout << "造成了 " << DamageCaused << " 点伤害" << std::endl;
+//         _hp -= DamageCaused;
+//     }
+
+//     int hp()
+//     {
+//         return _hp;
+//     }
+
+//   private:
+//     const std::string _name;
+//     const std::string _sex;
+//     int _hp = 0;
+//     int _mp = 0;
+//     int _gongjili = 0;
+//     int _fangyuli = 0;
+// };
 int main()
 {
     system("chcp 65001");
     system("cls");
+    Marmot awa("土拨鼠", "女的");
+    Marmot qwq("波拨鼠", "男的"); //波拨鼠是我
+    awa.showName();
+    qwq.showName();
+    awa.showsex();
+    qwq.showsex();
     // int i;
     // int count = 5;
     // char emperorName[50];
@@ -218,18 +248,18 @@ int main()
     //     default:
     //         std::cout << "君无戏言,陛下请再次确认" << std::endl;
     // }
-    hero Sunwukong("孙悟空", "男", 200, 10, 80, 50);
-    hero diaochan("貂蝉", "女", 100, 100, 100, 80);
-    while (Sunwukong.hp() > 0 || diaochan.hp() > 0)
-    {
-        std::cout << std::endl;
-        Sunwukong.attack(&diaochan);
-        std::cout << std::endl;
-        diaochan.attack(&Sunwukong);
-        std::cout << std::endl;
-    }
-    Sunwukong.showHp();
-    diaochan.showHp();
+    // hero Sunwukong("孙悟空", "男", 200, 10, 80, 50);
+    // hero diaochan("貂蝉", "女", 100, 100, 100, 80);
+    // while (Sunwukong.hp() > 0 || diaochan.hp() > 0)
+    // {
+    //     std::cout << std::endl;
+    //     Sunwukong.attack(&diaochan);
+    //     std::cout << std::endl;
+    //     diaochan.attack(&Sunwukong);
+    //     std::cout << std::endl;
+    // }
+    // Sunwukong.showHp();
+    // diaochan.showHp();
 
     // int 女儿生日的年份 = 1948;
     // int 女儿生日的月份;
@@ -792,6 +822,5 @@ int main()
     // {
     //     std::cout << "你猜小了,被脱光了衣服扔到基因改造牢里改造成傻逼了!!!!!!!!!!!!!" << std::endl;
     // }
-
     return 0;
 }
