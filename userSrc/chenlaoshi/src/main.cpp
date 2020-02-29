@@ -1,6 +1,8 @@
 #include "../include/userAPI.hpp"
+#include "publicAPI.hpp"
 #include <iostream>
 #include <windows.h>
+
 class hero
 {
   public:
