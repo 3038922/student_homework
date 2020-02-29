@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 #include <time.h>
 #include <windows.h>
 int jiafa(int a, int b)
@@ -111,11 +112,11 @@ class people
     {
         std::cout << people->_name << "睡了" << time << "个小时!" << std::endl;
     }
-    void showhp()
+    void ShowHp()
     {
         std::cout << _name << "当前血量: " << _hp << "!" << std::endl;
     }
-    int hp()
+    int ReturnHp()
     {
         return _hp;
     }
@@ -123,7 +124,7 @@ class people
     {
         if (_sex == "女")
         {
-            int InjuryCaused = 20 + _damage / (1 + people->_defense * 0.08);
+            int InjuryCaused = 20 + _damage / (1 + people->_defense * ReturnRandomNumber());
             std::cout << _name << "攻击了" << people->_name << "!" << std::endl;
             std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
             people->_hp -= InjuryCaused;
@@ -131,7 +132,7 @@ class people
         }
         else
         {
-            int InjuryCaused = _damage / (1 + people->_defense * 0.08);
+            int InjuryCaused = _damage / (1 + people->_defense * ReturnRandomNumber());
             std::cout << _name << "攻击了" << people->_name << "!" << std::endl;
             std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
             people->_hp -= InjuryCaused;
@@ -145,18 +146,25 @@ class people
     int _hp;
     int _damage;
     int _defense;
+    double ReturnRandomNumber()
+    {
+        std::mt19937 rng;
+        rng.seed(std::random_device()());
+        std::uniform_real_distribution<double> distribution(0, 1);
+        return distribution(rng);
+    }
     void counterattack(people *people)
     {
         if (people->_sex == "女")
         {
-            int InjuryCaused = 10 + people->_damage / (1 + _defense * 0.05) / 2;
+            int InjuryCaused = 10 + people->_damage / (1 + _defense * ReturnRandomNumber()) / 2;
             std::cout << people->_name << "反击了" << _name << "!" << std::endl;
             std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
             _hp -= InjuryCaused;
         }
         else
         {
-            int InjuryCaused = people->_damage / (1 + _defense * 0.05) / 2;
+            int InjuryCaused = people->_damage / (1 + _defense * ReturnRandomNumber()) / 2;
             std::cout << people->_name << "反击了" << _name << "!" << std::endl;
             std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
             _hp -= InjuryCaused;
@@ -341,10 +349,10 @@ int main()
     // std::cout << std::endl;
     // cout_sanjiaoxing_dengbian(); //等边三角型
     /**************************************************/
-    people xuanxuan("轩轩", "男", 500, 200, 10);
+    people xuanxuan("轩轩", "男", 500, 200, 20);
     std::cout << std::endl;
     /** 男版波波 */
-    people bobo("波波", "男", 500, 150, 15);
+    people bobo("波波", "男", 500, 200, 20);
     /** 女版波波(女版波波会有攻击力加成) */
     // people bobo("波波", "女", 500, 150, 15);
     std::cout << std::endl;
@@ -354,15 +362,15 @@ int main()
     // bobo.play(&bobo, "玩具羊");
     // xuanxuan.sleep(&xuanxuan, 9);
     // bobo.sleep(&bobo, 9.5);
-    while (xuanxuan.hp() > 0 && bobo.hp() > 0)
+    while (xuanxuan.ReturnHp() > 0 && bobo.ReturnHp() > 0)
     {
         xuanxuan.fight(&bobo);
         std::cout << std::endl;
         bobo.fight(&xuanxuan);
         std::cout << std::endl;
     }
-    xuanxuan.showhp();
-    bobo.showhp();
+    xuanxuan.ShowHp();
+    bobo.ShowHp();
     return 0;
 }
 /**************************小公主养成记*************************/
