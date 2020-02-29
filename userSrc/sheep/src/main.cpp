@@ -193,7 +193,7 @@ int main()
     }
     else if (a == 2)
     {
-        std::ifstream inFile("../cpp_study\\save\\save.txt");
+        std::ifstream inFile("../cpp_study\\build\\saves\\save.txt");
         std::string str;
         std::string save[13];
         if (inFile.good())
@@ -426,7 +426,9 @@ void Game::Display()
             break;
         case 4: {
             system("cls");
-            const char *path = "../cpp_study\\save\\save.txt"; // 你要创建文件的路径
+            std::string cmd = "mkdir ..\\cpp_study\\build\\saves";
+            system(cmd.data());
+            const char *path = "../cpp_study\\build\\saves\\save.txt"; // 你要创建文件的路径
             std::ofstream fout(path, std::ios::trunc);
             for (auto &it : this->_DaughterArray)
                 fout << it << std::endl;
@@ -449,7 +451,7 @@ void Game::Display()
         break;
         case 5: {
             system("cls");
-            std::ifstream inFile("../cpp_study\\save\\save.txt");
+            std::ifstream inFile("../cpp_study\\build\\saves\\save.txt");
             std::string str;
             std::string save[13];
             if (inFile.good())
