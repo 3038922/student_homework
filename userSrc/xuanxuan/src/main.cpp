@@ -150,8 +150,11 @@ class people
     {
         std::mt19937 rng;
         rng.seed(std::random_device()());
-        std::uniform_real_distribution<double> distribution(0, 1);
-        return distribution(rng);
+        /** 整数随机数 */
+        std::uniform_int_distribution<std::mt19937::result_type> random_int(1, 10);
+        /** 小数随机数 */
+        std::uniform_real_distribution<double> random_double(0, 1);
+        return random_double(rng);
     }
     void counterattack(people *people)
     {
