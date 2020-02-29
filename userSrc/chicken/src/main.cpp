@@ -52,7 +52,9 @@ int main()
 #include <iostream>
 #include <string>
 #include <vector>
-
+void scout(std::string *p)
+{
+}
 int main()
 {
     system("chcp 65001");
@@ -71,8 +73,10 @@ int main()
     std::array<int, 5> value_array_baseinfo;
     /**1、体力 2、智力 3、魅力 4、自尊 5、道德 6、气质 7、感受 8、体贴 9、武术 10、魔法*/
     std::array<std::string, 5> value_array_baseinfo_names = {"体力", "智力", "魅力", "自尊", "道德"};
-    /** 女儿的金钱 */
+    /** 金钱数量 */
     int value_daughter_gold = 500;
+    /** 日子(上中下旬) **/
+    std::string month_parts[] = {"上旬", "中旬", "下旬"};
     /** 星座二维数组 */
     std::string constell_names[12][2] = {
         {"山羊座", "水瓶座"}, //一月
@@ -91,8 +95,6 @@ int main()
     /** 各月份的跨星座日期 */
     int constell_dates[]{20, 19, 21, 20, 21, 22, 23, 23, 23, 24, 23, 22};
     int choice, temp1, temp2, temp3;
-    /** 金钱数量 */
-    int couts = 500;
     //2、为父女取名字
     std::cout << "父亲的名字: ";
     std::cin >> value_father_name;
@@ -212,10 +214,10 @@ int main()
                 std::cin >> temp;
                 if (temp == 'y')
                 {
-                    couts = couts - 200;
+                    value_daughter_gold -= 200;
                 }
             }
-            std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档\n5、读档" << std::endl;
+            std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档(暂未开放)\n5、读档(暂未开放)" << std::endl;
             std::cin >> choice;
             switch (choice)
             {
@@ -228,7 +230,7 @@ int main()
                     std::cout << std::left;
                     for (int i = 0; i < 5; i++)
                     {
-                        std::cout << value_array_baseinfo_names[i] << ": " << value_array_baseinfo[i];
+                        std::cout << value_array_baseinfo_names[i] << ": " << std::setw(2) << value_array_baseinfo[i];
                         int soildCount = value_array_baseinfo[i] / 10;
                         for (int j = 0; j < 10; j++)
                         {
@@ -239,16 +241,22 @@ int main()
                         }
                         std::cout << std::endl;
                     }
+                    month--;
                     break;
                 case 2:
-                    std::string month_parts[] = {"上旬", "中旬", "下旬"};
                     for (int i = 0; i < 3; i++)
                     {
-                        std::cout << "1、学习武艺\n2、上私塾\n3、学习礼法\n4、出城修行\n5、打工赚钱" << std::endl;
+                        std::cout << month << "月" << month_parts[i] << std::endl;
+                        std::cout << "1、学习武艺(体力+？？？，魅力+？？？，金钱-？？？)\n"
+                                  << "2、上私塾  (智力+？？？，道德+？？？，金钱-？？？)\n"
+                                  << "3、学习礼法(魅力+？？？，自尊+？？？，金钱-？？？)\n"
+                                  << "4、出城修行(体力+？？？，智力+？？？，金钱-？？？)\n "
+                                  << "5、打工赚钱(金钱+？？？)"
+                                  << std::endl;
                         std::cout << "请选择:";
                         std::cin >> choice;
                         srand(time(NULL));
-                        if (choice == 1)
+                        if (choice == 1 && value_daughter_gold >= 50)
                         {
                             value_array_baseinfo[0] += temp1 = rand() % 10 + 1;
                             value_array_baseinfo[2] += temp2 = rand() % 10 + 1;
@@ -256,10 +264,56 @@ int main()
                             std::cout << "学习自♂由的男人好榜样！！！！" << std::endl;
                             std::cout << "体力+" << temp1 << ",魅力+" << temp2 << ",金钱-" << temp3 << std::endl;
                         }
+                        if (choice == 2 && value_daughter_gold >= 50)
+                        {
+                            value_array_baseinfo[1] += temp1 = rand() % 10 + 1;
+                            value_array_baseinfo[4] += temp2 = rand() % 10 + 1;
+                            value_daughter_gold -= temp3 = rand() % 50 + 1;
+                            std::cout << "好好学♂习,天天向♂上！！！！" << std::endl;
+                            std::cout << "智力+" << temp1 << ",道德+" << temp2 << ",金钱-" << temp3 << std::endl;
+                        }
+                        if (choice == 3 && value_daughter_gold >= 50)
+                        {
+                            value_array_baseinfo[2] += temp1 = rand() % 10 + 1;
+                            value_array_baseinfo[3] += temp2 = rand() % 10 + 1;
+                            value_daughter_gold -= temp3 = rand() % 50 + 1;
+                            std::cout << "创建礼仪之邦！！！！" << std::endl;
+                            std::cout << "魅力+" << temp1 << ",自尊+" << temp2 << ",金钱-" << temp3 << std::endl;
+                        }
+                        if (choice == 4 && value_daughter_gold >= 30)
+                        {
+                            value_array_baseinfo[0] += temp1 = rand() % 10 + 1;
+                            value_array_baseinfo[1] += temp2 = rand() % 10 + 1;
+                            value_daughter_gold -= temp3 = rand() % 30 + 1;
+                            std::cout << "磨炼生存技能！！！！" << std::endl;
+                            std::cout << "体力+" << temp1 << ",智力+" << temp2 << ",金钱-" << temp3 << std::endl;
+                        }
+                        else if (choice == 5 || value_daughter_gold < 50)
+                        {
+                            value_daughter_gold += temp3 = rand() % 100 + 1;
+                            std::cout << "通过打工,赚了:" << temp3 << "元钱" << std::endl;
+                        }
+                        else //当你没钱或者选错了的时候
+                        {
+                            if (choice > 5)
+                            {
+                                std::cout << "选错了！！！！请选1、2、3、4" << std::endl;
+                                i--;
+                            }
+                            if (value_daughter_gold < 50)
+                            {
+                                std::cout << "没钱了！！！！去赚钱吧！" << std::endl;
+                                i--;
+                            }
+                        }
                     }
                     break;
-                    /*
                 case 3:
+                    std::cout << "请选择要说的内容：" << std::endl;
+                    std::cout << "1、严厉说话"
+                              << "2、给零用钱"
+                              << std::endl;
+                    month--;
                     break;
                 case 4:
                     //存档
@@ -269,7 +323,6 @@ int main()
                     break;
                 default:
                     break;
-                    */
             }
         }
     }
