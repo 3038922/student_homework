@@ -6,6 +6,8 @@
 # Executables
 *.bin
 *.elf
+*ilk
+*.pdb
 
 # PROS
 bin/

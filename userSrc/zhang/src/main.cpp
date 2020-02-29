@@ -1,32 +1,112 @@
 #include <iostream>
 #include <windows.h>
-int main()
+// int main();
+// {
+//    std::string father_name;
+//    std::string daughter_name;
+//     int month;
+//     int day;
+//     std::string constell;
+//     int baseinfos[5];
+//     std::string constell_names[12][2] =
+//         {
+//             {"山羊座", "水瓶座"},
+//             {"水瓶座", "双鱼座"},
+//             {"双鱼座", "白羊座"},
+//             {"白羊座", "金牛座"},
+//             {"金牛座", "双子座"},
+//             {"双子座", "巨蟹座"},
+//             {"巨蟹座", "狮子座"},
+//             {"狮子座", "处女座"},
+//             {"处女座", "天秤座"},
+//             {"天秤座", "天蝎座"},
+//             {"天蝎座", "射手座"},
+//             {"射手座", "山羊座"},
+//         }
+// }
+class hero
 {
-    system("chcp 65001");
-    system("cls");
-    // 打印正方形
-    std::cout << "打印正方形:" << std::endl;
-    int a, b;
-    for (a = 0; a < 11; a++)
+  public:
+    hero(std::string name, std::string sex, int hp, int mp, int attack, int defence) : _name(name), _sex(sex), _hp(hp), _mp(mp), _attack(attack), _defence(defence)
     {
-        for (b = 0; b < 11; b++)
-            std::cout << " * ";
+        std::cout << name << " 初始化成功" << std::endl;
+    }
+
+    void showHp()
+    {
+        std::cout << _name << "当前血量" << _hp << std::endl;
+    }
+    void showMp()
+    {
+        std::cout << _name << "当前蓝量" << _mp << std::endl;
+    }
+    void attack(hero *hero)
+    {
+        int hurt = _attack / (1 + hero->_defence * 1);
+        std::cout << _name << " 攻击了 " << hero->_name << std::endl;
+        std::cout << "造成了 " << hurt << " 点伤害" << std::endl;
+        hero->_hp -= hurt;
+        fanji(hero);
+    }
+
+    int hp()
+    {
+        return _hp;
+    }
+
+  private:
+    const std::string _name;
+    const std::string _sex;
+    int _hp = 0;
+    int _mp = 0;
+    int _attack = 0;
+    int _defence = 0;
+    void fanji(hero *hero)
+    {
+        int hurt = hero->_attack / (1 + _defence * 0.05) / 2;
+        std::cout << hero->_name << " 反击了 " << _name << std::endl;
+        std::cout << "造成了 " << hurt << " 点伤害" << std::endl;
+        _hp -= hurt;
+    }
+};
+int main(int argc, char *argv[])
+{
+    hero a("孙悟空", "男", 200, 10, 80, 50);
+    hero b("貂蝉", "女", 100, 100, 100, 80);
+    while (a.hp() > 0 || b.hp() > 0)
+    {
+        std::cout << std::endl;
+        a.attack(&b);
+        std::cout << std::endl;
+        b.attack(&a);
         std::cout << std::endl;
     }
-    // 打印直角三角形
-    std::cout << "打印直角三角形:" << std::endl;
-    int z = 1;
-    int c, d;
-    for (c = 0; c < 11; c++)
-    {
-        if (z < 11)
-        {
-            for (d = 0; d < z; d++)
-                std::cout << " * ";
-            std::cout << std::endl;
-            z++;
-        }
-    }
+    a.showHp();
+    b.showHp();
+    std::cout << rand() << std::endl;
+    // // 打印正方形
+    // std::cout << "打印正方形:" << std::endl;
+    // int a, b
+    // for (a = 0; a < 11; a++)
+    // {
+    //     for (b = 0; b < 11; b++)
+    //         std::cout << " * ";
+    //     std::cout << std::endl;
+    // }
+    // // 打印直角三角形
+    // std::cout << "打印直角三角形:" << std::endl;
+    // int z = 1;
+    // int c, d;
+    // for (c = 0; c < 11; c++)
+    // {
+    //     if (z < 11)
+    //     {
+    //         for (d = 0; d < z; d++)
+    //             std::cout << " * ";
+    //         std::cout << std::endl;
+    //         z++;
+    //     }
+    // }
     // // 打印等腰三角形
     // std::cout << "打印等腰三角形:" << std::endl;
     // int y = 1;
