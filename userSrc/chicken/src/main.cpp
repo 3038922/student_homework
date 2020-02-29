@@ -44,84 +44,9 @@ int main()
     return 0;
 }
 */
-class hero
-{
-  public:
-    hero(std::string name, std::string sex, int hp, int mp, int gongjili, int fangyuli) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili), _fangyuli(fangyuli)
-    {
-        std::cout << name << " 初始化成功" << std::endl;
-    }
-    void showHp()
-    {
-        std::cout << _name << "当前血量" << _hp << std::endl;
-    }
-    void showMp()
-    {
-        std::cout << _name << "当前蓝量" << _mp << std::endl;
-    }
-    void attack(hero *hero)
-    {
-        int zaochengdeshanghai = _gongjili / (1 + hero->_fangyuli * suiji(0, 0.8));
-        std::cout << _name << " 攻击了 " << hero->_name << std::endl;
-        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
-        hero->_hp -= zaochengdeshanghai;
-        fanji(hero);
-    }
-    /**
-     * @brief 返回当前血量
-     * 
-     * @return int 当前的血量
-     */
-    int hp()
-    {
-        return _hp;
-    }
-
-  private:
-    void fanji(hero *hero)
-    {
-        int zaochengdeshanghai = hero->_gongjili / (1 + _fangyuli * suiji(0, 0.8)) / 2;
-        std::cout << hero->_name << " 反击了 " << _name << std::endl;
-        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
-        _hp -= zaochengdeshanghai;
-    }
-    double suiji(double a, double b)
-    {
-        std::uniform_real_distribution<double> u(a, b);
-        std::default_random_engine e;
-        return u(e);
-    }
-    const std::string _name;
-    const std::string _sex;
-    int _hp = 0;
-    int _mp = 0;
-    int _gongjili = 0;
-    int _fangyuli = 0;
-};
-int main(int argc, char *argv[])
-{
-    hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
-    hero diaocha("貂蝉", "女", 100, 100, 100, 80);
-    int i = 1;
-    while (sunwukong.hp() > 0 || diaocha.hp() > 0)
-    {
-        std::cout << "/********第" << i << "回合**********/" << std::endl;
-        std::cout << std::endl;
-        sunwukong.attack(&diaocha);
-        std::cout << std::endl;
-        diaocha.attack(&sunwukong);
-        std::cout << std::endl;
-        std::cout << "孙悟空剩余血量为:" << sunwukong.hp() << std::endl;
-        std::cout << "貂蝉剩余血量为:" << sunwukong.hp() << std::endl;
-        i++;
-    }
-    sunwukong.showHp();
-    diaocha.showHp();
-    return 0;
-}
-// void sprint(std::string ptr)
+// void sprint(std::string prt)
 // {
-//     for (int i = 0; i < 10000; i++)
+// for (int i = 0; i < 10000; i++)
 //     {
 //         if (ptr[i] == NULL)
 //             break;
@@ -409,3 +334,27 @@ int main(int argc, char *argv[])
 //     system("pause");
 //     return 0;
 // }
+int main(int argc, char *argv[])
+{
+    Chicken w("吴老鸡", "红色");
+    w.showname();
+    w.showcolor();
+    // hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
+    // hero diaocha("貂蝉", "女", 100, 100, 100, 80);
+    // int i = 1;
+    // while (sunwukong.hp() > 0 || diaocha.hp() > 0)
+    // {
+    //     std::cout << "/********第" << i << "回合**********/" << std::endl;
+    //     std::cout << std::endl;
+    //     sunwukong.attack(&diaocha);
+    //     std::cout << std::endl;
+    //     diaocha.attack(&sunwukong);
+    //     std::cout << std::endl;
+    //     std::cout << "孙悟空剩余血量为:" << sunwukong.hp() << std::endl;
+    //     std::cout << "貂蝉剩余血量为:" << sunwukong.hp() << std::endl;
+    //     i++;
+    // }
+    // sunwukong.showHp();
+    // diaocha.showHp();
+    return 0;
+}
