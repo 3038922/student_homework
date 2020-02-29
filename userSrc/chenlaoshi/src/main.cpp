@@ -4,7 +4,7 @@
 class hero
 {
   public:
-    hero(std::string name, std::string sex, int hp, int mp, int gongjili) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili)
+    hero(std::string name, std::string sex, int hp, int mp, int gongjili, int fangyuli) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili), _fangyuli(fangyuli)
     {
         std::cout << name << " 初始化成功" << std::endl;
     }
@@ -15,6 +15,30 @@ class hero
     void showMp()
     {
         std::cout << _name << "当前蓝量" << _mp << std::endl;
+    }
+    void attack(hero *hero)
+    {
+        int zaochengdeshanghai = _gongjili / (1 + hero->_fangyuli * 0.09);
+        std::cout << _name << " 攻击了 " << hero->_name << std::endl;
+        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
+        hero->_hp -= zaochengdeshanghai;
+        fanji(hero);
+    }
+    void fanji(hero *hero)
+    {
+        int zaochengdeshanghai = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
+        std::cout << hero->_name << " 反击了 " << _name << std::endl;
+        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
+        _hp -= zaochengdeshanghai;
+    }
+    /**
+     * @brief 返回当前血量
+     * 
+     * @return int 当前的血量
+     */
+    int hp()
+    {
+        return _hp;
     }
 
   private:
@@ -27,16 +51,18 @@ class hero
 };
 int main(int argc, char *argv[])
 {
-    int a;
-    double b;
-    std::string c;
-    hero d("孙悟空", "男", 100, 10, 100);
-    hero e("貂蝉", "女", 10, 100, 100);
-    d.showHp();
-    d.showMp();
-    e.showMp();
-    e.showHp();
-    d.showHp();
+    hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
+    hero diaocha("貂蝉", "女", 100, 100, 100, 80);
+    while (sunwukong.hp() > 0 || diaocha.hp() > 0)
+    {
+        std::cout << std::endl;
+        sunwukong.attack(&diaocha);
+        std::cout << std::endl;
+        diaocha.attack(&sunwukong);
+        std::cout << std::endl;
+    }
+    sunwukong.showHp();
+    diaocha.showHp();
     // double array[2] = {2.22, 12.2};
     // std::cout << array[0] << " " << array[1] << std::endl;
     // std::cout << "array[0]的地址:" << *array << " array[1]的地址:" << *(array + 1) << std::endl;
