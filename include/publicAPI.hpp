@@ -1,6 +1,55 @@
 #pragma once
 #include <iostream>
 #include <string>
+class Hero
+{
+  public:
+    Hero(std::string name, std::string sex, int hp, int mp, int gongjili, int fangyuli) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili), _fangyuli(fangyuli)
+    {
+        std::cout << name << " 初始化成功" << std::endl;
+    }
+    void showHp()
+    {
+        std::cout << _name << "当前血量" << _hp << std::endl;
+    }
+    void showMp()
+    {
+        std::cout << _name << "当前蓝量" << _mp << std::endl;
+    }
+    void attack(Hero *hero)
+    {
+        int zaochengdeshanghai = _gongjili / (1 + hero->_fangyuli * 0.09);
+        std::cout << _name << " 攻击了 " << hero->_name << std::endl;
+        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
+        hero->_hp -= zaochengdeshanghai;
+        fanji(hero);
+    }
+    void fanji(Hero *hero)
+    {
+        int zaochengdeshanghai = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
+        std::cout << hero->_name << " 反击了 " << _name << std::endl;
+        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
+        _hp -= zaochengdeshanghai;
+    }
+    /**
+     * @brief 返回当前血量
+     * 
+     * @return int 当前的血量
+     */
+    int hp()
+    {
+        return _hp;
+    }
+
+  private:
+    const std::string _name;
+    const std::string _sex;
+    int _hp = 0;
+    int _mp = 0;
+    int _gongjili = 0;
+    int _fangyuli = 0;
+};
+
 class Constell
 {
 
