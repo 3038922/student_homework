@@ -148,18 +148,18 @@ class hero
     }
     void attack(hero *hero)
     {
-        int zaochengdeshanghai = _gongjili / (1 + hero->_fangyuli * 0.09);
+        int DamageCaused = _gongjili / (1 + hero->_fangyuli * 0.09);
         std::cout << _name << " 攻击了 " << hero->_name << std::endl;
-        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
-        hero->_hp -= zaochengdeshanghai;
-        fanji(hero);
+        std::cout << "造成了 " << DamageCaused << " 点伤害" << std::endl;
+        hero->_hp -= DamageCaused;
+        Counterattack(hero);
     }
-    void fanji(hero *hero)
+    void Counterattack(hero *hero)
     {
-        int zaochengdeshanghai = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
+        int DamageCaused = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
         std::cout << hero->_name << " 反击了 " << _name << std::endl;
-        std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
-        _hp -= zaochengdeshanghai;
+        std::cout << "造成了 " << DamageCaused << " 点伤害" << std::endl;
+        _hp -= DamageCaused;
     }
 
     int hp()
