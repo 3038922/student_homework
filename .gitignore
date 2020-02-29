@@ -6,9 +6,11 @@
 # Executables
 *.bin
 *.elf
+*ilk
+*.pdb
 
 # PROS
-bin/
+
 compile_commands.json
 temp.log
 temp.errors
