@@ -1,42 +1,52 @@
-#include "../include/userAPI.hpp"
+
+#include "publicAPI.hpp"
 #include <iostream>
 #include <windows.h>
-class hero
+
+class Mouse
 {
-  public:
-    hero(std::string name, std::string sex, int hp, int mp, int gongjili) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili)
+  public:                                                     //公有的
+    Mouse(std::string a, std::string b) : _name(a), _color(b) //构造函数
     {
-        std::cout << name << " 初始化成功" << std::endl;
+        std::cout << "Mouse类 创建成功!" << std::endl;
     }
-    void showHp()
+    ~Mouse() //析构函数
     {
-        std::cout << _name << "当前血量" << _hp << std::endl;
+        std::cout << "Mouse类 删除成功!" << std::endl;
     }
-    void showMp()
+    void showColor()
     {
-        std::cout << _name << "当前蓝量" << _mp << std::endl;
+        std::cout << _name << " 是 " << _color << std::endl;
+    }
+    void showName()
+    {
+        std::cout << "我叫: " << _name << std::endl;
     }
 
-  private:
-    const std::string _name;
-    const std::string _sex;
-    int _hp = 0;
-    int _mp = 0;
-    int _gongjili = 0;
-    int _fangyuli = 0;
+  private: //私有的a
+    std::string _name, _color;
 };
 int main(int argc, char *argv[])
 {
-    int a;
-    double b;
-    std::string c;
-    hero d("孙悟空", "男", 100, 10, 100);
-    hero e("貂蝉", "女", 10, 100, 100);
-    d.showHp();
-    d.showMp();
-    e.showMp();
-    e.showHp();
-    d.showHp();
+    Mouse w("王老鼠", "灰色");
+    Mouse g("狗老鼠", "黑色");
+    w.showName();
+    g.showName();
+    w.showColor();
+    g.showColor();
+    Hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
+    Hero diaocha("貂蝉", "女", 100, 100, 100, 80);
+    while (sunwukong.hp() > 0 || diaocha.hp() > 0)
+    {
+        std::cout << std::endl;
+        sunwukong.attack(&diaocha);
+        std::cout << std::endl;
+        diaocha.attack(&sunwukong);
+        std::cout << std::endl;
+    }
+    sunwukong.showHp();
+    diaocha.showHp();
+
     // double array[2] = {2.22, 12.2};
     // std::cout << array[0] << " " << array[1] << std::endl;
     // std::cout << "array[0]的地址:" << *array << " array[1]的地址:" << *(array + 1) << std::endl;
@@ -77,6 +87,6 @@ int main(int argc, char *argv[])
     //     lv_task_handler();
     //     Sleep(10); /*Just to let the system breathe */
     // }
-
+    std::cout << "程序结束" << std::endl;
     return 0;
 }

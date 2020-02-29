@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 #include <time.h>
 #include <windows.h>
 int jiafa(int a, int b)
@@ -90,34 +91,88 @@ void cout_sanjiaoxing_dengbian()
 class people
 {
   public:
-    people(std::string name, std::string sex, int age, int stature, int weight) : _name(name), _sex(sex), _age(age), _stature(stature), _weight(weight)
+    people(std::string name, std::string sex, int hp, int damage, int defense) : _name(name), _sex(sex), _hp(hp), _damage(damage), _defense(defense)
     {
-        std::cout << "这是你的详细信息:" << std::endl;
+        std::cout << _name << ",这是你的详细信息:" << std::endl;
         std::cout << "你的姓名是: " << _name << "\n"
                   << "你的性别是: " << _sex << "\n"
-                  << "你的年龄是: " << _age << "\n"
-                  << "你的身高是: " << _stature << "\n"
-                  << "你的体重是: " << _weight << std::endl;
+                  << "你的血量是: " << _hp << "\n"
+                  << "你的攻击力是: " << _damage << "\n"
+                  << "你的防御力是: " << _defense << std::endl;
     }
-    void eat(std::string food)
+    void eat(people *people, std::string food)
     {
-        std::cout << "你吃了" << food << "!" << std::endl;
+        std::cout << people->_name << "吃掉了" << food << "!" << std::endl;
     }
-    void play(std::string toy)
+    void play(people *people, std::string toy)
     {
-        std::cout << "你完了" << toy << "!" << std::endl;
+        std::cout << people->_name << "正在玩完" << toy << "!" << std::endl;
     }
-    void sleep(double time)
+    void sleep(people *people, double time)
     {
-        std::cout << "你睡了" << time << "个小时!" << std::endl;
+        std::cout << people->_name << "睡了" << time << "个小时!" << std::endl;
+    }
+    void ShowHp()
+    {
+        std::cout << _name << "当前血量: " << _hp << "!" << std::endl;
+    }
+    int ReturnHp()
+    {
+        return _hp;
+    }
+    void fight(people *people)
+    {
+        if (_sex == "女")
+        {
+            int InjuryCaused = 20 + _damage / (1 + people->_defense * ReturnRandomNumber());
+            std::cout << _name << "攻击了" << people->_name << "!" << std::endl;
+            std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
+            people->_hp -= InjuryCaused;
+            counterattack(people);
+        }
+        else
+        {
+            int InjuryCaused = _damage / (1 + people->_defense * ReturnRandomNumber());
+            std::cout << _name << "攻击了" << people->_name << "!" << std::endl;
+            std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
+            people->_hp -= InjuryCaused;
+            counterattack(people);
+        }
     }
 
   private:
     std::string _name;
     std::string _sex;
-    int _age;
-    int _stature; //厘米
-    int _weight;  //千克
+    int _hp;
+    int _damage;
+    int _defense;
+    double ReturnRandomNumber()
+    {
+        std::mt19937 rng;
+        rng.seed(std::random_device()());
+        /** 整数随机数 */
+        std::uniform_int_distribution<std::mt19937::result_type> random_int(1, 10);
+        /** 小数随机数 */
+        std::uniform_real_distribution<double> random_double(0, 1);
+        return random_double(rng);
+    }
+    void counterattack(people *people)
+    {
+        if (people->_sex == "女")
+        {
+            int InjuryCaused = 10 + people->_damage / (1 + _defense * ReturnRandomNumber()) / 2;
+            std::cout << people->_name << "反击了" << _name << "!" << std::endl;
+            std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
+            _hp -= InjuryCaused;
+        }
+        else
+        {
+            int InjuryCaused = people->_damage / (1 + _defense * ReturnRandomNumber()) / 2;
+            std::cout << people->_name << "反击了" << _name << "!" << std::endl;
+            std::cout << "造成了" << InjuryCaused << "点伤害!" << std::endl;
+            _hp -= InjuryCaused;
+        }
+    }
 };
 int main()
 {
@@ -297,13 +352,31 @@ int main()
     // std::cout << std::endl;
     // cout_sanjiaoxing_dengbian(); //等边三角型
     /**************************************************/
-    people xuanxuan("轩轩", "男", 12, 130, 25);
-    xuanxuan.eat("羊肉");
-    xuanxuan.play("玩具羊");
-    xuanxuan.sleep(9);
+    people xuanxuan("轩轩", "男", 500, 200, 20);
+    std::cout << std::endl;
+    /** 男版波波 */
+    people bobo("波波", "男", 500, 200, 20);
+    /** 女版波波(女版波波会有攻击力加成) */
+    // people bobo("波波", "女", 500, 150, 15);
+    std::cout << std::endl;
+    // xuanxuan.eat(&xuanxuan, "羊肉");
+    // bobo.eat(&bobo, "牛肉");
+    // xuanxuan.play(&xuanxuan, "玩具牛");
+    // bobo.play(&bobo, "玩具羊");
+    // xuanxuan.sleep(&xuanxuan, 9);
+    // bobo.sleep(&bobo, 9.5);
+    while (xuanxuan.ReturnHp() > 0 && bobo.ReturnHp() > 0)
+    {
+        xuanxuan.fight(&bobo);
+        std::cout << std::endl;
+        bobo.fight(&xuanxuan);
+        std::cout << std::endl;
+    }
+    xuanxuan.ShowHp();
+    bobo.ShowHp();
     return 0;
 }
-/*************************小公主养成记*************************/
+/**************************小公主养成记*************************/
 // #include <array>
 // #include <cstdlib>
 // #include <ctime>
