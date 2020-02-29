@@ -8,9 +8,11 @@
 #include <iostream>
 #include <istream>
 #include <ostream>
+#include <random>
 #include <string>
 #include <vector>
-
+std::random_device rd;
+std::mt19937 gen(rd());
 const std::string ConstellNamesArray[12][2] = {
     {"水瓶座", "双鱼座"},
     {"双鱼座", "白羊座"},
@@ -164,7 +166,6 @@ class Game
 
 int main()
 {
-    srand(unsigned(time(NULL)));
     system("chcp 65001");
     system("cls");
     std::string FN = "王大锤";
@@ -282,8 +283,8 @@ int main()
     }
     else
     {
-        int temp = rand() % 5 + 1;
-        switch (temp)
+        std::uniform_int_distribution<> dis(1, 5);
+        switch (dis(gen))
         {
             case 1:
                 std::cout
@@ -347,7 +348,7 @@ void Game::Display()
     std::cout << " --" << _year << "年"
               << " -- " << _month << "月"
               << " -- " << _month_parts[num] << " --" << std::endl;
-    std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档(开放)\n5、读档(开放)\n6、退出" << std::endl
+    std::cout << "1、查看状态\n2、安排行程\n3、亲自谈话\n4、存档(开放,存在save文件夹了,要修改自己修,我没意见)\n5、读档(开放)\n6、退出" << std::endl
               << "请选择:";
     std::cin >> key;
     switch (key)
@@ -405,7 +406,8 @@ void Game::Display()
             else if (key == 2 && this->_gold >= 200)
             {
                 this->_gold -= 200;
-                int temp = rand() % 16 + 10;
+                std::uniform_int_distribution<> dis(10, 25);
+                int temp = dis(gen);
                 for (auto &it : this->_DaughterArray)
                     it += temp;
                 std::cout << "给女儿200块零花钱,女儿开心极了." << std::endl
@@ -503,7 +505,9 @@ void Game::GivingGifts()
     if (key == 1)
     {
         this->_gold -= 100;
-        int temp = rand() % 21 + 5;
+        std::uniform_int_distribution<> dis(10, 25);
+        int temp = dis(gen);
+
         for (auto &it : this->_DaughterArray)
             it += temp;
         std::cout << "女儿开心极了,拿着这笔钱去买礼物." << std::endl
@@ -523,13 +527,15 @@ void Game::GivingGifts()
 }
 void Game::Itinerary(int key)
 {
-    int price = rand() % 41 + 10;
+    std::uniform_int_distribution<> disa(10, 50);
+    int price = disa(gen);
     int temp[2];
     if (this->_gold < price && key != 5) //没钱你玩个蛋
     {
         std::cout << "因为没钱,女儿被迫去打工." << std::endl
                   << "女儿";
-        this->_gold += temp[0] = rand() % 81 + 20;
+        std::uniform_int_distribution<> dis(20, 100);
+        this->_gold += temp[0] = dis(gen);
         if (temp[0] <= 40)
             std::cout << "到濒临倒闭的工厂打工,只赚了" << temp[0] << "个金币." << std::endl;
         else if (temp[0] <= 70)
@@ -541,40 +547,49 @@ void Game::Itinerary(int key)
     }
     switch (key)
     {
-        case 1:
-            this->_DaughterArray[0] += temp[0] = rand() % 10 + 1;
-            this->_DaughterArray[2] += temp[1] = rand() % 10 + 1;
+        case 1: {
+            std::uniform_int_distribution<> dis(1, 10);
+            this->_DaughterArray[0] += temp[0] = dis(gen);
+            this->_DaughterArray[2] += temp[1] = dis(gen);
             this->_gold -= price;
             std::cout << "打架♂比武♀促进身体发育." << std::endl
                       << "体力+" << temp[0] << ",魅力+" << temp[1] << ",金钱-" << price << std::endl;
             system("pause");
             break;
-        case 2:
-            this->_DaughterArray[1] += temp[0] = rand() % 10 + 1;
-            this->_DaughterArray[3] += temp[1] = rand() % 10 + 1;
+        }
+        case 2: {
+            std::uniform_int_distribution<> dis(1, 10);
+            this->_DaughterArray[1] += temp[0] = dis(gen);
+            this->_DaughterArray[3] += temp[1] = dis(gen);
             this->_gold -= price;
             std::cout << "好好学习,争做第一读书女子." << std::endl
                       << "智力+" << temp[0] << ",道德+" << temp[1] << ",金钱-" << price << std::endl;
             system("pause");
             break;
-        case 3:
-            this->_DaughterArray[4] += temp[0] = rand() % 10 + 1;
-            this->_DaughterArray[3] += temp[1] = rand() % 10 + 1;
+        }
+        case 3: {
+            std::uniform_int_distribution<> dis(1, 10);
+            this->_DaughterArray[4] += temp[0] = dis(gen);
+            this->_DaughterArray[3] += temp[1] = dis(gen);
             this->_gold -= price;
             std::cout << "衢州有礼,你我同行." << std::endl
                       << "气质+" << temp[0] << ",道德+" << temp[1] << ",金钱-" << price << std::endl;
             system("pause");
             break;
-        case 4:
-            this->_DaughterArray[0] += temp[0] = rand() % 10 + 1;
-            this->_DaughterArray[1] += temp[1] = rand() % 10 + 1;
+        }
+        case 4: {
+            std::uniform_int_distribution<> dis(1, 10);
+            this->_DaughterArray[0] += temp[0] = dis(gen);
+            this->_DaughterArray[1] += temp[1] = dis(gen);
             this->_gold -= price;
             std::cout << "只要在学校食堂吃三年饭,就可以和贝爷去野外生存了." << std::endl
                       << "体力+" << temp[0] << ",气质+" << temp[1] << ",金钱-" << price << std::endl;
             system("pause");
             break;
-        case 5:
-            this->_gold += temp[0] = rand() % 81 + 20;
+        }
+        case 5: {
+            std::uniform_int_distribution<> dis(20, 100);
+            this->_gold += temp[0] = dis(gen);
             std::cout << "女儿";
             if (temp[0] <= 40)
                 std::cout << "到濒临倒闭的工厂打工,只赚了" << temp[0] << "个金币." << std::endl;
@@ -583,6 +598,7 @@ void Game::Itinerary(int key)
             else
                 std::cout << "到工厂打工,因为工作努力,被老板认可,赚了" << temp[0] << "个金币,女儿" << this->_DaughterName << "感觉人生到达了巅峰!" << std::endl;
             system("pause");
-            break;
+        }
+        break;
     }
 }
