@@ -306,43 +306,47 @@ class daughter
     int _value_birth_date;
     int _value_daughter_gold;
 };
+class glass
+{
+  public:
+    glass(int slp, std::string materials, std::string color) : _slp(slp), _materials(materials), _color(color)
+    {
+        std::cout << "glass类创建成功" << std::endl;
+    }
+    ~glass()
+    {
+        std::cout << "glass类删除成功" << std::endl;
+    }
+    void showslp()
+    {
+        std::cout << "glass镜片有" << _slp << "°" << std::endl;
+    }
+    void showmaterials()
+    {
+        std::cout << "glass是用" << _materials << "材料制成的" << std::endl;
+    }
+    void showcolor()
+    {
+        std::cout << "glass是" << _color << "的" << std::endl;
+    }
+
+  private:
+    int _slp;
+    const std::string _materials;
+    const std::string _color;
+};
 int main()
 {
     system("chcp 65001");
+    glass a(300, "橡胶", "黑色");
+    a.showslp();
+    a.showmaterials();
+    a.showcolor();
     /*
     father a("大红");
     daughter b("小红", 6, 6, 400);
     a.ia();
     b.ia();
-    */
-    /*
-    直角三角();
-    std::cout << "\n";
-    等腰三角();
-    std::string *a = new std::string("abcd");
-    std::string *b = new std::string("dcba");
-    std::cout << "交换前:a=" << *a << "\tb=" << *b << std::endl;
-    swap(&a, &b);
-    std::cout << "交换后:a=" << *a << "\tb=" << *b << std::endl;
-
-    std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a << std::endl;
-    std::cout << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
-    std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
-    delete a;
-    delete b;
-    a = nullptr;
-    b = nullptr;
-    std::cout << "删除后:" << std::endl;
-    std::cout << "指针a本身的地址大小:" << sizeof(&a) << " 指针a本身地址:" << &a << std::endl;
-    std::cout << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
-    //std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
-    int a, b;
-    std::cout << "请输入要交换的数字:" << std::endl;
-    std::cin >> a >> b;
-    std::cout << "交换前:a=" << a << "\tb=" << b << std::endl;
-    swap(&a, &b);
-    std::cout << "交换后:a=" << a << "\tb=" << b << std::endl;
-    player("吕布", "战士", 15, 1000, 200, 150);
     */
     return 0;
 }

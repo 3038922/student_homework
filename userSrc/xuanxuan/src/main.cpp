@@ -174,6 +174,40 @@ class people
         }
     }
 };
+class Tree
+{
+  public:
+    Tree(double altitude, double diameter, int age, std::string color) : _altitude(altitude), _diameter(diameter), _age(age), _color(color)
+    {
+        std::cout << "Tree类生成成功!" << std::endl;
+    }
+    ~Tree()
+    {
+        std::cout << "Tree类删除成功!" << std::endl;
+    }
+    void ShowAltitude()
+    {
+        std::cout << "这棵树的高度是: " << _altitude << "米" << std::endl;
+    }
+    void ShowDiameter()
+    {
+        std::cout << "这棵树的直径是: " << _diameter << "米" << std::endl;
+    }
+    void ShowAge()
+    {
+        std::cout << "这棵树的年龄是: " << _age << "岁" << std::endl;
+    }
+    void ShowColor()
+    {
+        std::cout << "这棵树的颜色是: " << _color << std::endl;
+    }
+
+  private:
+    double _altitude;
+    double _diameter;
+    int _age;
+    std::string _color;
+};
 int main()
 {
     system("chcp 65001");
@@ -352,28 +386,42 @@ int main()
     // std::cout << std::endl;
     // cout_sanjiaoxing_dengbian(); //等边三角型
     /**************************************************/
-    people xuanxuan("轩轩", "男", 500, 200, 20);
+    // people xuanxuan("轩轩", "男", 500, 200, 20);
+    // std::cout << std::endl;
+    // /** 男版波波 */
+    // people bobo("波波", "男", 500, 200, 20);
+    // /** 女版波波(女版波波会有攻击力加成) */
+    // // people bobo("波波", "女", 500, 150, 15);
+    // std::cout << std::endl;
+    // // xuanxuan.eat(&xuanxuan, "羊肉");
+    // // bobo.eat(&bobo, "牛肉");
+    // // xuanxuan.play(&xuanxuan, "玩具牛");
+    // // bobo.play(&bobo, "玩具羊");
+    // // xuanxuan.sleep(&xuanxuan, 9);
+    // // bobo.sleep(&bobo, 9.5);
+    // while (xuanxuan.ReturnHp() > 0 && bobo.ReturnHp() > 0)
+    // {
+    //     xuanxuan.fight(&bobo);
+    //     std::cout << std::endl;
+    //     bobo.fight(&xuanxuan);
+    //     std::cout << std::endl;
+    // }
+    // xuanxuan.ShowHp();
+    // bobo.ShowHp();
+    /**************************************************/
+    Tree BigTree(100, 5, 100, "绿色");
+    Tree SmallTree(5, 0.1, 5, "绿色");
     std::cout << std::endl;
-    /** 男版波波 */
-    people bobo("波波", "男", 500, 200, 20);
-    /** 女版波波(女版波波会有攻击力加成) */
-    // people bobo("波波", "女", 500, 150, 15);
+    BigTree.ShowAltitude();
+    BigTree.ShowDiameter();
+    BigTree.ShowAge();
+    BigTree.ShowColor();
     std::cout << std::endl;
-    // xuanxuan.eat(&xuanxuan, "羊肉");
-    // bobo.eat(&bobo, "牛肉");
-    // xuanxuan.play(&xuanxuan, "玩具牛");
-    // bobo.play(&bobo, "玩具羊");
-    // xuanxuan.sleep(&xuanxuan, 9);
-    // bobo.sleep(&bobo, 9.5);
-    while (xuanxuan.ReturnHp() > 0 && bobo.ReturnHp() > 0)
-    {
-        xuanxuan.fight(&bobo);
-        std::cout << std::endl;
-        bobo.fight(&xuanxuan);
-        std::cout << std::endl;
-    }
-    xuanxuan.ShowHp();
-    bobo.ShowHp();
+    SmallTree.ShowAltitude();
+    SmallTree.ShowDiameter();
+    SmallTree.ShowAge();
+    SmallTree.ShowColor();
+    std::cout << std::endl;
     return 0;
 }
 /**************************小公主养成记*************************/
