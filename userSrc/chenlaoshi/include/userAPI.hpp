@@ -17,4 +17,3 @@ int tick_thread(void *data);
  *  STATIC VARIABLES
  **********************/
 static lv_indev_t *kb_indev;
-void jiafa(int a, int b);
