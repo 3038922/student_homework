@@ -20,13 +20,11 @@ class fish
     }
     void ShowType()
     {
-        std::cout << _name << "是" << _type << std::endl;
+        std::cout << _name << "是" << _color << std::endl;
     }
 
   private:
-    {
-        std::string _name, tybe;
-    }
+    std::string _name, _color;
 };
 int main()
 {
