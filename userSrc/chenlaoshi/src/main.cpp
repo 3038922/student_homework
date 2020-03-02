@@ -1,43 +1,51 @@
-#include "../include/userAPI.hpp"
+
+#include "publicAPI.hpp"
 #include <iostream>
 #include <windows.h>
-void asdf(int **a, int **b)
+
+class Mouse
 {
-    int *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-void asdf(std::string **a, std::string **b)
-{
-    std::string *temp = *a;
-    *a = *b;
-    *b = temp;
-}
-int _jiafa(int a, int b)
-{
-    return a + b;
-}
-double _jiafa(double a, double b)
-{
-    return a + b;
-}
-void coutZhengfangxing()
-{
-    for (int a = 0; a < 10; a++)
+  public:                                                     //公有的
+    Mouse(std::string a, std::string b) : _name(a), _color(b) //构造函数
     {
-        for (int b = 0; b < 10; b++)
-        {
-            std::cout << " □ ";
-        }
-        std::cout << std::endl;
+        std::cout << "Mouse类 创建成功!" << std::endl;
     }
-}
-void coutZhiJiaoSanJiaoXing()
-{
-}
+    ~Mouse() //析构函数
+    {
+        std::cout << "Mouse类 删除成功!" << std::endl;
+    }
+    void showColor()
+    {
+        std::cout << _name << " 是 " << _color << std::endl;
+    }
+    void showName()
+    {
+        std::cout << "我叫: " << _name << std::endl;
+    }
+
+  private: //私有的a
+    std::string _name, _color;
+};
 int main(int argc, char *argv[])
 {
-    coutZhengfangxing();
+    Mouse w("王老鼠", "灰色");
+    Mouse g("狗老鼠", "黑色");
+    w.showName();
+    g.showName();
+    w.showColor();
+    g.showColor();
+    Hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
+    Hero diaocha("貂蝉", "女", 100, 100, 100, 80);
+    while (sunwukong.hp() > 0 || diaocha.hp() > 0)
+    {
+        std::cout << std::endl;
+        sunwukong.attack(&diaocha);
+        std::cout << std::endl;
+        diaocha.attack(&sunwukong);
+        std::cout << std::endl;
+    }
+    sunwukong.showHp();
+    diaocha.showHp();
 
     // double array[2] = {2.22, 12.2};
     // std::cout << array[0] << " " << array[1] << std::endl;
@@ -79,6 +87,6 @@ int main(int argc, char *argv[])
     //     lv_task_handler();
     //     Sleep(10); /*Just to let the system breathe */
     // }
-
+    std::cout << "程序结束" << std::endl;
     return 0;
 }
