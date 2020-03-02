@@ -11,7 +11,6 @@
 #include <string>
 #include <vector>
 
-
 class Parrot
 {
   public:
