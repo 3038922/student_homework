@@ -1,7 +1,6 @@
 #include <iostream>
 #include <time.h>
 #include <windows.h>
-int main()
 {
     std::system("chcp 65001");
     std::system("cls");
@@ -181,36 +180,136 @@ int main()
     //     std::cout << "指针a指向的地址的大小:" << sizeof(a) << " 指针a指向的地址:" << a << std::endl;
     //     std::cout << "指针a指向的地址的值大小:" << sizeof(*a) << " 指针a指向的值:" << *a << std::endl;
 }
+// {
+//     std::string *a = new std::string("aaa");
+//     std::string *b = new std::string("bbb");
+//     int *c = new int(111);
+//     int *d = new int(222);
+//     std::cout << "string类型交换: " << std::endl;
+//     std::cout << *a << "\t" << *b << std::endl;
+//     jiaohuan(&a, &b);
+//     std::cout << *a << "\t" << *b << std::endl;
+//     std::cout << "int类型交换: " << std::endl;
+//     std::cout << *c << "\t" << *d << std::endl;
+//     jiaohuan(&c, &d);
+//     std::cout << *c << "\t" << *d << std::endl;
+//     delete a;
+//     a = nullptr;
+//     delete a;
+//     b = nullptr;
+//     delete b;
+//     c = nullptr;
+//     delete d;
+//     d = nullptr;
+//     std::string array[2] = {"xuanxuan", "bobo"};
+//     std::cout << "array[0]的值: " << *array << "\t"
+//               << "array[1]的值: " << *(array + 1) << std::endl;
+//     std::cout << "array[0]的地址: " << array << "\t"
+//               << "array[1]的地址: " << array + 1 << std::endl;
+//     cout_zhengfangxing();
+//     std::cout << std::endl;
+//     cout_sanjiaoxing_zhijiao();
+//     std::cout << std::endl;
+//     cout_sanjiaoxing_dengbian();
+//     return 0;
+// }
+// #include <iostream>
+// #include <windows.h>
+// class hero
+// {
+//   public:
+//     hero(std::string name, std::string sex, int hp, int mp, int gongjili, int fangyuli) : _name(name), _sex(sex), _hp(hp), _mp(mp), _gongjili(gongjili), _fangyuli(fangyuli)
+//     {
+//         std::cout << name << " 初始化成功" << std::endl;
+//     }
+//     void showHp()
+//     {
+//         std::cout << _name << "当前血量" << _hp << std::endl;
+//     }
+//     void showMp()
+//     {
+//         std::cout << _name << "当前蓝量" << _mp << std::endl;
+//     }
+//     void attack(hero *hero)
+//     {
+//         int zaochengdeshanghai = _gongjili / (1 + hero->_fangyuli * 0.09);
+//         std::cout << _name << " 攻击了 " << hero->_name << std::endl;
+//         std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
+//         hero->_hp -= zaochengdeshanghai;
+//         fanji(hero);
+//     }
+//     void fanji(hero *hero)
+//     {
+//         int zaochengdeshanghai = hero->_gongjili / (1 + _fangyuli * 0.05) / 2;
+//         std::cout << hero->_name << " 反击了 " << _name << std::endl;
+//         std::cout << "造成了 " << zaochengdeshanghai << " 点伤害" << std::endl;
+//         _hp -= zaochengdeshanghai;
+//     }
+//     /**
+//      * @brief 返回当前血量
+//      *
+//      * @return int 当前的血量
+//      */
+//     int hp()
+//     {
+//         return _hp;
+//     }
+
+//   private:
+//     const std::string _name;
+//     const std::string _sex;
+//     int _hp = 0;
+//     int _mp = 0;
+//     int _gongjili = 0;
+//     int _fangyuli = 0;
+// };
+// int main(int argc, char *argv[])
+// {
+//     hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
+//     hero diaocha("貂蝉", "女", 100, 100, 100, 80);
+//     while (sunwukong.hp() > 0 || diaocha.hp() > 0)
+//     {
+//         std::cout << std::endl;
+//         sunwukong.attack(&diaocha);
+//         std::cout << std::endl;
+//         diaocha.attack(&sunwukong);
+//         std::cout << std::endl;
+//     }
+//     sunwukong.showHp();
+//     diaocha.showHp();
+// }
+class Glass
 {
-    std::string *a = new std::string("aaa");
-    std::string *b = new std::string("bbb");
-    int *c = new int(111);
-    int *d = new int(222);
-    std::cout << "string类型交换: " << std::endl;
-    std::cout << *a << "\t" << *b << std::endl;
-    jiaohuan(&a, &b);
-    std::cout << *a << "\t" << *b << std::endl;
-    std::cout << "int类型交换: " << std::endl;
-    std::cout << *c << "\t" << *d << std::endl;
-    jiaohuan(&c, &d);
-    std::cout << *c << "\t" << *d << std::endl;
-    delete a;
-    a = nullptr;
-    delete a;
-    b = nullptr;
-    delete b;
-    c = nullptr;
-    delete d;
-    d = nullptr;
-    std::string array[2] = {"xuanxuan", "bobo"};
-    std::cout << "array[0]的值: " << *array << "\t"
-              << "array[1]的值: " << *(array + 1) << std::endl;
-    std::cout << "array[0]的地址: " << array << "\t"
-              << "array[1]的地址: " << array + 1 << std::endl;
-    cout_zhengfangxing();
+  public:
+    Glass(std::string a, std::string b, std::string c) : _name(a), _color(b), _cpan(c)
+    {
+        std::cout << "Glass类创建成功" << std::endl;
+    }
+    ~Glass()
+    {
+        std::cout << "Glass类创建成功" << std::endl;
+    }
+    void showColor()
+    {
+        std::cout << _name << "是"　<<　std::endl;
+    }
+    void showName()
+    {
+        std::cout << "我叫：" << _name << std::endl;
+    }
+    void showCpan()
+    {
+        std::cout << _name << "我的镜片种类有：" << _cpan << "蓝光" << std::endl;
+    }
+
+  private:
+    std::string _name, _color, _cpan;
+};
+int main(int argc, char *argv[])
+{
+    Glass s("散光Glass", "绿色", 118);
+    Glass j("近视Glass", "黄色", 118);
     std::cout << std::endl;
-    cout_sanjiaoxing_zhijiao();
-    std::cout << std::endl;
-    cout_sanjiaoxing_dengbian();
-    return 0;
+    s.showName();
+    j.showName();
 }
