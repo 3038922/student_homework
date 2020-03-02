@@ -10,6 +10,10 @@ class Motor
     ~Motor(){
 
     };
+    /**
+     * @brief 显示马达齿轮
+     * 
+     */
     void gear()
     {
         if (_gear == 0)
@@ -18,17 +22,21 @@ class Motor
         }
         else if (_gear == 1)
         {
-            std::cout << _port << "号马达的齿轮为绿齿轮" << _gear << std::endl;
+            std::cout << _port << "号马达的齿轮为绿齿轮" << std::endl;
         }
         else if (_gear == 2)
         {
-            std::cout << _port << "号马达的齿轮蓝红齿轮" << _gear << std::endl;
+            std::cout << _port << "号马达的齿轮蓝红齿轮" << std::endl;
         }
         else if (_gear < 0 || _gear > 2)
         {
             std::cout << "没有该齿轮" << std::endl;
         }
     }
+    /**
+     * @brief 显示马达齿轮正反
+     * 
+     */
     void pan()
     {
         if (_pan == 1)
@@ -44,9 +52,14 @@ class Motor
             std::cout << "正反就两个数字,不要乱输" << std::endl;
         }
     }
-    int getport()
+    /**
+     * @brief 显示马达端口
+     * 
+     * @return int 
+     */
+    void getport()
     {
-        return _port;
+        std::cout << "马达端口为:" << _port << "号" << std::endl;
     }
 
   private:
