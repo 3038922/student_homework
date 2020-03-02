@@ -336,9 +336,13 @@ int main()
 // }
 int main(int argc, char *argv[])
 {
-    Chicken w("吴老鸡", "红色");
-    w.showname();
-    w.showcolor();
+    system("chcp 65001");
+    Motor mada(1, 1, 1);
+    mada.showprot();
+    mada.set(127);
+    // Chicken w("吴老鸡", "红色");
+    // w.showname();
+    // w.showcolor();
     // hero sunwukong("孙悟空", "男", 200, 10, 80, 50);
     // hero diaocha("貂蝉", "女", 100, 100, 100, 80);
     // int i = 1;
