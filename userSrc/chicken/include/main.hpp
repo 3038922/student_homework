@@ -1,3 +1,5 @@
+#pragma once
+#include "/motor.hpp"
 #include <Windows.h>
 #include <array>
 #include <cstdlib>
@@ -7,6 +9,7 @@
 #include <random>
 #include <string>
 #include <vector>
+
 void suiji()
 {
     //生成 0 到 9 之间（包含）均匀分布的随机数
