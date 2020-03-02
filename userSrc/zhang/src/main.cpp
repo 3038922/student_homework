@@ -43,6 +43,10 @@ class Rabbit
     {
         std::cout << _name << "是" << _color << "的" << std::endl;
     }
+    void showvarieties()
+    {
+        std::cout << _name << "是" << _varieties << "的" << std::endl;
+    }
 
   private:
     std::string _name, _color, _varieties;
@@ -55,6 +59,8 @@ int main(int argc, char *argv[])
     b.showname();
     a.showcolor();
     b.showcolor();
+    a.showvarieties();
+    b.showvarieties();
 }
 // class hero
 // {
