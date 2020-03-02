@@ -134,12 +134,12 @@
 using namespace std;
 class pikaqiu
 {
-  public:                                      //公有的
-    pikaqiu(string m, string y) : mz(m), ys(y) //构造函数
+  public:
+    pikaqiu(string m, string y) : mz(m), ys(y)
     {
         std::cout << "皮卡丘召唤成功" << endl;
     }
-    ~pikaqiu() //析构函数
+    ~pikaqiu()
     {
         cout << "皮卡丘回精灵球睡觉去了" << endl;
     }
@@ -152,7 +152,7 @@ class pikaqiu
         std::cout << "我叫: " << mz << std::endl;
     }
 
-  private: //私有的a
+  private:
     string mz, ys;
 };
 int main()
