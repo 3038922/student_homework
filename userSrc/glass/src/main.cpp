@@ -1,6 +1,8 @@
+#include "../include/motor.hpp"
 #include <iostream>
 #include <time.h>
 #include <windows.h>
+
 // &&:且 ||:或
 //    int a = 3
 //    int b = 2
@@ -288,7 +290,7 @@ class Glass
     }
     void showColor()
     {
-        std::cout << _name << "是"<< _color <<std::endl;
+        std::cout << _name << "是" << _color << std::endl;
     }
     void showName()
     {
@@ -303,9 +305,10 @@ class Glass
     std::string _name, _color, _cpan;
 };
 int main()
-Glass s("散光Glass","绿色",118);
-Glass j("近视Glass","五颜六色的绿色",118);
+{
+    Glass s("散光Glass", "绿色", "118");
+    Glass j("近视Glass", "五颜六色的绿色", "118");
     s.showName();
+    s.showCpan();
     j.showName();
-
 }

@@ -8,6 +8,10 @@ class Hero
     {
         std::cout << name << " 初始化成功" << std::endl;
     }
+    /**
+     * @brief 显示血量
+     * 
+     */
     void showHp()
     {
         std::cout << _name << "当前血量" << _hp << std::endl;
