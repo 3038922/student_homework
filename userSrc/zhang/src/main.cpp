@@ -1,5 +1,25 @@
+#include "../include/a.hpp"
 #include <iostream>
 #include <windows.h>
+int main(int argc, char *grgv[])
+{
+    motor 左前(1, 1, 0);
+    motor 右前(2, 1, 0);
+    motor 左后(3, 1, 0);
+    motor 右后(4, 1, 0);
+    左前.showgear();
+    左前.showport();
+    左前.showzhengfan();
+    右前.showgear();
+    右前.showport();
+    右前.showzhengfan();
+    左后.showgear();
+    左后.showport();
+    左后.showzhengfan();
+    右后.showgear();
+    右后.showport();
+    右后.showzhengfan();
+}
 // int main();
 // {
 //    std::string father_name;
@@ -24,44 +44,45 @@
 //             {"射手座", "山羊座"},
 //         }
 // }
-class Rabbit
-{
-  public:
-    Rabbit(std::string name, std::string color, std::string varieties) : _name(name), _color(color), _varieties(varieties)
-    {
-        std::cout << "Rabbit类 创建成功！" << std::endl;
-    }
-    ~Rabbit()
-    {
-        std::cout << "Rabbit类 删除成功！" << std::endl;
-    }
-    void showname()
-    {
-        std::cout << "我叫：" << _name << std::endl;
-    }
-    void showcolor()
-    {
-        std::cout << _name << "是" << _color << "的" << std::endl;
-    }
-    void showvarieties()
-    {
-        std::cout << _name << "是" << _varieties << "的" << std::endl;
-    }
+// class Rabbit
+// {
+//   public:
+//     Rabbit(std::string name, std::string color, std::string varieties) : _name(name), _color(color), _varieties(varieties)
+//     {
+//         std::cout << "Rabbit类 创建成功！" << std::endl;
+//     }
+//     ~Rabbit()
+//     {
+//         std::cout << "Rabbit类 删除成功！" << std::endl;
+//     }
+//     void showname()
+//     {
+//         std::cout << "我叫：" << _name << std::endl;
+//     }
+//     void showcolor()
+//     {
+//         std::cout << _name << "是" << _color << "的" << std::endl;
+//     }
+//     void showvarieties()
+//     {
+//         std::cout << _name << "是" << _varieties << "的" << std::endl;
+//     }
 
-  private:
-    std::string _name, _color, _varieties;
-};
-int main(int argc, char *argv[])
-{
-    Rabbit a("小兔子", "白色", "北极兔");
-    Rabbit b("中兔子", "灰色", "南极兔");
-    a.showname();
-    b.showname();
-    a.showcolor();
-    b.showcolor();
-    a.showvarieties();
-    b.showvarieties();
-}
+//   private:
+//     std::string _name, _color, _varieties;
+// };
+// int main(int argc, char *argv[])
+// {
+//     Rabbit a("小兔子", "白色", "北极兔");
+//     Rabbit b("中兔子", "灰色", "南极兔");
+//     a.showname();
+//     b.showname();
+//     a.showcolor();
+//     b.showcolor();
+//     a.showvarieties();
+//     b.showvarieties();
+// }
+
 // class hero
 // {
 //   public:
