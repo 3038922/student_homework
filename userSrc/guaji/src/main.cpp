@@ -1,9 +1,11 @@
+#include "../include/Motor.hpp"
 #include <array>
 #include <ctime>
 #include <iomanip>
 #include <iostream>
 #include <vector>
 #include <windows.h>
+
 using namespace std;
 class father
 {
@@ -337,16 +339,9 @@ class glass
 };
 int main()
 {
-    system("chcp 65001");
-    glass a(300, "橡胶", "黑色");
-    a.showslp();
-    a.showmaterials();
-    a.showcolor();
-    /*
-    father a("大红");
-    daughter b("小红", 6, 6, 400);
-    a.ia();
-    b.ia();
-    */
+    Motor a(1, 1, 1);
+    a.getport();
+    a.pan();
+    a.gear();
     return 0;
 }

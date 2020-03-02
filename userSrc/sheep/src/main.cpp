@@ -209,19 +209,83 @@ int main()
             gameLib->_BirthDaydate = std::atoi(save[6].c_str());
             gameLib->_gold = atol(save[7].c_str());
             _year = std::atoi(save[8].c_str());
-            a = std::atoi(save[9].c_str());
+            _month = std::atoi(save[9].c_str());
+            a = _month;
             num = std::atoi(save[10].c_str());
             gameLib->_DaughterName = save[11];
             gameLib->_FatherName = save[12];
             std::cout << "读取成功" << std::endl;
+            std::cin.get();
+            inFile.close();
+            for (; _year <= 1666; _year++)
+            {
+                for (; _month <= 12; _month++)
+                {
+                    if (_month == gameLib->_BirthDay_month)
+                    {
+                        std::cout << "本月" << gameLib->_BirthDaydate << "日是" << gameLib->_DaughterName << "的生日要不要送礼物?" << std::endl;
+                        gameLib->GivingGifts();
+                    }
+                    gameLib->Display();
+                    if (gameLib->_State == true)
+                        return 0;
+                    system("cls");
+                }
+                _month = 1;
+            }
+            system("cls");
+            int sums = 0;
+            for (auto &it : gameLib->_DaughterArray)
+                sums += it;
+            if (sums >= 2000)
+                std::cout << "恭喜您,女儿" << gameLib->_DaughterName << "达成了最优结局,成为了女王,";
+            else if (sums >= 1800)
+                std::cout
+                    << "恭喜达成次优结局,女儿" << gameLib->_DaughterName << "成为了王妃,";
+            else if (sums >= 1600)
+                std::cout
+                    << "女儿" << gameLib->_DaughterName << "成为了女将军,率领士兵征服远方,";
+            else if (sums >= 1200)
+            {
+                // 体力, 智力, 魅力, 道德, 气质
+                int max = gameLib->_DaughterArray[0];
+                for (int i = 1; i < 5; i++)
+                    if (max < gameLib->_DaughterArray[i])
+                        max = gameLib->_DaughterArray[i];
+                if (max == gameLib->_DaughterArray[1])
+                    std::cout
+                        << "女儿" << gameLib->_DaughterName << "成为了皇家学院总裁,";
+                else if (max == gameLib->_DaughterArray[4] && gameLib->_DaughterArray[2] > gameLib->_DaughterArray[0])
+                    std::cout
+                        << "女儿" << gameLib->_DaughterName << "成为了公主,";
+                else if (max == gameLib->_DaughterArray[0] && gameLib->_DaughterArray[4] > gameLib->_DaughterArray[2])
+                    std::cout
+                        << "女儿" << gameLib->_DaughterName << "成为了近卫骑士团团长,";
+                else if (max == gameLib->_DaughterArray[3] && gameLib->_DaughterArray[2] > gameLib->_DaughterArray[4])
+                    std::cout
+                        << "女儿" << gameLib->_DaughterName << "成为了高级祭祀,";
+                else if (max == gameLib->_DaughterArray[2] && gameLib->_DaughterArray[4] > gameLib->_DaughterArray[3])
+                    std::cout
+                        << "女儿" << gameLib->_DaughterName << "成为了国王的宠妃,";
+                else
+                    std::cout
+                        << "女儿" << gameLib->_DaughterName << "成为了妃子,";
+            }
+            else
+            {
+                std::array<std::string, 5> Occupation = {"农妇", "魔法师", "修女", "作家", "酒吧女郎"};
+                std::uniform_int_distribution<> dis(0, 4);
+                std::cout
+                    << "女儿" << gameLib->_DaughterName << "成为了" << Occupation[dis(gen)] << ",";
+            }
+            delete gameLib;
+            gameLib = nullptr;
+            std::cout << "感谢游玩^_^" << std::endl;
+            system("pause");
+            return 0;
         }
         else
-        {
-            std::cout << "读取失败,请检查文件或者路径不存在" << std::endl;
-            system("pause");
-        }
-        std::cin.get();
-        inFile.close();
+            std::cout << "读取失败,请检查文件或者路径不存在,启动默认参数" << std::endl;
     }
     else
         std::cout << "选择错误,启动默认参数." << std::endl;
@@ -230,7 +294,7 @@ int main()
     system("cls");
     for (; _year <= 1666; _year++)
     {
-        for (_month = (_year == 1659) ? 6 : a; _month <= 12; _month++)
+        for (_month = (_year == 1659) ? 6 : 1; _month <= 12; _month++)
         {
             if (_month == gameLib->_BirthDay_month)
             {
@@ -242,8 +306,8 @@ int main()
                 return 0;
             system("cls");
         }
+        _month = 1;
     }
-    system("cls");
     int sums = 0;
     for (auto &it : gameLib->_DaughterArray)
         sums += it;
@@ -283,30 +347,10 @@ int main()
     }
     else
     {
-        std::uniform_int_distribution<> dis(1, 5);
-        switch (dis(gen))
-        {
-            case 1:
-                std::cout
-                    << "女儿" << gameLib->_DaughterName << "成为了农妇,";
-                break;
-            case 2:
-                std::cout
-                    << "女儿" << gameLib->_DaughterName << "成为了魔法师,";
-                break;
-            case 3:
-                std::cout
-                    << "女儿" << gameLib->_DaughterName << "成为了修女,";
-                break;
-            case 4:
-                std::cout
-                    << "女儿" << gameLib->_DaughterName << "成为了作家,";
-                break;
-            case 5:
-                std::cout
-                    << "女儿" << gameLib->_DaughterName << "成为了酒吧女郎,";
-                break;
-        }
+        std::array<std::string, 5> Occupation = {"农妇", "魔法师", "修女", "作家", "酒吧女郎"};
+        std::uniform_int_distribution<> dis(0, 4);
+        std::cout
+            << "女儿" << gameLib->_DaughterName << "成为了" << Occupation[dis(gen)] << ",";
     }
     delete gameLib;
     gameLib = nullptr;
