@@ -24,110 +24,143 @@
 //             {"射手座", "山羊座"},
 //         }
 // }
-class hero
+class Rabbit
 {
   public:
-    hero(std::string name, std::string sex, int hp, int mp, int attack, int defence) : _name(name), _sex(sex), _hp(hp), _mp(mp), _attack(attack), _defence(defence)
+    Rabbit(std::string name, std::string color, std::string varieties) : _name(name), _color(color), _varieties(varieties)
     {
-        std::cout << name << " 初始化成功" << std::endl;
+        std::cout << "Rabbit类 创建成功！" << std::endl;
     }
-
-    void showHp()
+    ~Rabbit()
     {
-        std::cout << _name << "当前血量" << _hp << std::endl;
+        std::cout << "Rabbit类 删除成功！" << std::endl;
     }
-    void showMp()
+    void showname()
     {
-        std::cout << _name << "当前蓝量" << _mp << std::endl;
+        std::cout << "我叫：" << _name << std::endl;
     }
-    void attack(hero *hero)
+    void showcolor()
     {
-        int hurt = _attack / (1 + hero->_defence * 1);
-        std::cout << _name << " 攻击了 " << hero->_name << std::endl;
-        std::cout << "造成了 " << hurt << " 点伤害" << std::endl;
-        hero->_hp -= hurt;
-        fanji(hero);
-    }
-
-    int hp()
-    {
-        return _hp;
+        std::cout << _name << "是" << _color << "的" << std::endl;
     }
 
   private:
-    const std::string _name;
-    const std::string _sex;
-    int _hp = 0;
-    int _mp = 0;
-    int _attack = 0;
-    int _defence = 0;
-    void fanji(hero *hero)
-    {
-        int hurt = hero->_attack / (1 + _defence * 0.05) / 2;
-        std::cout << hero->_name << " 反击了 " << _name << std::endl;
-        std::cout << "造成了 " << hurt << " 点伤害" << std::endl;
-        _hp -= hurt;
-    }
+    std::string _name, _color, _varieties;
 };
 int main(int argc, char *argv[])
 {
-    hero a("孙悟空", "男", 200, 10, 80, 50);
-    hero b("貂蝉", "女", 100, 100, 100, 80);
-    while (a.hp() > 0 || b.hp() > 0)
-    {
-        std::cout << std::endl;
-        a.attack(&b);
-        std::cout << std::endl;
-        b.attack(&a);
-        std::cout << std::endl;
-    }
-    a.showHp();
-    b.showHp();
-    std::cout << rand() << std::endl;
-    // // 打印正方形
-    // std::cout << "打印正方形:" << std::endl;
-    // int a, b
-    // for (a = 0; a < 11; a++)
-    // {
-    //     for (b = 0; b < 11; b++)
-    //         std::cout << " * ";
-    //     std::cout << std::endl;
-    // }
-    // // 打印直角三角形
-    // std::cout << "打印直角三角形:" << std::endl;
-    // int z = 1;
-    // int c, d;
-    // for (c = 0; c < 11; c++)
-    // {
-    //     if (z < 11)
-    //     {
-    //         for (d = 0; d < z; d++)
-    //             std::cout << " * ";
-    //         std::cout << std::endl;
-    //         z++;
-    //     }
-    // }
-    // // 打印等腰三角形
-    // std::cout << "打印等腰三角形:" << std::endl;
-    // int y = 1;
-    // int e, f, g;
-    // for (e = 0; e < y; e++)
-    // {
-    //     if (g > 0)
-    //     {
-    //         for (g = 5; g < 6; g--)
-    //             std::cout << " ";
-    //     }
-    // if (y < 11)
-    // {
-    //     for (f = 0; f < y; f++)
-    //         std::cout << " * ";
-    //     std::cout << std::endl;
-    //     y++;
-    // }
-    // }
-    return 0;
+    Rabbit a("小兔子", "白色", "北极兔");
+    Rabbit b("中兔子", "灰色", "南极兔");
+    a.showname();
+    b.showname();
+    a.showcolor();
+    b.showcolor();
 }
+// class hero
+// {
+//   public:
+//     hero(std::string name, std::string sex, int hp, int mp, int attack, int defence) : _name(name), _sex(sex), _hp(hp), _mp(mp), _attack(attack), _defence(defence)
+//     {
+//         std::cout << name << " 初始化成功" << std::endl;
+//     }
+
+//     void showHp()
+//     {
+//         std::cout << _name << "当前血量" << _hp << std::endl;
+//     }
+//     void showMp()
+//     {
+//         std::cout << _name << "当前蓝量" << _mp << std::endl;
+//     }
+//     void attack(hero *hero)
+//     {
+//         int hurt = _attack / (1 + hero->_defence * 1);
+//         std::cout << _name << " 攻击了 " << hero->_name << std::endl;
+//         std::cout << "造成了 " << hurt << " 点伤害" << std::endl;
+//         hero->_hp -= hurt;
+//         fanji(hero);
+//     }
+
+//     int hp()
+//     {
+//         return _hp;
+//     }
+
+//   private:
+//     const std::string _name;
+//     const std::string _sex;
+//     int _hp = 0;
+//     int _mp = 0;
+//     int _attack = 0;
+//     int _defence = 0;
+//     void fanji(hero *hero)
+//     {
+//         int hurt = hero->_attack / (1 + _defence * 0.05) / 2;
+//         std::cout << hero->_name << " 反击了 " << _name << std::endl;
+//         std::cout << "造成了 " << hurt << " 点伤害" << std::endl;
+//         _hp -= hurt;
+//     }
+// };
+// int main(int argc, char *argv[])
+// {
+//     hero a("孙悟空", "男", 200, 10, 80, 50);
+//     hero b("貂蝉", "女", 100, 100, 100, 80);
+//     while (a.hp() > 0 || b.hp() > 0)
+//     {
+//         std::cout << std::endl;
+//         a.attack(&b);
+//         std::cout << std::endl;
+//         b.attack(&a);
+//         std::cout << std::endl;
+//     }
+//     a.showHp();
+//     b.showHp();
+//     std::cout << rand() << std::endl;
+
+// // 打印正方形
+// std::cout << "打印正方形:" << std::endl;
+// int a, b
+// for (a = 0; a < 11; a++)
+// {
+//     for (b = 0; b < 11; b++)
+//         std::cout << " * ";
+//     std::cout << std::endl;
+// }
+// // 打印直角三角形
+// std::cout << "打印直角三角形:" << std::endl;
+// int z = 1;
+// int c, d;
+// for (c = 0; c < 11; c++)
+// {
+//     if (z < 11)
+//     {
+//         for (d = 0; d < z; d++)
+//             std::cout << " * ";
+//         std::cout << std::endl;
+//         z++;
+//     }
+// }
+// // 打印等腰三角形
+// std::cout << "打印等腰三角形:" << std::endl;
+// int y = 1;
+// int e, f, g;
+// for (e = 0; e < y; e++)
+// {
+//     if (g > 0)
+//     {
+//         for (g = 5; g < 6; g--)
+//             std::cout << " ";
+//     }
+// if (y < 11)
+// {
+//     for (f = 0; f < y; f++)
+//         std::cout << " * ";
+//     std::cout << std::endl;
+//     y++;
+// }
+// }
+//     return 0;
+// }
 // void jiao(int **a, int **b)
 // {
 //     int *temp = *a;
@@ -199,33 +232,6 @@ int main(int argc, char *argv[])
 // std::cout << "e的攻击力:" << e << std::endl;
 // std::cout << "f的攻击力:" << f << std::endl;
 // }
-
-// //实际把教室里东西搬了一次 效率很低 很慢
-// void swap(std::string *a, std::string *b)
-// {
-//     std::string temp = *a; //搬到走廊
-//     *a = *b;               //B把东西搬进A;
-//     *b = temp;
-// }
-//     double aa = 3.15;
-//     std::string class1 = "阿斯顿";
-//     std::string class2 = "asdasd";
-//     std::string *ptr_1 = &class1;
-//     std::string *ptr_2 = &class2;
-//     std::string **ptrptr_1 = &ptr_1;
-//     std::string **ptrptr_2 = &ptr_2;
-//     std::cout << "class1的值" << class1 << " class1的地址" << &class1 << std::endl;
-//     std::cout << "ptr_1指向的值" << *ptr_1 << " ptr_1指向的地址" << ptr_1 << " ptr_1自己的地址:" << &ptr_1 << std::endl;
-//     std::cout << "ptrptr_1指向的值" << **ptrptr_1 << " ptrptr_1指向的地址" << *ptrptr_1 << " ptrptr_1指向的指针的地址" << ptrptr_1 << " ptrptr_1自己的地址:" << &ptrptr_1 << std::endl;
-//     std::cout << "交换前class地址:" << &class1 << " " << &class2 << std::endl;
-//     std::cout << "交换前ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
-//     std::string **temp = ptrptr_1;
-//     ptrptr_1 = ptrptr_2;
-//     ptrptr_2 = temp;
-//     std::cout << "交换后class地址" << &class1 << " " << &class2 << std::endl;
-//     std::cout << "交换后ptr:" << ptrptr_1 << " " << ptrptr_2 << std::endl;
-// swap(&class1, &class2);
-// std::cout << "class1:" << class1 << " class2:" << class2 << std::endl;
 
 //     int x = 2874;
 //     int y;
