@@ -1,4 +1,5 @@
 #include "../include/main.hpp"
+#include "motor.hpp"
 /*
 int zhengshu(int a)
 {
@@ -338,8 +339,12 @@ int main(int argc, char *argv[])
 {
     system("chcp 65001");
     Motor mada(1, 1, 1);
-    mada.showprot();
     mada.set(127);
+    mada.setZhengfan(1);
+    mada.setGear(1);
+    mada.getGear();
+    mada.getPwm();
+    mada.getPort();
     // Chicken w("吴老鸡", "红色");
     // w.showname();
     // w.showcolor();
