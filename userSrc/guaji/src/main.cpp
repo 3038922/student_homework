@@ -1,4 +1,4 @@
-#include "../include/Motor.hpp"
+#include "motor.hpp"
 #include <array>
 #include <ctime>
 #include <iomanip>
@@ -339,9 +339,7 @@ class glass
 };
 int main()
 {
+    system("chcp 65001");
     Motor a(1, 1, 1);
-    a.getport();
-    a.pan();
-    a.gear();
-    return 0;
+    a.getPort();
 }
