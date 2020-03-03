@@ -1,12 +1,13 @@
-#include <array>
-#include <ctime>
-#include <iomanip>
-#include <iostream>
-#include <mmstream.h>
-#include <vector>
-#include <windows.h>
+#include "../include/motor.hpp"
+// #include <array>
+// #include <ctime>
+// #include <iomanip>
+// #include <iostream>
+// #include <mmstream.h>
+// #include <vector>
+// #include <windows.h>
 
-#pragma comment(lib, "winmm.lib")
+// #pragma comment(lib, "winmm.lib")
 // class hero //TheRoleOftheGame
 // {
 //   public:
@@ -203,12 +204,62 @@ int main()
 {
     system("chcp 65001");
     system("cls");
-    Marmot awa("土拨鼠", "女的");
-    Marmot qwq("波拨鼠", "男的"); //波拨鼠是我
-    awa.showName();
-    qwq.showName();
-    awa.showsex();
-    qwq.showsex();
+    // Marmot awa("土拨鼠", "女的");
+    // Marmot qwq("波拨鼠", "男的"); //波拨鼠是我
+    // awa.showName();
+    // qwq.showName();
+    // awa.showsex();
+    // qwq.showsex();
+    Motor a(1, 1, 1);
+    a.GetPort();
+    a.GetPositiveAndNegative();
+    a.GetGear();
+    std::cout << std::endl;
+    Motor b(2, 1, 1);
+    b.GetPort();
+    b.GetPositiveAndNegative();
+    b.GetGear();
+    std::cout << std::endl;
+    Motor c(3, -1, 1);
+    c.GetPort();
+    c.GetPositiveAndNegative();
+    c.GetGear();
+    std::cout << std::endl;
+    Motor d(4, -1, 1);
+    d.GetPort();
+    d.GetPositiveAndNegative();
+    d.GetGear();
+    std::cout << std::endl;
+    Motor e(5, 1, 0);
+    e.GetPort();
+    e.GetPositiveAndNegative();
+    e.GetGear();
+    std::cout << std::endl;
+    Motor f(6, 1, 0);
+    f.GetPort();
+    f.GetPositiveAndNegative();
+    f.GetGear();
+    std::cout << std::endl;
+    Motor g(7, 1, 1);
+    g.GetPort();
+    g.GetPositiveAndNegative();
+    g.GetGear();
+    std::cout << std::endl;
+    Motor h(8, -1, 1);
+    h.GetPort();
+    h.GetPositiveAndNegative();
+    h.GetGear();
+    std::cout << std::endl;
+    /**
+     * @brief 故意输错
+     * 
+     */
+    Motor i(9, -2, 4);
+    i.GetPort();
+    i.GetPositiveAndNegative();
+    i.GetGear();
+    std::cout << std::endl;
+    return 0;
     // int i;
     // int count = 5;
     // char emperorName[50];
