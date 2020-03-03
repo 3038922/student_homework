@@ -132,29 +132,29 @@
 //               << job << "技能二" << skill2 << std::endl
 //               << job << "技能三" << skill3 << std::endl;
 //}
-class Marmot //我表示我外号是土拨鼠...
-{
-  public:
-    Marmot(std::string a, std::string b) : _name(a), _sex(b)
-    {
-        std::cout << "Marmot类 创建成功!" << std::endl;
-    }
-    ~Marmot()
-    {
-        std::cout << "Marmot类 删除成功!" << std::endl;
-    }
-    void showsex()
-    {
-        std::cout << _name << " 是 " << _sex << std::endl;
-    }
-    void showName()
-    {
-        std::cout << "我叫: " << _name << std::endl;
-    }
+// class Marmot //我表示我外号是土拨鼠...
+// {
+//   public:
+//     Marmot(std::string a, std::string b) : _name(a), _sex(b)
+//     {
+//         std::cout << "Marmot类 创建成功!" << std::endl;
+//     }
+//     ~Marmot()
+//     {
+//         std::cout << "Marmot类 删除成功!" << std::endl;
+//     }
+//     void showsex()
+//     {
+//         std::cout << _name << " 是 " << _sex << std::endl;
+//     }
+//     void showName()
+//     {
+//         std::cout << "我叫: " << _name << std::endl;
+//     }
 
-  private:
-    std::string _name, _sex;
-};
+//   private:
+//     std::string _name, _sex;
+// };
 
 // class hero
 // {
@@ -204,62 +204,65 @@ int main()
 {
     system("chcp 65001");
     system("cls");
+    Motor motor(1, 1, 1);
+    motor.showprot();
+    motor.set(127);
     // Marmot awa("土拨鼠", "女的");
     // Marmot qwq("波拨鼠", "男的"); //波拨鼠是我
     // awa.showName();
     // qwq.showName();
     // awa.showsex();
     // qwq.showsex();
-    Motor a(1, 1, 1);
-    a.GetPort();
-    a.GetPositiveAndNegative();
-    a.GetGear();
-    std::cout << std::endl;
-    Motor b(2, 1, 1);
-    b.GetPort();
-    b.GetPositiveAndNegative();
-    b.GetGear();
-    std::cout << std::endl;
-    Motor c(3, -1, 1);
-    c.GetPort();
-    c.GetPositiveAndNegative();
-    c.GetGear();
-    std::cout << std::endl;
-    Motor d(4, -1, 1);
-    d.GetPort();
-    d.GetPositiveAndNegative();
-    d.GetGear();
-    std::cout << std::endl;
-    Motor e(5, 1, 0);
-    e.GetPort();
-    e.GetPositiveAndNegative();
-    e.GetGear();
-    std::cout << std::endl;
-    Motor f(6, 1, 0);
-    f.GetPort();
-    f.GetPositiveAndNegative();
-    f.GetGear();
-    std::cout << std::endl;
-    Motor g(7, 1, 1);
-    g.GetPort();
-    g.GetPositiveAndNegative();
-    g.GetGear();
-    std::cout << std::endl;
-    Motor h(8, -1, 1);
-    h.GetPort();
-    h.GetPositiveAndNegative();
-    h.GetGear();
-    std::cout << std::endl;
-    /**
-     * @brief 故意输错
-     * 
-     */
-    Motor i(9, -2, 4);
-    i.GetPort();
-    i.GetPositiveAndNegative();
-    i.GetGear();
-    std::cout << std::endl;
-    return 0;
+    // Motor a(1, 1, 1);
+    // a.GetPort();
+    // a.GetPositiveAndNegative();
+    // a.GetGear();
+    // std::cout << std::endl;
+    // Motor b(2, 1, 1);
+    // b.GetPort();
+    // b.GetPositiveAndNegative();
+    // b.GetGear();
+    // std::cout << std::endl;
+    // Motor c(3, -1, 1);
+    // c.GetPort();
+    // c.GetPositiveAndNegative();
+    // c.GetGear();
+    // std::cout << std::endl;
+    // Motor d(4, -1, 1);
+    // d.GetPort();
+    // d.GetPositiveAndNegative();
+    // d.GetGear();
+    // std::cout << std::endl;
+    // Motor e(5, 1, 0);
+    // e.GetPort();
+    // e.GetPositiveAndNegative();
+    // e.GetGear();
+    // std::cout << std::endl;
+    // Motor f(6, 1, 0);
+    // f.GetPort();
+    // f.GetPositiveAndNegative();
+    // f.GetGear();
+    // std::cout << std::endl;
+    // Motor g(7, 1, 1);
+    // g.GetPort();
+    // g.GetPositiveAndNegative();
+    // g.GetGear();
+    // std::cout << std::endl;
+    // Motor h(8, -1, 1);
+    // h.GetPort();
+    // h.GetPositiveAndNegative();
+    // h.GetGear();
+    // std::cout << std::endl;
+    // /**
+    //  * @brief 故意输错
+    //  *
+    //  */
+    // Motor i(9, -2, 4);
+    // i.GetPort();
+    // i.GetPositiveAndNegative();
+    // i.GetGear();
+    // std::cout << std::endl;
+    // return 0;
     // int i;
     // int count = 5;
     // char emperorName[50];
