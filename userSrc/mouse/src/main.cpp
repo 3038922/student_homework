@@ -127,11 +127,10 @@
 // #include <cstdlib>
 // #include <ctime>
 // #include <iomanip>
-#include "publicAPI.hpp"
-#include <iostream>
+
+#include "../include/mouse.hpp"
 
 // #include <vector>
-using namespace std;
 class pikaqiu
 {
   public:
@@ -163,6 +162,8 @@ int main()
     g.mingzi();
     w.yanse();
     g.yanse();
+    system("chcp 65001");
+
     //     string fn;
     //     string nn;
     //     int month;
