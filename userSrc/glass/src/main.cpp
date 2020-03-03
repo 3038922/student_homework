@@ -280,7 +280,7 @@
 class Glass
 {
   public:
-    Glass(std::string a, std::string b, std::string c) : _name(a), _color(b), _cpan(c)
+    Glass(std::string a, std::string b, std::string c) : _name(a), _color(b), _price(c)
     {
         std::cout << "Glass类创建成功" << std::endl;
     }
@@ -296,19 +296,30 @@ class Glass
     {
         std::cout << "我叫：" << _name << std::endl;
     }
-    void showCpan()
+    void showPrice()
     {
-        std::cout << _name << "我的镜片种类有：" << _cpan << "蓝光" << std::endl;
+        std::cout << _name << "我的镜片种类有：" << _price << "蓝光" << std::endl;
     }
 
   private:
-    std::string _name, _color, _cpan;
+    std::string _name, _color, _price;
 };
 int main()
 {
     Glass s("散光Glass", "绿色", "118");
     Glass j("近视Glass", "五颜六色的绿色", "118");
     s.showName();
-    s.showCpan();
     j.showName();
+    s.showColor();
+    j.showColor();
+    s.showPrice();
+    j.showPrice();
 }
+int main()
+{
+    Motor a(1, -1, 2);
+    a.getport();
+    a.pan();
+    a.gear();
+    return 0;
+};
