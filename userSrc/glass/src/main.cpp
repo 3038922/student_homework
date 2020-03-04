@@ -1,4 +1,5 @@
 #include "../include/motor.hpp"
+#include "motor.hpp"
 #include <iostream>
 #include <time.h>
 #include <windows.h>
@@ -277,49 +278,52 @@
 //     sunwukong.showHp();
 //     diaocha.showHp();
 // }
-class Glass
-{
-  public:
-    Glass(std::string a, std::string b, std::string c) : _name(a), _color(b), _price(c)
-    {
-        std::cout << "Glass类创建成功" << std::endl;
-    }
-    ~Glass()
-    {
-        std::cout << "Glass类创建成功" << std::endl;
-    }
-    void showColor()
-    {
-        std::cout << _name << "是" << _color << std::endl;
-    }
-    void showName()
-    {
-        std::cout << "我叫：" << _name << std::endl;
-    }
-    void showPrice()
-    {
-        std::cout << _name << "我的镜片种类有：" << _price << "蓝光" << std::endl;
-    }
+// class Glass
+// {
+//   public:
+//     Glass(std::string a, std::string b, std::string c) : _name(a), _color(b), _price(c)
+//     {
+//         std::cout << "Glass类创建成功" << std::endl;
+//     }
+//     ~Glass()
+//     {
+//         std::cout << "Glass类创建成功" << std::endl;
+//     }
+//     void showColor()
+//     {
+//         std::cout << _name << "是" << _color << std::endl;
+//     }
+//     void showName()
+//     {
+//         std::cout << "我叫：" << _name << std::endl;
+//     }
+//     void showPrice()
+//     {
+//         std::cout << _name << "我的镜片种类有：" << _price << "蓝光" << std::endl;
+//     }
 
-  private:
-    std::string _name, _color, _price;
-};
+//   private:
+//     std::string _name, _color, _price;
+// };
+// int main()
+// {
+//     Glass s("散光Glass", "绿色", "118");
+//     Glass j("近视Glass", "五颜六色的绿色", "118");
+//     s.showName();
+//     j.showName();
+//     s.showColor();
+//     j.showColor();
+//     s.showPrice();
+//     j.showPrice();
+// };
 int main()
 {
-    Glass s("散光Glass", "绿色", "118");
-    Glass j("近视Glass", "五颜六色的绿色", "118");
-    s.showName();
-    j.showName();
-    s.showColor();
-    j.showColor();
-    s.showPrice();
-    j.showPrice();
+    system("chcp 65001");
+    Motor a(1, -1, 1);
+    a.set(127);
+    a.setZhengfan(-1);
+    a.setGear(1);
+    a.getGear();
+    a.getPwm();
+    a.getPort();
 }
-int main()
-{
-    Motor a(1, -1, 2);
-    a.getport();
-    a.pan();
-    a.gear();
-    return 0;
-};
