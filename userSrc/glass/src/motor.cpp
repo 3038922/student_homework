@@ -1,10 +1,10 @@
-#include "../include/motor.hpp"
+#include "motor.hpp"
 Motor::Motor(int port, int pan, int gear) : _port(port), _pan(pan), _gear(gear)
 {
     std::cout << _port << "号马达初始化成功" << std::endl;
 }
 Motor::~Motor(){};
-void Motor::gear()
+void Motor::getGear()
 {
     if (_gear == 0)
     {
@@ -38,7 +38,8 @@ void Motor::pan()
         std::cout << "输两个数" << std::endl;
     }
 }
-void Motor::port()
+int Motor::getPort()
 {
     std::cout << "马达端口为:" << _port << "号" << std::endl;
+    return _port;
 };
