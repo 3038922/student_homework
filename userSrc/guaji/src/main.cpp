@@ -341,5 +341,10 @@ int main()
 {
     system("chcp 65001");
     Motor a(1, -1, 1);
+    a.set(127);
+    a.setZhengfan(-1);
+    a.setGear(1);
+    a.getGear();
     a.getPwm();
+    a.getPort();
 }
