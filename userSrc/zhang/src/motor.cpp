@@ -2,7 +2,7 @@
 #include <iostream>
 Motor::Motor(int port, int zhengfan, int gear) : _port(port), _zhengfan(zhengfan), _gear(gear)
 {
-    std::cout << "马达[" << _port << "]正反：" << setzhengfan << "齿轮颜色:" << setGear << std::endl;
+    setZhengfan(zhengfan);
 }
 Motor::~Motor()
 {

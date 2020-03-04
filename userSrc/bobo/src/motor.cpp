@@ -1,7 +1,6 @@
-#include "../include/motor.hpp"
-Motor::Motor(int prot, int zhengfan, int gear) : _prot(prot), _zhengfan(zhengfan), _gear(gear)
+#include "motor.hpp"
+Motor::Motor(int port, int zhengfan, int gear) : _port(port), _zhengfan(zhengfan), _gear(gear)
 {
-    std::cout << "马达[" << prot << "]号,正反:" << zhengfan << "齿轮:";
     switch (gear)
     {
         case 0:
@@ -21,11 +20,11 @@ Motor::Motor(int prot, int zhengfan, int gear) : _prot(prot), _zhengfan(zhengfan
 }
 Motor::~Motor()
 {
-    std::cout << "马达[" << _prot << "]删除成功!" << std::endl;
+    std::cout << "马达[" << _port << "]删除成功!" << std::endl;
 }
 void Motor::showprot()
 {
-    std::cout << "马达端口为:" << _prot << "号" << std::endl;
+    std::cout << "马达端口为:" << _port << "号" << std::endl;
 }
 void Motor::set(int pwm)
 {
