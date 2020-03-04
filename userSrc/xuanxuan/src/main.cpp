@@ -1,4 +1,5 @@
-#include "../include/API.hpp"
+#include "../include/main.hpp"
+#include "motor.hpp"
 int main()
 {
     system("chcp 65001");
@@ -217,59 +218,70 @@ int main()
     // SmallTree.ShowColor();
     // std::cout << std::endl;
     /**************************************************/
-    /**
-     * @brief 1 - 8个马达
-     * 
-     */
-    Motor a(1, 1, 1);
-    a.GetPort();
-    a.GetPositiveAndNegative();
-    a.GetGear();
-    std::cout << std::endl;
-    Motor b(2, 1, 1);
-    b.GetPort();
-    b.GetPositiveAndNegative();
-    b.GetGear();
-    std::cout << std::endl;
-    Motor c(3, -1, 1);
-    c.GetPort();
-    c.GetPositiveAndNegative();
-    c.GetGear();
-    std::cout << std::endl;
-    Motor d(4, -1, 1);
-    d.GetPort();
-    d.GetPositiveAndNegative();
-    d.GetGear();
-    std::cout << std::endl;
-    Motor e(5, 1, 0);
-    e.GetPort();
-    e.GetPositiveAndNegative();
-    e.GetGear();
-    std::cout << std::endl;
-    Motor f(6, 1, 0);
-    f.GetPort();
-    f.GetPositiveAndNegative();
-    f.GetGear();
-    std::cout << std::endl;
-    Motor g(7, 1, 1);
-    g.GetPort();
-    g.GetPositiveAndNegative();
-    g.GetGear();
-    std::cout << std::endl;
-    Motor h(8, -1, 1);
-    h.GetPort();
-    h.GetPositiveAndNegative();
-    h.GetGear();
-    std::cout << std::endl;
-    /**
-     * @brief 故意输错
-     * 
-     */
-    Motor i(9, -2, 4);
-    i.GetPort();
-    i.GetPositiveAndNegative();
-    i.GetGear();
-    std::cout << std::endl;
+    // /**
+    //  * @brief 1 - 8个马达
+    //  *
+    //  */
+    // Motor a(1, 1, 1);
+    // a.GetPort();
+    // a.GetPositiveAndNegative();
+    // a.GetGear();
+    // std::cout << std::endl;
+    // Motor b(2, 1, 1);
+    // b.GetPort();
+    // b.GetPositiveAndNegative();
+    // b.GetGear();
+    // std::cout << std::endl;
+    // Motor c(3, -1, 1);
+    // c.GetPort();
+    // c.GetPositiveAndNegative();
+    // c.GetGear();
+    // std::cout << std::endl;
+    // Motor d(4, -1, 1);
+    // d.GetPort();
+    // d.GetPositiveAndNegative();
+    // d.GetGear();
+    // std::cout << std::endl;
+    // Motor e(5, 1, 0);
+    // e.GetPort();
+    // e.GetPositiveAndNegative();
+    // e.GetGear();
+    // std::cout << std::endl;
+    // Motor f(6, 1, 0);
+    // f.GetPort();
+    // f.GetPositiveAndNegative();
+    // f.GetGear();
+    // std::cout << std::endl;
+    // Motor g(7, 1, 1);
+    // g.GetPort();
+    // g.GetPositiveAndNegative();
+    // g.GetGear();
+    // std::cout << std::endl;
+    // Motor h(8, -1, 1);
+    // h.GetPort();
+    // h.GetPositiveAndNegative();
+    // h.GetGear();
+    // std::cout << std::endl;
+    // /**
+    //  * @brief 故意输错
+    //  *
+    //  */
+    // Motor i(9, -2, 4);
+    // i.GetPort();
+    // i.GetPositiveAndNegative();
+    // i.GetGear();
+    // std::cout << std::endl;
+    /**************************************************/
+    Motor a(1, -1, 2);
+    std::cout << "*************************" << std::endl;
+    a.set(127);
+    a.setGear(0);
+    a.setZhengfan(1);
+    std::cout << "*************************" << std::endl;
+    a.getGear();
+    std::cout << a.getPort() << std::endl;
+    std::cout << a.getPwm() << std::endl;
+    std::cout << "*************************" << std::endl;
     return 0;
 }
 /**************************小公主养成记*************************/
