@@ -340,6 +340,6 @@ class glass
 int main()
 {
     system("chcp 65001");
-    Motor a(1, 1, 1);
-    a.getPort();
+    Motor a(1, -1, 1);
+    a.getPwm();
 }

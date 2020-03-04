@@ -66,7 +66,8 @@ void Motor::getGear()
 }
 int Motor::getPwm()
 {
-    return _pwm;
+    std::cout << _pwm + 127 * _zhengfan << std::endl;
+    return 0;
 }
 int Motor::getPort()
 {
