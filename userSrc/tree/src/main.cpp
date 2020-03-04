@@ -101,7 +101,7 @@
 class tree //之前写这个第一个括号总会报错,只能重新复制一个
 {
   public:
-    tree(std::string a, std::string b) : _name(a), _nengli(b)
+    tree(std::string a, std::string b) : _name(a)
     {
         std::cout << "树类 创建成功" << std::endl;
     }
