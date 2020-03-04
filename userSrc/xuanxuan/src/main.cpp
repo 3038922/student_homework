@@ -273,15 +273,15 @@ int main()
     // std::cout << std::endl;
     /**************************************************/
     Motor a(1, -1, 2);
-    std::cout << "*************************" << std::endl;
+    std::cout << "******************************" << std::endl;
     a.set(127);
     a.setGear(0);
     a.setZhengfan(1);
-    std::cout << "*************************" << std::endl;
+    std::cout << "******************************" << std::endl;
     a.getGear();
-    std::cout << a.getPort() << std::endl;
-    std::cout << a.getPwm() << std::endl;
-    std::cout << "*************************" << std::endl;
+    std::cout << "当前端口: " << a.getPort() << std::endl;
+    std::cout << "当前PWM: " << a.getPwm() << std::endl;
+    std::cout << "******************************" << std::endl;
     return 0;
 }
 /**************************小公主养成记*************************/
