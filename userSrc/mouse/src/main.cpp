@@ -133,6 +133,12 @@
 int main()
 {
     system("chcp 65001");
-
+    Motor md(1, 1, 1);
+    md.set(127);
+    md.setZhengfan(1);
+    md.setGear(1);
+    md.getGear();
+    md.getPwm();
+    md.getPort();
     return 0;
 }
