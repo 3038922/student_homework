@@ -2,7 +2,7 @@
 Motor::Motor(int port, int zhengfan, int gear) : _port(port), _zhengfan(zhengfan), _gear(gear)
 
 {
-    std::cout << "添加马达" << std::endl;
+    std::cout << "添加马达 " << std::endl;
 }
 Motor::~Motor()
 {
