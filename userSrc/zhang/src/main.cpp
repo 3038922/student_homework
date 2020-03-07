@@ -1,23 +1,53 @@
 #include <iostream>
 #include <windows.h>
-int main(int argc, char *grgv[])
+class 鼠
 {
-    motor 左前(1, 1, 0);
-    motor 右前(2, 1, 0);
-    motor 左后(3, 1, 0);
-    motor 右后(4, 1, 0);
-    左前.showgear();
-    左前.showport();
-    左前.showzhengfan();
-    右前.showgear();
-    右前.showport();
-    右前.showzhengfan();
-    左后.showgear();
-    左后.showport();
-    左后.showzhengfan();
-    右后.showgear();
-    右后.showport();
-    右后.showzhengfan();
+  public:
+    鼠(std::string 号码) : _号码(号码)
+    {
+        std::cout << "鼠类创建成功！！！" << std::endl;
+    }
+    ~鼠()
+    {
+        std::cout << "鼠类删除成功" << std::endl;
+    }
+    void 显示鼠号码()
+    {
+        std::cout << "鼠号码为：" << _号码 << std::endl;
+    }
+    int _长度;
+    void 设置鼠长度(int cd)
+    {
+        cd = _长度;
+    }
+    void 显示鼠长度()
+    {
+        std::cout << _号码 << "号鼠长度为：" << _长度 << std::endl;
+    }
+    std::string _颜色;
+    void 设置鼠颜色(std::string ys)
+    {
+        ys = _颜色;
+    }
+    void 显示鼠颜色()
+    {
+        std::cout << _号码 << "号鼠长度为：" << _颜色 << std::endl;
+    }
+};
+int main(int argc, char *argv[])
+{
+    鼠 a("1号");
+    鼠 b("2号");
+    a.显示鼠号码();
+    a.设置鼠长度(100);
+    a.显示鼠长度();
+    a.设置鼠颜色("灰色");
+    a.显示鼠颜色();
+    b.显示鼠号码();
+    b.设置鼠长度(200);
+    b.显示鼠长度();
+    b.设置鼠颜色("黄色");
+    b.显示鼠颜色();
 }
 // int main();
 // {
