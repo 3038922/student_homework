@@ -13,11 +13,16 @@ class Singleton
             _singleton = new T();
         }
         else
-            std::cout << " Singleton already existence" << std::endl;
+            std::cout << "Singleton already existence" << std::endl;
         return _singleton;
+    }
+    void show()
+    {
+        std::cout << "Singleton: " << _testVal << std::endl;
     }
 
   protected:
+    int _testVal = 9999;
     Singleton() { std::cout << "Singleton create successful!" << std::endl; }
 
   private:
@@ -27,17 +32,20 @@ class Singleton
 template <class T>
 T *Singleton<T>::_singleton = nullptr;
 
-static std::once_flag fatherFlag;
-static std::once_flag sonFlag;
-
-class Father
+class Father : public Singleton<Father>
 {
-    friend class Son;
+    friend class Singleton<Father>;
 
   public:
     static Father *initFather()
     {
-        std::call_once(fatherFlag, [&]() { _father = new Father; });
+        if (_father == nullptr)
+        {
+            _father = new Father();
+            initSingleton();
+        }
+        else
+            std::cout << "father already existence " << std::endl;
         return _father;
     }
     virtual void showNums()
@@ -46,12 +54,22 @@ class Father
     }
     virtual void testFather()
     {
-        std::cout << "test Father:" << _testVal << std::endl;
+        std::cout << "test Father: " << _testVal << std::endl;
+    }
+    virtual void reset(int val)
+    {
+        _testVal = val;
+    }
+    virtual void resetFlag(int val)
+    {
+        _flag = val;
+    }
+    virtual void showFlag()
+    {
+        std::cout << "flag: " << _flag << std::endl;
     }
 
   protected:
-    static int _nums;
-    int _testVal = 100;
     static Father *_father;
     Father()
     {
@@ -59,31 +77,28 @@ class Father
         std::cout << "father create successful!" << std::endl;
     }
     ~Father() {}
+    static int _nums;
+    int _flag = 0;
 
   private:
 };
-Father *Father::_father = nullptr;
 int Father::_nums = 0;
-class Son
-{
+Father *Father::_father = nullptr;
 
+class Son : public Father
+{
   public:
-    static Son *initSon()
-    {
-        std::call_once(fatherFlag, [&]() { Father::_father = new Father; });
-        std::call_once(sonFlag, [&]() { _son = new Son; });
-        return _son;
-    }
     virtual void showNums()
     {
         std::cout << "Son nums: " << Father::_nums << std::endl;
     }
 
   protected:
-    Son() { std::cout << "son create successful!" << std::endl; }
+    Son()
+    {
+        std::cout << "son create successful!" << std::endl;
+    }
     ~Son() {}
 
   private:
-    static Son *_son;
 };
-Son *Son::_son = nullptr;
