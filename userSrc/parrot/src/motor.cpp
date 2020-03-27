@@ -10,6 +10,7 @@ Motor::~Motor()
 }
 void Motor::set(int pwm)
 {
+    _pwm = pwm;
     std::cout << _port << "号马达当前pwm值是" << pwm * _zhengfan << std::endl;
 }
 void Motor::setZhengfan(int zhengfan)
@@ -63,11 +64,9 @@ void Motor::setGear(int gear)
 
 int Motor::getPort()
 {
-    std::cout << _port << std::endl;
-    return 0;
+    return _port;
 }
 int Motor::getPwm()
 {
-    std::cout << _pwm + 127 * _zhengfan << std::endl;
-    return 0;
+    return _pwm;
 }
