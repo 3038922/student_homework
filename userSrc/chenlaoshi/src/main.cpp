@@ -9,10 +9,11 @@ int main(int argc, char *argv[])
     // son2->showName();
     // son2->showTestSon();
     // son2->PrintAddress();
-    // Father *father = Father::initFather();
-    // Son *son1 = Son::initSon();
-    // Son *son2 = Son::initSon();
-    // son2->showSonNums();
-    Son *son1 = Singleton<Son>::initSingleton();
+    Father *father = Father::initFather();
+    father->showNums();
+    father->testFather();
+    Son *son1 = Son::initSon();
+    Son *son2 = Son::initSon();
+    son2->showNums();
     return 0;
 }

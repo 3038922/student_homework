@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <mutex>
 template <class T>
 class Singleton
 {
@@ -26,28 +27,34 @@ class Singleton
 template <class T>
 T *Singleton<T>::_singleton = nullptr;
 
+static std::once_flag fatherFlag;
+static std::once_flag sonFlag;
+
 class Father
 {
+    friend class Son;
+
   public:
     static Father *initFather()
     {
-        if (_father == nullptr)
-            _father = new Father;
-        else
-            std::cout << " father already existence" << std::endl;
+        std::call_once(fatherFlag, [&]() { _father = new Father; });
         return _father;
     }
-    void showSonNums()
+    virtual void showNums()
     {
-        std::cout << "son nums: " << _sonNums << std::endl;
+        std::cout << "Father nums: " << _nums << std::endl;
+    }
+    virtual void testFather()
+    {
+        std::cout << "test Father" << std::endl;
     }
 
   protected:
-    static int _sonNums;
+    static int _nums;
     static Father *_father;
     Father()
     {
-        _sonNums++;
+        _nums++;
         std::cout << "father create successful!" << std::endl;
     }
     ~Father() {}
@@ -55,24 +62,27 @@ class Father
   private:
 };
 Father *Father::_father = nullptr;
-int Father::_sonNums = 0;
-class Son : public Father
+int Father::_nums = 0;
+class Son
 {
+
   public:
     static Son *initSon()
     {
-        if (_son == nullptr)
-            _son = new Son;
-        else
-            std::cout << " son already existence" << std::endl;
+        std::call_once(fatherFlag, [&]() { Father::_father = new Father; });
+        std::call_once(sonFlag, [&]() { _son = new Son; });
         return _son;
+    }
+    virtual void showNums()
+    {
+        std::cout << "Son nums: " << Father::_nums << std::endl;
     }
 
   protected:
-    static Son *_son;
     Son() { std::cout << "son create successful!" << std::endl; }
     ~Son() {}
 
   private:
+    static Son *_son;
 };
 Son *Son::_son = nullptr;
