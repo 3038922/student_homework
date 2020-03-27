@@ -204,9 +204,13 @@ int main()
 {
     system("chcp 65001");
     system("cls");
-    Motor motor(1, 1, 1);
-    motor.showprot();
-    motor.set(127);
+    Motor a(1, -1, 2);
+    a.set(127);
+    a.setGear(0);
+    a.setZhengfan(1);
+    a.getGear();
+    std::cout << "当前端口: " << a.getPort() << std::endl;
+    std::cout << "当前PWM: " << a.getPwm() << std::endl;
     // Marmot awa("土拨鼠", "女的");
     // Marmot qwq("波拨鼠", "男的"); //波拨鼠是我
     // awa.showName();
